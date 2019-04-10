@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+<section  class="section-bg wow fadeInUp">
+    <div class="container">
+        <br>
+        <header class="section-header wow fadeInUp">
+
+        <h1>
+        {{ 'Vos résidents !'|upper }}
+    </h1>
+
+        <br>
+
+    <table class="table table-bordered" >
+        <thead align="1">
+            <tr>
+                <th> Nom </th>
+                <th> Prenom t</th>
+                <th> Age </th>
+                <th> Alzheimer </th>
+                <th> Maladie </th>
+                <th> Responsable </th>
+                <th> Telephone responsable </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for resident in residents %}
+            <tr>
+                <td>{{ resident.nomResident }}</td>
+                <td>{{ resident.prenomResident }}</td>
+                <td>{{ resident.ageResident }}</td>
+                <td>{{ resident.alzheimerResident }}</td>
+                <td>{{ resident.maladieResident }}</td>
+                <td>{{ resident.responsable }}</td>
+                <td>{{ resident.telephoneResponsable }}</td>
+                <td>
+                    <ul>
+                            <a class="btn btn-primary" href="{{ path('edit_re', { 'id': resident.idResident }) }}">Modifier</a>
+                            <a class="btn btn-danger" href="{{ path('delete_re', { 'id': resident.idResident }) }}">Supprimer</a>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <br>
+        <br>
+            <a class="btn btn-success" href="{{ path('ajout_re') }}">Ajouter un nouveau résident</a>
+        <br>
+        <br>
+
+    </ul>
+        </header>
+    </div>
+</section>
+{% endblock %}

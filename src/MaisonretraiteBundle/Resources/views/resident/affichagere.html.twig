@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Resident</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idresident</th>
+                <td>{{ resident.idResident }}</td>
+            </tr>
+            <tr>
+                <th>Nomresident</th>
+                <td>{{ resident.nomResident }}</td>
+            </tr>
+            <tr>
+                <th>Prenomresident</th>
+                <td>{{ resident.prenomResident }}</td>
+            </tr>
+            <tr>
+                <th>Ageresident</th>
+                <td>{{ resident.ageResident }}</td>
+            </tr>
+            <tr>
+                <th>Alzheimerresident</th>
+                <td>{{ resident.alzheimerResident }}</td>
+            </tr>
+            <tr>
+                <th>Maladieresident</th>
+                <td>{{ resident.maladieResident }}</td>
+            </tr>
+            <tr>
+                <th>Responsable</th>
+                <td>{{ resident.responsable }}</td>
+            </tr>
+            <tr>
+                <th>Telephoneresponsable</th>
+                <td>{{ resident.telephoneResponsable }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('resident_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('resident_edit', { 'idResident': resident.idResident }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

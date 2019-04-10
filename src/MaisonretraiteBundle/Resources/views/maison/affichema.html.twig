@@ -1,0 +1,54 @@
+{% extends 'base1.html.twig' %}
+{% block container %}
+    <div class="right_col" role="main">
+        <div class="">
+            <h1>Maison</h1>
+<br>
+            <br>
+            <table class="table table-bordered">
+                <thead align="1">
+                <tr>
+
+                    <th> Nom </th>
+                    <th> Adresse </th>
+                    <th> Telephone </th>
+                    <th> Mail </th>
+                    <th>Nbr personne</th>
+                    <th>Actions </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for maison in maisons %}
+                    <tr>
+
+                        <td>{{ maison.nomMaison }}</td>
+                        <td>{{ maison.adresseMaison}}</td>
+                        <td>{{ maison.telephoneMaison }}</td>
+                        <td>{{ maison.mailMaison }}</td>
+                        <td>{{ maison.nbrPersonne }}</td>
+
+                        <td>
+                            <ul>
+
+                                    <a class="btn btn-primary" href="{{ path('edit_ma',{'id':maison.idMaison })}}">Modifier</a>
+                                <a class="btn btn-danger" href="{{ path('delete_ma',{'id':maison.idMaison })}}">Supprimer</a>
+
+
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <ul>
+               <br>
+                <br>
+
+                    <a class="btn btn-success" href="{{ path('ajouter_ma') }}" >Ajouter une nouvelle maison</a>
+
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+

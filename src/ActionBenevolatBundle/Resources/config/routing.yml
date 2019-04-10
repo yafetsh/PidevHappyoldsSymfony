@@ -1,0 +1,3 @@
+action_benevolat_homepage:
+    path:     /
+    defaults: { _controller: ActionBenevolatBundle:Default:index }

@@ -1,0 +1,7 @@
+admin:
+    path:     /admin
+    defaults: { _controller: UserBundle:Default:admin }
+
+user:
+    path:     /user
+    defaults: { _controller: UserBundle:Default:user }

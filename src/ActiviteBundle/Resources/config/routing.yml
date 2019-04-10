@@ -1,0 +1,24 @@
+activite_homepage:
+    path:     /
+    defaults: { _controller: ActiviteBundle:Default:index }
+
+new:
+    path:     /new
+    defaults: { _controller: ActiviteBundle:Animateur:new }
+
+ajouter_ac:
+    path:     /ajouteac
+    defaults: { _controller: ActiviteBundle:Activite:ajouteac }
+
+affiche_ac:
+    path:     /afficheac
+    defaults: { _controller: ActiviteBundle:Activite:afficheac }
+
+modifier_a:
+    path:     /edit
+    defaults: { _controller: ActiviteBundle:Activite:edit }
+
+supprimer_ac:
+    path:     /delete/{id}
+    defaults: { _controller: ActiviteBundle:Activite:deleteac }
+

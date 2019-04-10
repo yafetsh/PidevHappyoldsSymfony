@@ -1,0 +1,40 @@
+maisonretraite_homepage:
+    path:     /
+    defaults: { _controller: MaisonretraiteBundle:Default:index }
+
+
+#MAISON
+ajouter_ma:
+    path:     /ajoutema
+    defaults: { _controller: MaisonretraiteBundle:Maison:ajoutema }
+
+affiche_ma:
+    path:     /affichema
+    defaults: { _controller: MaisonretraiteBundle:Maison:affichema }
+
+delete_ma:
+        path:     /deletema/{id}
+        defaults: { _controller: MaisonretraiteBundle:Maison:deletema }
+
+edit_ma:
+    path:     /editma/{id}
+    defaults: { _controller: MaisonretraiteBundle:Maison:editma }
+
+
+
+#RESIDENT
+ajout_re:
+    path:     /ajoutre
+    defaults: { _controller: MaisonretraiteBundle:Resident:ajoutre }
+
+affiche_re:
+    path:     /affichere
+    defaults: { _controller: MaisonretraiteBundle:Resident:affichere }
+
+delete_re:
+        path:     /deletere/{id}
+        defaults: { _controller: MaisonretraiteBundle:Resident:deletere }
+
+edit_re:
+    path:     /editre/{id}
+    defaults: { _controller: MaisonretraiteBundle:Resident:editre }
