@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52fab0ff-5fe5-4789-8841-20a8955ba8d3" name="Default Changelist" comment="" />
+    <list default="true" id="52fab0ff-5fe5-4789-8841-20a8955ba8d3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,11 +16,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
+            <state relative-caret-position="430">
               <caret line="118" column="21" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+              <folding>
+                <element signature="e#50#95#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,9 +77,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -118,9 +129,9 @@
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/notification/notification.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base1.html.twig" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/affichema.html.twig" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php" />
       </list>
     </option>
   </component>
@@ -187,6 +198,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -317,7 +329,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -376,11 +387,12 @@
       <workItem from="1555017098580" duration="3389000" />
       <workItem from="1555026740666" duration="14567000" />
       <workItem from="1555042773076" duration="8612000" />
+      <workItem from="1555062984497" duration="22000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90019000" />
+    <option name="totallyTimeSpent" value="90041000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -395,7 +407,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23298033" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23676248" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -716,16 +728,6 @@
         <state relative-caret-position="-165" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="20" />
-          <folding>
-            <element signature="e#50#95#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/affichema.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -743,8 +745,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
+        <state relative-caret-position="430">
           <caret line="118" column="21" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+          <folding>
+            <element signature="e#50#95#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

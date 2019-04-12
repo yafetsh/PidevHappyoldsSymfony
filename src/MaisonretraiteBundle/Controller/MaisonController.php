@@ -26,7 +26,7 @@ class MaisonController extends Controller
             $request->query->getInt('limit',5)
         );
 
-
+//qfsdff
 
         return $this->render('MaisonretraiteBundle:maison:affichema.html.twig', array(
             'maisons' => $result,
