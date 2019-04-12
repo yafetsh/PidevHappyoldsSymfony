@@ -1,0 +1,11 @@
+{#{% extends 'base1.html.twig' %}#}
+{#{% block container %}#}
+    {##}
+{#{% endblock %}#}
+{% for notif in notifications %}
+        {{ notif.title }}<br>
+        {{ notif.description }} <br>
+        <a href="{{ path(notif.route, notif.parameters) }}">See</a>
+    {% else %}
+    <li>No notifications!</li>
+    {% endfor %}

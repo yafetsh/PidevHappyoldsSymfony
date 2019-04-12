@@ -38,3 +38,4 @@ delete_re:
 edit_re:
     path:     /editre/{id}
     defaults: { _controller: MaisonretraiteBundle:Resident:editre }
+

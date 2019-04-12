@@ -3,6 +3,10 @@
 namespace MaisonretraiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use SBC\NotificationsBundle\Builder\NotificationBuilder;
+use SBC\NotificationsBundle\Model\NotifiableInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Maison
@@ -10,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="maison", indexes={@ORM\Index(name="id_user", columns={"id_user"})})
  * @ORM\Entity
  */
-class Maison
+class Maison implements NotifiableInterface
 {
     /**
      * @var integer
@@ -32,6 +36,7 @@ class Maison
      * @var string
      *
      * @ORM\Column(name="adresse_maison", type="string", length=20, nullable=false)
+     * @Assert\NotBlank(message="Le nom est obligatoire")
      */
     private $adresseMaison;
 
@@ -46,6 +51,7 @@ class Maison
      * @var string
      *
      * @ORM\Column(name="mail_maison", type="string", length=30, nullable=false)
+     * @Assert\NotBlank()
      */
     private $mailMaison;
 
@@ -53,6 +59,7 @@ class Maison
      * @var integer
      *
      * @ORM\Column(name="nbr_personne", type="integer", nullable=false)
+     * @Assert\NotBlank()
      */
     private $nbrPersonne;
 
@@ -152,15 +159,47 @@ class Maison
         $this->nbrPersonne = $nbrPersonne;
     }
 
-//    /**
-//     * @var \User
-//     *
-//     * @ORM\ManyToOne(targetEntity="User")
-//     * @ORM\JoinColumns({
-//     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
-//     * })
-//     */
-//    private $idUser;
+    /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * })
+     */
+    private $idUser;
+
+    public function notificationsOnCreate(NotificationBuilder $builder)
+    {
+        $notification = new Notification();
+        $notification
+            ->setTitle('New Maison')
+            ->setDescription($this->nomMaison)
+            ->setRoute('affiche_ma')// I suppose you have a show route for your entity
+            ->setParameters(array('id' => $this->idMaison))
+        ;
+        $builder->addNotification($notification);
+
+        return $builder;    }
+
+    public function notificationsOnUpdate(NotificationBuilder $builder)
+    {
+        $notification = new Notification();
+        $notification
+            ->setTitle('Maison updated')
+            ->setDescription($this->nomMaison)
+            ->setRoute('affiche_ma')
+            ->setParameters(array('id' => $this->idMaison))
+        ;
+        $builder->addNotification($notification);
+
+        return $builder;    }
+
+    public function notificationsOnDelete(NotificationBuilder $builder)
+    {
+        // in case you don't want any notification for a special event
+        // you can simply return an empty $builder
+        return $builder;    }
 
 
 }

@@ -2,7 +2,14 @@
 {% block container %}
 <div class="right_col" role="main">
     <div class="right_col" >
-    <h2>Ajouter votre maison</h2>
+        {#<a class="btn btn-app">#}
+            {#<span class="badge bg-red">6</span>#}
+            {#<i class="fa fa-bullhorn"></i> Notifications <br><br>#}
+            {{ render(controller('MaisonretraiteBundle:Notification:display')) }}
+
+        {#</a>#}
+        <br>
+        <h2>Ajouter votre maison</h2>
 <br>
     {{ form_start(form) }}
         <br>
@@ -16,4 +23,26 @@
 
     </div>
 </div>
+    {# Call NotificationsBundles's assets #}
+    {#{{ notifications_assets() }}#}
+    {#<script>#}
+        {#/**#}
+         {#* After calling notifications_assets() "pusher" is now available#}
+         {#* and you can use it this way#}
+         {#*/#}
+
+            {#// select the channel you want to listen to#}
+        {#var channel = pusher.subscribe("notifications");// notifications channel#}
+        {#channel.bind(`my-event`, function(data) {#}
+            {#console.log('from notifications channel', data);#}
+        {#});#}
+
+        {#var channel = pusher.subscribe("messages");// messages channel#}
+        {#channel.bind(`my-event`, function(data) {#}
+            {#console.log('from messages channel', data);#}
+        {#});#}
+        {#// function onNotificationsPushed(data){#}
+        {#//     console.log('data',data)#}
+        {#// }#}
+    {#</script>#}
 {% endblock %}

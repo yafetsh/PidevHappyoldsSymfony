@@ -1,6 +1,7 @@
 <?php
 
 namespace MaisonretraiteBundle\Controller;
+use MaisonretraiteBundle\Entity\Notification;
 use MaisonretraiteBundle\Form\MaisonType;
 use MaisonretraiteBundle\Entity\Maison;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -27,11 +28,25 @@ class MaisonController extends Controller
         $Form = $this->createForm(MaisonType::class, $m);
         $Form->handleRequest($request);
 
-        if ($Form->isSubmitted()) {
+        if ($Form->isSubmitted() && $Form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($m);
             $em->flush();
+
+//            $notification = new Notification();
+//            $notification
+//                ->setTitle('New Maison')
+//                ->setDescription($m->getNomMaison())
+//                ->setRoute('affiche_ma')// I suppose you have a show route for your entity
+//                ->setParameters(array('id' => $m->getIdMaison()))
+//            ;
+//            $em->persist($notification);
+//            $em->flush();
+//            $pusher = $this->get('mrad.pusher.notificaitons');
+//            $pusher->trigger($notification);
+
+
             return $this->redirectToRoute('affiche_ma');
 
 

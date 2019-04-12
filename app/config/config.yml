@@ -86,3 +86,10 @@ fos_user:
     from_email:
         address: "chahir.bahri@esprit.tn"
         sender_name: "CodersBuild"
+
+# NotificationsBundle configuration
+notifications:
+    app_id:     757713
+    app_key:    4ec00967c396e5b0db85
+    app_secret: 9dc0df367535202ea574
+    cluster:    eu

@@ -132,67 +132,33 @@
                             </ul>
                         </li>
 
-                        <li role="presentation" class="dropdown">
+                        {#<li role="presentation" class="dropdown">#}
+                            {#<a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">#}
+                                {#<i class="fa fa-bullhorn">#}
 
-                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                                <li>
-                                    <a>
-                                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
-                                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
-                                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
-                                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
-                                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="text-center">
-                                        <a>
-                                            <strong>See All Alerts</strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
+                                {#</i>#}
+                                {#<span class="badge bg-green">6</span>#}
+                                {#{{ render(controller('MaisonretraiteBundle:Notification:display')) }}#}
+
+                            {#</a>#}
+
+                            {#<ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">#}
+                                {#<li>#}
+                                    {#{% for notif in notifications %}#}
+
+                                    {#<a>#}
+                                        {#<span>#}
+                          {#<span>{{ notif.title }}</span>#}
+                        {#</span>#}
+                                        {#<span class="message">#}
+{#{{ notif.description }}                        </span>#}
+                                    {#</a>#}
+                                    {#{% endfor %}#}
+
+                                {#</li>#}
+
+                            {#</ul>#}
+                        {#</li>#}
                     </ul>
                 </nav>
             </div>
@@ -265,5 +231,26 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('build/js/custom.min.js') }}"></script>
+    {# Call NotificationsBundles's assets #}
+    {{ notifications_assets() }}
+    <script>
+        /**
+         * After calling notifications_assets() "pusher" is now available
+         * and you can use it this way
+         */
 
+            // select the channel you want to listen to
+        var channel = pusher.subscribe("notifications");// notifications channel
+        channel.bind(`my-event`, function(data) {
+            console.log('from notifications channel', data);
+        });
+
+        var channel = pusher.subscribe("messages");// messages channel
+        channel.bind(`my-event`, function(data) {
+            console.log('from messages channel', data);
+        });
+        // function onNotificationsPushed(data){
+        //     console.log('data',data)
+        // }
+    </script>
 {% endblock %}
