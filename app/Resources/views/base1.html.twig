@@ -73,7 +73,7 @@
                             <li><a><i class="fa fa-table"></i> Gestion Event <span class="fa fa-chevron-down"></span></a>
 
                             </li>
-                            <li><a><i class="fa fa-bar-chart-o"></i> Gestion Maison Retraite <span class="fa fa-chevron-down"></span></a>
+                            <li><a href="{{ path('affiche_ma') }}"><i class="fa fa-bar-chart-o"></i> Maisons des retraites <span class="fa fa-chevron-down"></span></a>
 
                             </li>
                             <li><a href="{{ path('affiche_ac') }}"><i class="fa fa-clone"></i>Gestion Activite<span class="fa fa-chevron-down"></span></a>
@@ -132,33 +132,67 @@
                             </ul>
                         </li>
 
-                        {#<li role="presentation" class="dropdown">#}
-                            {#<a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">#}
-                                {#<i class="fa fa-bullhorn">#}
+                        <li role="presentation" class="dropdown">
 
-                                {#</i>#}
-                                {#<span class="badge bg-green">6</span>#}
-                                {#{{ render(controller('MaisonretraiteBundle:Notification:display')) }}#}
-
-                            {#</a>#}
-
-                            {#<ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">#}
-                                {#<li>#}
-                                    {#{% for notif in notifications %}#}
-
-                                    {#<a>#}
-                                        {#<span>#}
-                          {#<span>{{ notif.title }}</span>#}
-                        {#</span>#}
-                                        {#<span class="message">#}
-{#{{ notif.description }}                        </span>#}
-                                    {#</a>#}
-                                    {#{% endfor %}#}
-
-                                {#</li>#}
-
-                            {#</ul>#}
-                        {#</li>#}
+                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -168,9 +202,9 @@
 
         {% block container %}
             {#<div class="right_col" role="main">#}
-                {#<div class="">#}
-                    {#hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii#}
-                {#</div>#}
+            {#<div class="">#}
+            {#hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii#}
+            {#</div>#}
             {#</div>#}
 
         {% endblock %}
@@ -231,26 +265,11 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('build/js/custom.min.js') }}"></script>
-    {# Call NotificationsBundles's assets #}
-    {{ notifications_assets() }}
-    <script>
-        /**
-         * After calling notifications_assets() "pusher" is now available
-         * and you can use it this way
-         */
-
-            // select the channel you want to listen to
-        var channel = pusher.subscribe("notifications");// notifications channel
-        channel.bind(`my-event`, function(data) {
-            console.log('from notifications channel', data);
-        });
-
-        var channel = pusher.subscribe("messages");// messages channel
-        channel.bind(`my-event`, function(data) {
-            console.log('from messages channel', data);
-        });
-        // function onNotificationsPushed(data){
-        //     console.log('data',data)
-        // }
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+            type="text/javascript"></script>
+    <script src="{{ asset('//code.highcharts.com/4.0.1/highcharts.js') }}"></script>
+    <script src="{{ asset('//code.highcharts.com/4.0.1/modules/exporting.js') }}"></script>
+    <script type="text/javascript">
     </script>
+
 {% endblock %}
