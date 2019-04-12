@@ -10,14 +10,26 @@ use Symfony\Component\HttpFoundation\Request;
 
 class MaisonController extends Controller
 {
-    public function affichemaAction()
+    public function affichemaAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $maisons = $em->getRepository('MaisonretraiteBundle:Maison')->findAll();
+        $listmaisons = $em->getRepository('MaisonretraiteBundle:Maison')->findAll();
+
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator  = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $listmaisons,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',5)
+        );
+
+
 
         return $this->render('MaisonretraiteBundle:maison:affichema.html.twig', array(
-            'maisons' => $maisons,
+            'maisons' => $result,
         ));
     }
 

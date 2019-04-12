@@ -61,6 +61,10 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
         array (
             'Monolog\\' => 8,
         ),
+        'K' => 
+        array (
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
+        ),
         'I' => 
         array (
             'Incenteev\\ParameterHandler\\' => 27,
@@ -198,6 +202,10 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
+        ),
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
@@ -257,6 +265,13 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
             'SBC\\NotificationsBundle' => 
             array (
                 0 => __DIR__ . '/..' . '/mrad/notifications-bundle',
+            ),
+        ),
+        'K' => 
+        array (
+            'Knp\\Component' => 
+            array (
+                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
             ),
         ),
         'D' => 

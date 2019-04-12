@@ -2,6 +2,9 @@
 {% block container %}
     <div class="right_col" role="main">
         <div class="">
+            <div class="count">
+                {{ maisons.getTotalItemCount }}
+            </div>
             <h1>Maison</h1>
 <br>
             <br>
@@ -40,6 +43,9 @@
                 {% endfor %}
                 </tbody>
             </table>
+            <div class="navigation">
+                {{ knp_pagination_render(maisons) }}
+            </div>
 
             <ul>
                <br>
@@ -50,5 +56,6 @@
             </ul>
         </div>
     </div>
+
 {% endblock %}
 

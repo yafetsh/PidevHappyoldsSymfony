@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52fab0ff-5fe5-4789-8841-20a8955ba8d3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/PidevHappyolds1.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PidevHappyolds1.0.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base1.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/ajoutema.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/ajoutema.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/notification/notification.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/notification/notification.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/affichema.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/affichema.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,71 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/base1.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="75" column="60" selection-start-line="75" selection-start-column="60" selection-end-line="75" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/config/routing.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="10" column="10" selection-start-line="10" selection-end-line="10" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/notification/notification.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/ajoutema.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Entity/Notification.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-              <folding>
-                <element signature="e#47#79#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Entity/Maison.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3264">
-              <caret line="192" column="9" selection-start-line="192" selection-start-column="9" selection-end-line="192" selection-end-column="9" />
-              <folding>
-                <element signature="e#47#79#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/NotificationController.php">
+        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+            <state relative-caret-position="229">
+              <caret line="118" column="21" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -99,7 +49,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="ActiviteBundle:Animateur" />
       <command text="s doctrine:generate:crud " />
       <command text="c clear-cache" />
       <command text="s doctrine:generate:crud " />
@@ -124,10 +73,14 @@
       <command text="s doctrine:schema:update --force" />
       <command text="s doctrine:generate:entity " />
       <command text="s cache:clear" />
+      <command text="c require knplabs/knp-paginator-bundle" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -162,7 +115,6 @@
         <option value="$PROJECT_DIR$/src/ActiviteBundle/Controller/ActiviteController.php" />
         <option value="$PROJECT_DIR$/src/ActiviteBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/ActiviteBundle/Resources/views/activite/afficheac.html.twig" />
-        <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/affichema.html.twig" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/editma.html.twig" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/resident/affichagere.html.twig" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/resident/ajoutere.html.twig" />
@@ -172,17 +124,18 @@
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Entity/Resident.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/resident/affichere.html.twig" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/view.html.twig" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Entity/Notification.php" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Entity/Maison.php" />
-        <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/NotificationController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base1.html.twig" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/ajoutema.html.twig" />
         <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/notification/notification.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base1.html.twig" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php" />
+        <option value="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/affichema.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
       </list>
     </option>
   </component>
@@ -231,6 +184,8 @@
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
       <path value="$PROJECT_DIR$/vendor/mrad/notifications-bundle" />
       <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -287,18 +242,6 @@
               <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
               <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActionBenevolatBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ActiviteBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="MaisonretraiteBundle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -313,22 +256,7 @@
               <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="MaisonretraiteBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="MaisonretraiteBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="MaisonretraiteBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
@@ -350,11 +278,55 @@
             <path>
               <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
               <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="MaisonretraiteBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="knplabs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="knplabs" type="462c0819:PsiDirectoryNode" />
+              <item name="knp-paginator-bundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="knplabs" type="462c0819:PsiDirectoryNode" />
+              <item name="knp-paginator-bundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Pagination" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="knplabs" type="462c0819:PsiDirectoryNode" />
+              <item name="knp-paginator-bundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="knplabs" type="462c0819:PsiDirectoryNode" />
+              <item name="knp-paginator-bundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="notification" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PidevHappyoldsSymfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PidevHappyoldsSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="knplabs" type="462c0819:PsiDirectoryNode" />
+              <item name="knp-paginator-bundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Pagination" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -418,12 +390,12 @@
       <workItem from="1554858525879" duration="1362000" />
       <workItem from="1555017098580" duration="3389000" />
       <workItem from="1555026740666" duration="14567000" />
-      <workItem from="1555042773076" duration="3348000" />
+      <workItem from="1555042773076" duration="8436000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84755000" />
+    <option name="totallyTimeSpent" value="89843000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -451,7 +423,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Command Line Tools Console" order="10" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="10" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -486,54 +458,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ActiviteBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActiviteBundle/Controller/AnimateurController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2244">
-          <caret line="136" column="1" selection-start-line="136" selection-start-column="1" selection-end-line="136" selection-end-column="1" />
-          <folding>
-            <element signature="e#45#81#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActiviteBundle/Resources/views/activite/afficheac.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActiviteBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Redirection/AfterLoginRedirection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="e#124#178#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/config/services.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -712,38 +636,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="27" column="62" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/view.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="94" column="18" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/affichema.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="19" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="70" column="48" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="48" />
-          <folding>
-            <element signature="e#50#95#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/resident/affichere.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -762,13 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
           <caret line="10" column="10" selection-start-line="10" selection-end-line="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base1.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="75" column="60" selection-start-line="75" selection-start-column="60" selection-end-line="75" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -795,7 +681,7 @@
     <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/ajoutema.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -808,8 +694,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/NotificationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+        <state relative-caret-position="255">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base1.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-556" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-454" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-165" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="20" />
+          <folding>
+            <element signature="e#50#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/affichema.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle/Pagination/SlidingPagination.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle/Resources/views/Pagination/twitter_bootstrap_v3_pagination.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1105" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="118" column="21" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
         </state>
       </provider>
     </entry>
