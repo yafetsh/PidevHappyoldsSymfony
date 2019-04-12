@@ -1,0 +1,33 @@
+
+<h3>Liste des residents</h3>
+
+
+
+<table border="2">
+
+
+    <!-- <th> dateCreationFiche </th>
+     <th> dateDermodifFiche </th>-->
+    <th> id resident</th>
+    <th> nom resident </th>
+    <th> prenom resident </th>
+
+
+
+    <tr>
+
+        {% for i in r %}
+
+        <td>{{ i.idResident }}</td>
+        <td>{{ i.nomResident }}</td>
+        <td>{{ i.prenomResident }}</td>
+
+        <td> <a href="{{ path('afficher_dossier_par_resident',{'id':i.idResident })}}">afficher dossier</a> </td>
+        <td> <a href="{{ path('ajouter_dossier',{'id':i.idResident })}}">ajouter dossier</a> </td>
+
+
+
+    </tr>
+    {% endfor %}
+
+</table>

@@ -1,0 +1,40 @@
+
+<h3>Liste des modèles</h3>
+
+
+<a href="{{ path('ajouter_fiche' )}}">Ajout d'une fiche</a>
+<table border="2">
+
+
+   <!-- <th> dateCreationFiche </th>
+    <th> dateDermodifFiche </th>-->
+    <th> remarquesFiche </th>
+    <th> niveauTemp </th>
+    <th> niveauSec </th>
+    <th> niveauTension </th>
+    <th> groupeSanguin </th>
+    <th> medicaments </th>
+    <th> tailleResident </th>
+    <th> poidsResident </th>
+
+    <tr>
+
+ {% for i in f %}
+
+     <td>{{ i.remarquesFiche }}</td>
+     <td>{{ i.niveauTemp }}</td>
+     <td>{{ i.niveauSec }}</td>
+     <td>{{ i.niveauTension }}</td>
+     <td>{{ i.groupeSanguin }}</td>
+     <td>{{ i.medicaments }}</td>
+     <td>{{ i.tailleResident }}</td>
+     <td>{{ i.poidsResident }}</td>
+
+     <td> <a href="{{ path('supprimer_fiche',{'id':i.idFiche })}}">Supprimer</a> </td>
+     <td> <a href="{{ path('modifier_fiche',{'id':i.idFiche })}}">Modifier</a> </td>
+
+
+     </tr>
+    {% endfor %}
+
+</table>

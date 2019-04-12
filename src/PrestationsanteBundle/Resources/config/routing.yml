@@ -1,3 +1,33 @@
-prestationsante_homepage:
+crud_homepage:
     path:     /
     defaults: { _controller: PrestationsanteBundle:Default:index }
+afficher_fiche:
+    path:     /afficherFiche
+    defaults: { _controller: PrestationsanteBundle:ficheMedicale:afficherFiche }
+supprimer_fiche:
+    path:     /supprimerFiche/{id}
+    defaults: { _controller: PrestationsanteBundle:ficheMedicale:supprimerFiche }
+modifier_fiche:
+    path:     /modifierFiche/{id}
+    defaults: { _controller: PrestationsanteBundle:ficheMedicale:modifierFiche }
+ajouter_fiche:
+    path:     /ajouterFiche
+    defaults: { _controller: PrestationsanteBundle:ficheMedicale:ajouterFiche }
+ajouter_dossier:
+    path:     /ajouterDossier/{id}
+    defaults: { _controller: PrestationsanteBundle:Dossier:ajouterDossier }
+afficher_liste_dossier:
+    path:     /afficherListDossier
+    defaults: { _controller: PrestationsanteBundle:Dossier:afficherListeDossier }
+afficher_dossier_par_resident:
+  path:     /afficherDossierParResident/{id}
+  defaults: { _controller: PrestationsanteBundle:Dossier:getDossierByResident }
+afficher_liste_resident:
+  path:     /afficherListeResident
+  defaults: { _controller: PrestationsanteBundle:Dossier:afficherListeResident }
+supprimer_dossier:
+    path:     /supprimerDossier/{id}
+    defaults: { _controller: PrestationsanteBundle:Dossier:supprimerDossier }
+modifier_dossier:
+    path:     /modifierDossier/{id}
+    defaults: { _controller: PrestationsanteBundle:Dossier:modifierDossier }
