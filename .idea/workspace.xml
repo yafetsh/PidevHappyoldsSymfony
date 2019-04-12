@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52fab0ff-5fe5-4789-8841-20a8955ba8d3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/PidevHappyolds1.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PidevHappyolds1.0.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base1.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MaisonretraiteBundle/Controller/MaisonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/affichema.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/MaisonretraiteBundle/Resources/views/maison/affichema.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-    </list>
+    <list default="true" id="52fab0ff-5fe5-4789-8841-20a8955ba8d3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -390,12 +375,12 @@
       <workItem from="1554858525879" duration="1362000" />
       <workItem from="1555017098580" duration="3389000" />
       <workItem from="1555026740666" duration="14567000" />
-      <workItem from="1555042773076" duration="8436000" />
+      <workItem from="1555042773076" duration="8612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89843000" />
+    <option name="totallyTimeSpent" value="90019000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
