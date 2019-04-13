@@ -56,8 +56,8 @@ class ResidentController extends Controller
 
     {
         $em = $this->getDoctrine()->getManager();
-        $maison = $em->getRepository("MaisonretraiteBundle:Resident")->find($id);
-        $Form = $this->createForm(ResidentType::class, $maison);
+        $resident = $em->getRepository("MaisonretraiteBundle:Resident")->find($id);
+        $Form = $this->createForm(ResidentType::class, $resident);
         $Form->handleRequest($request);
         if ($Form->isSubmitted()) {
 
@@ -67,6 +67,6 @@ class ResidentController extends Controller
 
         }
 
-        return $this->render('MaisonretraiteBundle:resident:editre.html.twig', array('form' => $Form->createView()));
+        return $this->render('MaisonretraiteBundle:resident:editre.html.twig', array('edit_form' => $Form->createView()));
     }
 }

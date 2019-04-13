@@ -4,6 +4,7 @@ namespace MaisonretraiteBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,7 @@ class ResidentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomResident')->add('prenomResident')->add('ageResident')->add('alzheimerResident')->add('maladieResident')->add('responsable')->add('telephoneResponsable')->add('maison', EntityType::class,array(
+        $builder->add('nomResident')->add('prenomResident')->add('ageResident')-> add('sexeResident')-> add('alzheimerResident')->add('maladieResident')->add('responsable')->add('telephoneResponsable')->add('maison', EntityType::class,array(
             'class'=>'MaisonretraiteBundle:Maison',
             'choice_label'=>'nom_maison',
             'multiple'=>false,

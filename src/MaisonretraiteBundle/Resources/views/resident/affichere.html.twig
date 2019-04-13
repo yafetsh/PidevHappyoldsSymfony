@@ -16,12 +16,16 @@
         <thead align="1">
             <tr>
                 <th> Nom </th>
-                <th> Prenom t</th>
+                <th> Prénom </th>
                 <th> Age </th>
-                <th> Alzheimer </th>
-                <th> Maladie </th>
+                <th> Sexe </th>
+
+                {#<th> Alzheimer </th>#}
+                {#<th> Maladie </th>#}
                 <th> Responsable </th>
                 <th> Telephone responsable </th>
+                <th> Maison</th>
+
                 <th> Actions </th>
             </tr>
         </thead>
@@ -31,13 +35,19 @@
                 <td>{{ resident.nomResident }}</td>
                 <td>{{ resident.prenomResident }}</td>
                 <td>{{ resident.ageResident }}</td>
-                <td>{{ resident.alzheimerResident }}</td>
-                <td>{{ resident.maladieResident }}</td>
+                <td>{{ resident.sexeResident }}</td>
+
+                {#<td>{{ resident.alzheimerResident }}</td>#}
+                {#<td>{{ resident.maladieResident }}</td>#}
                 <td>{{ resident.responsable }}</td>
                 <td>{{ resident.telephoneResponsable }}</td>
+                <td>{{ resident.Maison.nomMaison }}</td>
+
                 <td>
                     <ul>
+
                             <a class="btn btn-primary" href="{{ path('edit_re', { 'id': resident.idResident }) }}">Modifier</a>
+
                             <a class="btn btn-danger" href="{{ path('delete_re', { 'id': resident.idResident }) }}">Supprimer</a>
                     </ul>
                 </td>
@@ -49,7 +59,7 @@
     <ul>
         <br>
         <br>
-            <a class="btn btn-success" href="{{ path('ajout_re') }}">Ajouter un nouveau résident</a>
+            <a class="btn btn-success" href="{{ path('ajout_re') }}">Inscrivez Vous</a>
         <br>
         <br>
 

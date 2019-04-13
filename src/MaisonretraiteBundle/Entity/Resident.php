@@ -42,6 +42,14 @@ class Resident
      */
     private $ageResident;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexe_resident", type="string", length=255, nullable=false)
+     */
+    private $sexeResident;
+
     /**
      * @var integer
      *
@@ -70,15 +78,21 @@ class Resident
      */
     private $telephoneResponsable;
 
+//    /**
+//     * @var \Maison
+//     *
+//     * @ORM\ManyToOne(targetEntity="Maison")
+//     * @ORM\JoinColumns({
+//     *   @ORM\JoinColumn(name="id_maison", referencedColumnName="id_maison")
+//     * })
+//     */
+//    private $idMaison;
+
     /**
-     * @var \Maison
-     *
      * @ORM\ManyToOne(targetEntity="Maison")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_maison", referencedColumnName="id_maison")
-     * })
+     * @ORM\JoinColumn(name="id_maison",referencedColumnName="id_maison")
      */
-    private $idMaison;
+    private $Maison;
 
     /**
      * @return int
@@ -222,6 +236,38 @@ class Resident
     public function setIdMaison($idMaison)
     {
         $this->idMaison = $idMaison;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaison()
+    {
+        return $this->Maison;
+    }
+
+    /**
+     * @param mixed $Maison
+     */
+    public function setMaison($Maison)
+    {
+        $this->Maison = $Maison;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSexeResident()
+    {
+        return $this->sexeResident;
+    }
+
+    /**
+     * @param string $sexeResident
+     */
+    public function setSexeResident($sexeResident)
+    {
+        $this->sexeResident = $sexeResident;
     }
 
 
