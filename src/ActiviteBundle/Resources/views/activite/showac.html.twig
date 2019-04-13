@@ -1,0 +1,41 @@
+{% extends 'base1.html.twig' %}
+
+{% block container %}
+<div class="right_col" role="form">
+    <h1>Activite</h1>
+
+    <table>
+        <tbody>
+
+            <tr>
+                <th>Nomactivite</th>
+                <td>{{ activite.nomActivite }}</td>
+            </tr>
+            <tr>
+                <th>Dateactivite</th>
+                <td>{% if activite.dateActivite %}{{ activite.dateActivite|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Descriptionactivite</th>
+                <td>{{ activite.descriptionActivite }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ activite.categorieActivite.type }}</td>
+            </tr>
+            <tr>
+                <th>Animateur</th>
+                <td>{{ activite.animateur.nomanimateur }}</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+
+    <ul>
+
+            <a class="btn btn-danger" href="{{ path('affiche_ac') }}">Back to the list</a>
+
+    </ul>
+</div>
+{% endblock %}

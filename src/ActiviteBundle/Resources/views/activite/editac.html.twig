@@ -1,17 +1,20 @@
 {% extends 'base1.html.twig' %}
 {% block container %}
     <div class="right_col" role="form">
-        <div class="form-control" style="display: table-cell" align="">
-            <h1>Activite creation</h1>
+        <div class="form-control" style="display: table-cell" >
+            <h1>Activite edit</h1>
 
             {{ form_start(form) }}
+
             {{ form_widget(form) }}
-            <input class="btn btn-dark" type="submit" value="Create" />
+            <input class="btn btn-dark" type="submit" value="Edit" />
             {{ form_end(form) }}
 
 
 
                     <a class="btn btn-danger" href="{{ path('affiche_ac') }}">Back to the list</a>
+
+
 
 
 

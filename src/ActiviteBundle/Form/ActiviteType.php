@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 
 class ActiviteType extends AbstractType
@@ -27,7 +28,9 @@ class ActiviteType extends AbstractType
         'choice_label' => 'type',
         'multiple' => false,
 
-    ));
+    ))
+            ->add('photo', FileType::class, array('data_class'=>null, 'required'=>false));
+
     }/**
      * {@inheritdoc}
      */

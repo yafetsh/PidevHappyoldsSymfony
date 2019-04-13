@@ -52,7 +52,7 @@ class AnimateurController extends Controller
             return $this->redirectToRoute('animateur_show', array('idAnimateur' => $animateur->getIdanimateur()));
         }
 
-        return $this->render('animateur/ajoutema.html.twig', array(
+        return $this->render('animateur/new.html.twig', array(
             'animateur' => $animateur,
             'form' => $form->createView(),
         ));
@@ -68,7 +68,7 @@ class AnimateurController extends Controller
     {
         $deleteForm = $this->createDeleteForm($animateur);
 
-        return $this->render('animateur/affichema.html.twig', array(
+        return $this->render('animateur/show.html.twig', array(
             'animateur' => $animateur,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,7 +92,7 @@ class AnimateurController extends Controller
             return $this->redirectToRoute('animateur_edit', array('idAnimateur' => $animateur->getIdanimateur()));
         }
 
-        return $this->render('animateur/editma.html.twig', array(
+        return $this->render('animateur/edit.html.twig', array(
             'animateur' => $animateur,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

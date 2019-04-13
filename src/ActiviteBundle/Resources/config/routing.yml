@@ -14,11 +14,36 @@ affiche_ac:
     path:     /afficheac
     defaults: { _controller: ActiviteBundle:Activite:afficheac }
 
-modifier_a:
-    path:     /edit
-    defaults: { _controller: ActiviteBundle:Activite:edit }
+modifier_ac:
+    path:     /editac/{id}
+    defaults: { _controller: ActiviteBundle:Activite:updateac }
 
 supprimer_ac:
     path:     /delete/{id}
     defaults: { _controller: ActiviteBundle:Activite:deleteac }
+
+recherche_ac:
+    path:     /rechercheac
+    defaults: { _controller: ActiviteBundle:Activite:rechercheac }
+
+ajouter_c:
+    path:     /ajoutec
+    defaults: { _controller: ActiviteBundle:CategorieActivite:ajoutec }
+
+show_c:
+    path:     /showa/{id}
+    defaults: { _controller: ActiviteBundle:Activite:showac }
+
+list_activite:
+    path:     /listac
+    defaults: { _controller: ActiviteBundle:Activite:listac }
+
+detailed_activite:
+    path:     /detailedac/{id}
+    defaults: { _controller: ActiviteBundle:Activite:showdetailed }
+
+
+
+
+
 

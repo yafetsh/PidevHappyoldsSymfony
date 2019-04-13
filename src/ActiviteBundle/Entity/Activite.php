@@ -3,6 +3,8 @@
 namespace ActiviteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Activite
@@ -42,12 +44,18 @@ class Activite
      */
     private $descriptionActivite;
 
+    /**
+     * @ORM\Column(name="photo", type="string", length=500)
+     * @Assert\File(maxSize="500k", mimeTypes={"image/jpeg", "image/jpg", "image/png", "image/GIF"})
+     */
 
+    private $photo;
 
     /**
      * @ORM\ManyToOne(targetEntity="Animateur")
      * @ORM\JoinColumn(name="id_animateur",referencedColumnName="id_animateur")
      */
+
     private $animateur;
 
     /**
@@ -120,6 +128,21 @@ class Activite
         $this->descriptionActivite = $descriptionActivite;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param mixed $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
 
     /**
      * @return mixed
@@ -152,7 +175,6 @@ class Activite
     {
         $this->categorieActivite = $categorieActivite;
     }
-
 
 
 
