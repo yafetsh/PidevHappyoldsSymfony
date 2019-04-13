@@ -2,11 +2,11 @@
 # https://symfony.com/doc/current/security.html
 security:
     encoders:
-        FOS\UserBundle\Model\UserInterface: bcrypt
+        FOS\UserBundle\Model\UserInterface: plaintext
 
     role_hierarchy:
-        ROLE_CLIENT: ROLE_USER
-        ROLE_ADMIN: ROLE_ADMIN
+            ROLE_CLIENT: ROLE_USER
+            ROLE_ADMIN: ROLE_USER
 
 
     providers:
@@ -19,6 +19,7 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
+                success_handler: redirect.after.login
                 # if you are using Symfony < 2.8, use the following config instead:
                 # csrf_provider: form.csrf_provider
 
@@ -30,3 +31,4 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/user/, role: ROLE_CLIENT }
