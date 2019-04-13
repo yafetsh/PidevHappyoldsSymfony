@@ -1,0 +1,43 @@
+{% extends 'base1.html.twig' %}
+{#{% block header %} {% endblock %}#}
+{% block container %}
+    <div class="right_col" role="main">
+        <div class="">
+    <h1>Types list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idtype</th>
+                <th>Categorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type in types %}
+            <tr>
+                <td><a href="{{ path('show1', { 'idType': type.idType }) }}">{{ type.idType }}</a></td>
+                <td>{{ type.categorie }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('delete1', { 'id': type.idType }) }}">delete</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('edit1', { 'id': type.idType }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            {#<a href="{{ path('type_new') }}">Create a new type</a>#}
+        </li>
+    </ul>
+        </div>
+    </div>
+{% endblock %}

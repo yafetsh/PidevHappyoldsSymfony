@@ -1,3 +1,30 @@
 action_benevolat_homepage:
     path:     /
     defaults: { _controller: ActionBenevolatBundle:Default:index }
+new:
+    path:     /new
+    defaults: { _controller: ActionBenevolatBundle:ActionBenevole:ajout }
+new1:
+    path:     /new1
+    defaults: { _controller: ActionBenevolatBundle:Type:ajout }
+show1:
+    path:     /show1
+    defaults: { _controller: ActionBenevolatBundle:Type:affiche }
+affiche:
+    path:     /affiche
+    defaults: { _controller: ActionBenevolatBundle:ActionBenevole:affiche }
+delete:
+    path:     /delete/{id}
+    defaults: { _controller: ActionBenevolatBundle:ActionBenevole:delete }
+delete1:
+    path:     /delete1/{id}
+    defaults: { _controller: ActionBenevolatBundle:Type:delete }
+edit:
+        path:     /edit/{id}
+        defaults: { _controller: ActionBenevolatBundle:ActionBenevole:update }
+edit1:
+    path:     /edit1/{id}
+    defaults: { _controller: ActionBenevolatBundle:Type:update }
+affiche2:
+    path:     /affiche2
+    defaults: { _controller: ActionBenevolatBundle:ActionBenevole:affiche2 }
