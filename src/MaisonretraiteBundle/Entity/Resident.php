@@ -51,9 +51,22 @@ class Resident
     private $sexeResident;
 
     /**
-     * @var integer
+     * @var \DateTime
      *
-     * @ORM\Column(name="alzheimer_resident", type="integer", nullable=false)
+     * @ORM\Column(name="date_resident", type="date", nullable=false)
+     */
+    private $dateResident;
+
+//    /**
+//     * @var integer
+//     *
+//     * @ORM\Column(name="alzheimer_resident", type="integer", nullable=false)
+//     */
+//    private $alzheimerResident;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="alzheimer_resident", type="string", length=10, nullable=false)
      */
     private $alzheimerResident;
 
@@ -158,21 +171,6 @@ class Resident
         $this->ageResident = $ageResident;
     }
 
-    /**
-     * @return int
-     */
-    public function getAlzheimerResident()
-    {
-        return $this->alzheimerResident;
-    }
-
-    /**
-     * @param int $alzheimerResident
-     */
-    public function setAlzheimerResident($alzheimerResident)
-    {
-        $this->alzheimerResident = $alzheimerResident;
-    }
 
     /**
      * @return string
@@ -268,6 +266,22 @@ class Resident
     public function setSexeResident($sexeResident)
     {
         $this->sexeResident = $sexeResident;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateResident()
+    {
+        return $this->dateResident;
+    }
+
+    /**
+     * @param \DateTime $dateResident
+     */
+    public function setDateResident($dateResident)
+    {
+        $this->dateResident = $dateResident;
     }
 
 

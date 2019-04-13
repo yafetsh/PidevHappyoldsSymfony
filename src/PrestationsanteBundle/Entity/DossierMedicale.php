@@ -38,7 +38,7 @@ class DossierMedicale
     /**
      * @var \Resident
      *
-     * @ORM\ManyToOne(targetEntity="Resident")
+     * @ORM\ManyToOne(targetEntity="MaisonretraiteBundle\Entity\Resident")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_resident", referencedColumnName="id_resident")
      * })

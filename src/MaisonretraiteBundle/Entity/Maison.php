@@ -169,6 +169,22 @@ class Maison implements NotifiableInterface
      */
     private $idUser;
 
+    /**
+     * @return \User
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param \User $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
     public function notificationsOnCreate(NotificationBuilder $builder)
     {
         $notification = new Notification();

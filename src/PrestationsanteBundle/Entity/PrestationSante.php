@@ -76,7 +76,7 @@ class PrestationSante
     /**
      * @var \Resident
      *
-     * @ORM\ManyToOne(targetEntity="Resident")
+     * @ORM\ManyToOne(targetEntity="MaisonretraiteBundle\Entity\Resident")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_resident", referencedColumnName="id_resident")
      * })
@@ -86,7 +86,7 @@ class PrestationSante
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      * })
