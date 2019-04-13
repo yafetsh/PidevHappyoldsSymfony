@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new SBC\NotificationsBundle\NotificationsBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
 
         ];
 

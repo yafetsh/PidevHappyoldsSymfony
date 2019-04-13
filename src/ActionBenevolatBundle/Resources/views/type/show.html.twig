@@ -1,0 +1,37 @@
+{% extends 'base1.html.twig' %}
+{#{% block header %} {% endblock %}#}
+{% block container %}
+<div class="right_col" role="main">
+    <div class="">
+    <h1>Type</h1>
+{#ddddddd#}
+        {#fsfsf#}
+    <table>
+        <tbody>
+            <tr>
+                <th>Idtype</th>
+                <td>{{ type.idType }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ type.categorie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('type_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('type_edit', { 'idType': type.idType }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    </div>
+</div>
+{% endblock %}

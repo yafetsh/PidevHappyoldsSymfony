@@ -1,19 +1,19 @@
 {% extends 'base1.html.twig' %}
 {% block container %}
-    <div class="right_col" role="main">
-        <div class="">
+    <div class="right_col" role="form">
+        <div class="form-control" style="display: table-cell" align="">
             <h1>Activite creation</h1>
 
             {{ form_start(form) }}
             {{ form_widget(form) }}
-            <input type="submit" value="Create" />
+            <input class="btn btn-dark" type="submit" value="Create" />
             {{ form_end(form) }}
 
-            <ul>
-                <li>
-                    <a href="{{ path('affiche_ac') }}">Back to the list</a>
-                </li>
-            </ul>
+
+
+                    <a class="btn btn-danger" href="{{ path('affiche_ac') }}">Back to the list</a>
+
+
 
         </div>
     </div>

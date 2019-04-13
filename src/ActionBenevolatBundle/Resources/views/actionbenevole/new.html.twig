@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{#{% block header %} {% endblock %}#}
+{% block container %}
+
+    <h1>Action de benevolat</h1>
+
+    {{ form_start(form,{'method':'POST'}) }}
+    dateDaction
+    {{ form_widget(form.dateDAction) }}
+    dateFaction
+    {{ form_widget(form.dateFAction) }}
+    descrption
+    {{ form_widget(form.description) }}
+    <div style="display: none;">
+    {{ form_widget(form.etat) }}
+    </div>
+    type
+    {{ form_widget(form.type) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+    {{ socialButtons() }}
+
+    <ul>
+        <li>
+            <a href="{{ path('affiche') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
+{#{% block footer %} {% endblock %}#}

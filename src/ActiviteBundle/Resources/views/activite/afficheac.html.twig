@@ -1,47 +1,74 @@
 {% extends 'base1.html.twig' %}
 {% block container %}
 <div class="right_col" role="main">
-    <div class="">
     <h1>Activites list</h1>
 
-    <table >
-        <thead align="1">
+
+        <div class="title_right">
+            <form method="post" >
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" name="nomActivite" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit" value="recherche" >Go!</button>
+                    </span>
+                </div>
+            </div>
+            </form>
+
+    <table class="table table-striped projects">
+        <thead >
             <tr>
 
                 <th>Nomactivite </th>
                 <th>Dateactivite </th>
                 <th>Descriptionactivite </th>
-                <th>Actions </th>
+
             </tr>
         </thead>
         <tbody>
         {% for activite in activites %}
             <tr>
 
+
+
                 <td>{{ activite.nomActivite }}</td>
                 <td>{% if activite.dateActivite %}{{ activite.dateActivite|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ activite.descriptionActivite }}</td>
                 <td>
+                    <a class="btn btn-round btn-warning btn-xs" href="{{ path('show_c',{'id':activite.idActivite })}}">View</a>
+
+                </td>
+                <td>
+
                     <ul>
+
+
                         <li>
-                            <a>show</a>
+                            <a class="btn btn-round btn-primary" href="{{ path('modifier_ac',{'id':activite.idActivite })}}">Edit</a>
                         </li>
                         <li>
-                            <a>edit</a>
+                            <a class="btn btn-round btn-danger" href="{{ path('supprimer_ac',{'id':activite.idActivite })}}">Delete</a>
                         </li>
                     </ul>
+
                 </td>
             </tr>
+
         {% endfor %}
         </tbody>
     </table>
 
     <ul>
-        <li>
 
-            <a href="{{ path('ajouter_ac') }}" >Create a new activite</a>
-        </li>
+
+            <a class="btn btn-round btn-success" href="{{ path('ajouter_ac') }}" >Create a new activite</a>
+
     </ul>
+
     </div>
+
 </div>
+
 {% endblock %}
+

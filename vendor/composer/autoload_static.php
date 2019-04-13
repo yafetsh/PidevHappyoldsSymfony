@@ -267,6 +267,13 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
                 0 => __DIR__ . '/..' . '/mrad/notifications-bundle',
             ),
         ),
+        'N' => 
+        array (
+            'Nomaya\\SocialBundle\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/nomaya/social-bundle',
+            ),
+        ),
         'K' => 
         array (
             'Knp\\Component' => 
