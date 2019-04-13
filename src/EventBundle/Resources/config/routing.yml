@@ -1,3 +1,43 @@
 event_homepage:
     path:     /
     defaults: { _controller: EventBundle:Default:index }
+
+newev:
+    path:     /newev
+    defaults: { _controller: EventBundle:Evenement:ajoutev }
+
+afficheev:
+    path:     /afficheev
+    defaults: { _controller: EventBundle:Evenement:afficheev }
+
+editev:
+    path:     /editev/{id}
+    defaults: { _controller: EventBundle:Evenement:updateev }
+
+deleteev:
+    path:     /deleteev/{id}
+    defaults: { _controller: EventBundle:Evenement:deleteev }
+
+newspo:
+    path:     /newspo
+    defaults: { _controller: EventBundle:SponsorEvenement:ajoutspo }
+
+affichespo:
+    path:     /affichespo
+    defaults: { _controller: EventBundle:SponsorEvenement:affichespo }
+
+editspo:
+    path:     /editspo/{id_sp}
+    defaults: { _controller: EventBundle:SponsorEvenement:updatespo }
+
+deletespo:
+    path:     /deletespo/{id_sp}
+    defaults: { _controller: EventBundle:SponsorEvenement:deletespo }
+
+participer:
+    path:     /participer/{evenementId}
+    defaults: { _controller: EventBundle:Evenement:participation }
+
+
+
+

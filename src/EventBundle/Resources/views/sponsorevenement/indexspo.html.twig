@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{#{% block header %} {% endblock %}#}
+{% block container %}
+    <h1>Sponsorevenements list</h1>
+
+    <table>
+        <thead>
+            <tr>
+
+                <th>Nom </th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {%  for spevenement in spevenements  %}
+            <tr>
+
+                <td>{{ spevenement.nomSponsor }}</td>
+                <td>{{ spevenement.prenomSponsor }}</td>
+                <td>{{ spevenement.adresseSponsor }}</td>
+                <td>{{ spevenement.telSponsor }}</td>
+                <td>{{ spevenement.descriptionSponsoring }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('editsp', { 'id_sp': spevenement.idSponsor }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('deletesp', { 'id_sp': spevenement.idSponsor }) }}">delete</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('newsp') }}">Create a new sponsorEvenement</a>
+        </li>
+    </ul>
+{% endblock %}

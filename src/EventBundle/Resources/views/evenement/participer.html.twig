@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{#{% block header %} {% endblock %}#}
+{% block container %}
+    <h1>Evenement participate</h1>
+
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('afficheev') }}">Back to the list</a>
+        </li>
+
+    </ul>
+{% endblock %}
