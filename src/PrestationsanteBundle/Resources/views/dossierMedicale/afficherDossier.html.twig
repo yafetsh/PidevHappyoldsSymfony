@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+
+<table border="2">
+
+
+   <!-- <th> dateCreationFiche </th>
+    <th> dateDermodifFiche </th>-->
+    <th> idDossier </th>
+    <th> problemes_sante </th>
+    <th> nb_visite </th>
+    <th> nom resident </th>
+    <th> prenom resident </th>
+
+
+    <tr>
+
+ {% for i in d %}
+
+     <td>{{ i.idDossier }}</td>
+     <td>{{ i.problemesSante }}</td>
+     <td>{{ i.nbVisite }}</td>
+     <td>{{ i.idResident.nomResident }}</td>
+     <td>{{ i.idResident.prenomResident }}</td>
+
+     <td> <a href="{{ path('supprimer_dossier',{'id':i.idDossier })}}">Supprimer</a> </td>
+     <td> <a href="{{ path('modifier_dossier',{'id':i.idDossier })}}">modifier</a> </td>
+     </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
