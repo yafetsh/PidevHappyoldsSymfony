@@ -1,3 +1,6 @@
+{% extends 'base1.html.twig' %}
+
+{% block container %}
 <h2> Ajouter dossier </h2>
 
 <form method="POST">
@@ -14,3 +17,5 @@
 
 </form>
 <a href="{{ path('afficher_liste_dossier' )}}">afficher les dossiers:</a>
+
+{% endblock %}

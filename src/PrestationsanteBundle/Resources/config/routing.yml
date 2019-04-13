@@ -25,6 +25,9 @@ afficher_dossier_par_resident:
 afficher_liste_resident:
   path:     /afficherListeResident
   defaults: { _controller: PrestationsanteBundle:Dossier:afficherListeResident }
+afficher_liste_resident_pour_admin:
+  path:     /afficherListeResidentAdmin
+  defaults: { _controller: PrestationsanteBundle:Dossier:afficherListeResidentAdmin }
 supprimer_dossier:
     path:     /supprimerDossier/{id}
     defaults: { _controller: PrestationsanteBundle:Dossier:supprimerDossier }

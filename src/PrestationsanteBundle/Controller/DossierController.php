@@ -32,6 +32,11 @@ class DossierController extends Controller
         $resident=$em->getRepository("PrestationsanteBundle:Resident")->findAll();
         return $this->render('@Prestationsante/dossierMedicale/listeResident.html.twig',array('r'=>$resident));
     }
+    public function afficherListeResidentAdminAction(){
+        $em=$this->getDoctrine();
+        $resident=$em->getRepository("PrestationsanteBundle:Resident")->findAll();
+        return $this->render('@Prestationsante/Default/index.html.twig',array('r'=>$resident));
+    }
     public function ajouterDossierAction(Request $request,$id)
     {$em=$this->getDoctrine();
         $resident=$em->getRepository("PrestationsanteBundle:Resident")->find($id);
