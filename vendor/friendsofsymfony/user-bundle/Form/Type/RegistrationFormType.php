@@ -18,6 +18,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -63,6 +64,7 @@ class RegistrationFormType extends AbstractType
                 'required' => true, 'multiple' => true,))
 
         ;
+        $builder->add('captcha', CaptchaType::class);
     }
 
 

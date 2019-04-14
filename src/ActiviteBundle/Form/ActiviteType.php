@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 
+
 class ActiviteType extends AbstractType
 {
     /**
@@ -30,6 +31,8 @@ class ActiviteType extends AbstractType
 
     ))
             ->add('photo', FileType::class, array('data_class'=>null, 'required'=>false));
+
+
 
     }/**
      * {@inheritdoc}
