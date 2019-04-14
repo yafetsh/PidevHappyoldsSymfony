@@ -29,7 +29,7 @@ class ResidentController extends Controller
         $m = new Resident();
         $Form = $this->createForm(ResidentType::class, $m);
         $Form->handleRequest($request);
-        $nomMaison = $request->request->get('nom_maison');
+//        $nomMaison = $request->get('nom_maison');
 
         if ($Form->isSubmitted()) {
 //            $maison = $this->getDoctrine()->getRepository(Maison::class)->find($nomMaison);
@@ -79,25 +79,5 @@ class ResidentController extends Controller
 
         return $this->render('MaisonretraiteBundle:resident:editre.html.twig', array('edit_form' => $Form->createView()));
     }
-    public function JsonDemandesAction(){
-        $em=$this->getDoctrine()->getManager();
-        $encoders = array(new JsonEncoder());
-        $normalizers = array(new GetSetMethodNormalizer());
-        $serializer = new Serializer($normalizers, $encoders);
-        $product=$em->getRepository(Resident::class)->findbestdd();
 
-        $response = new Response($serializer->serialize($product, 'json'));
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
-
-    }
-
-    public function calendarAction(){
-
-
-
-        return $this->render('@Maisonretraite/resident/calendar.html.twig');
-
-
-    }
 }
