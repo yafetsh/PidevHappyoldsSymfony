@@ -2,6 +2,7 @@
 
 namespace MaisonretraiteBundle\Controller;
 
+use MaisonretraiteBundle\Entity\Maison;
 use MaisonretraiteBundle\Entity\Resident;
 use MaisonretraiteBundle\Form\ResidentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,10 +29,19 @@ class ResidentController extends Controller
         $m = new Resident();
         $Form = $this->createForm(ResidentType::class, $m);
         $Form->handleRequest($request);
+//        $nomMaison = $request->get('nom_maison');
 
         if ($Form->isSubmitted()) {
+//            $maison = $this->getDoctrine()->getRepository(Maison::class)->find($nomMaison);
 
             $em = $this->getDoctrine()->getManager();
+//          foreach ($maison as $i){
+
+//              $maison->setNbrPersonne($maison->getNbrPersonne()-1);
+//              $em->persist($maison);
+//              $em->flush();
+//          }
+
             $em->persist($m);
             $em->flush();
             return $this->redirectToRoute('affiche_re');
@@ -69,4 +79,5 @@ class ResidentController extends Controller
 
         return $this->render('MaisonretraiteBundle:resident:editre.html.twig', array('edit_form' => $Form->createView()));
     }
+
 }
