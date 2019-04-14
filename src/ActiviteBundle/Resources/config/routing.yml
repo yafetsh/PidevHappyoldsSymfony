@@ -50,6 +50,10 @@ detailed_activite:
     path:     /detailedac/{id}
     defaults: { _controller: ActiviteBundle:Activite:showdetailed }
 
+add_comment:
+    path:     /addcomment
+    defaults: { _controller: ActiviteBundle:Activite:addComment }
+
 
 
 
