@@ -19,7 +19,7 @@ class ResidentType extends AbstractType
             'class'=>'MaisonretraiteBundle:Maison',
             'choice_label'=>'nom_maison',
             'multiple'=>false,
-        ));
+        ))->add('dateResident');
     }/**
      * {@inheritdoc}
      */
