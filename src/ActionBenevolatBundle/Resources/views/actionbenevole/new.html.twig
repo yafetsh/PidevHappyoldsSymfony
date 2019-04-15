@@ -2,10 +2,11 @@
 {#{% block header %} {% endblock %}#}
 {% block container %}
 
-    <h1>Action de benevolat</h1>
+    <h1>Ajouter une action de benevolat</h1>
 
     {{ form_start(form,{'method':'POST'}) }}
     dateDaction
+    <br>
     {{ form_widget(form.dateDAction) }}
     dateFaction
     {{ form_widget(form.dateFAction) }}
@@ -20,10 +21,6 @@
     {{ form_end(form) }}
     {{ socialButtons() }}
 
-    <ul>
-        <li>
-            <a href="{{ path('affiche') }}">Back to the list</a>
-        </li>
-    </ul>
+
 {% endblock %}
 {#{% block footer %} {% endblock %}#}
