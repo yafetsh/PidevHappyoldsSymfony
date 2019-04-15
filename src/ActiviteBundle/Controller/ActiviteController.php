@@ -3,9 +3,7 @@
 namespace ActiviteBundle\Controller;
 
 use ActiviteBundle\Entity\Activite;
-use ActiviteBundle\Entity\Postcomment;
 use ActiviteBundle\Form\ActiviteType;
-use FOS\UserBundle\Model\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -27,7 +25,7 @@ class ActiviteController extends Controller
     }
 
 
-    public function showdetailedAction($id)
+    public function showdetailedAction($id,Activite $activite)
     {
         $em= $this->getDoctrine()->getManager();
         $p=$em->getRepository('ActiviteBundle:Activite')->find($id);
@@ -35,6 +33,7 @@ class ActiviteController extends Controller
             'title'=>$p->getNomActivite(),
             'date'=>$p->getDateActivite(),
             'photo'=>$p->getPhoto(),
+            'activite' => $activite,
             'descripion'=>$p->getDescriptionActivite(),
             'posts'=>$p,
             'comments'=>$p,
@@ -52,31 +51,6 @@ class ActiviteController extends Controller
 
         ));
     }
-
-    public function addCommentAction(Request $request, UserInterface $user)
-    {
-
-
-        $ref = $request->headers->get('referer');
-
-        $post = $this->getDoctrine()
-            ->getRepository(Activite::class)
-            ->findPostByid($request->request->get('post_id'));
-
-        $comment = new Postcomment();
-
-        $comment->setUser($user);
-        $comment->setPost($post);
-        $comment->setContent($request->request->get('comment'));
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($comment);
-        $em->flush();
-
-
-        return $this->redirect($ref);
-
-    }
-
 
 
 
@@ -152,25 +126,7 @@ class ActiviteController extends Controller
 
         return $this->render('ActiviteBundle:activite:editac.html.twig', array('form' => $Form->createView()));
     }
-    public function rechercheAction(Request $request)
 
-    {
-
-        $em = $this->getDoctrine()->getManager();
-        $activites = $em->getRepository("ActiviteBundle:Activite")
-            ->findAll();
-        if($request->isMethod("post")){
-            $criteria = $request->get('nom_activite');
-
-            $activites = $em->getRepository("ActiviteBundle:Activite")
-                ->findBy(array('nomActivite'=>$criteria));
-
-        }
-
-
-
-        return $this->render('ActiviteBundle:activite:afficheac.html.twig', array("activites"=>$activites));
-    }
 
 
 

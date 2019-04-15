@@ -3,9 +3,12 @@
 namespace ActiviteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
+
 
 /**
- * Animateur
+ * animateur
  *
  * @ORM\Table(name="animateur")
  * @ORM\Entity
@@ -55,6 +58,32 @@ class Animateur
      * @ORM\Column(name="adresse_animateur", type="string", length=255, nullable=false)
      */
     private $adresseAnimateur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dispo", type="string", length=255, nullable=false)
+     */
+
+    private $dispo;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
      * @return int
@@ -151,6 +180,72 @@ class Animateur
     {
         $this->adresseAnimateur = $adresseAnimateur;
     }
+
+    /**
+     * @return string
+     */
+    public function getDispo()
+    {
+        return $this->dispo;
+    }
+
+    /**
+     * @param string $dispo
+     */
+    public function setDispo($dispo)
+    {
+        $this->dispo = $dispo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     */
+    public function setImageFile($imageFile)
+    {
+        $this->imageFile = $imageFile;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+
 
 
 }
