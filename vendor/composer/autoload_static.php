@@ -91,6 +91,7 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
         'C' => 
         array (
             'Composer\\CaBundle\\' => 18,
+            'CMEN\\GoogleChartsBundle\\' => 24,
         ),
     );
 
@@ -258,6 +259,10 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
         'Composer\\CaBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
+        ),
+        'CMEN\\GoogleChartsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cmen/google-charts-bundle',
         ),
     );
 

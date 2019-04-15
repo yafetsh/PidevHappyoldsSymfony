@@ -29,6 +29,9 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Nomaya\SocialBundle\NomayaSocialBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
+            new GrapheBundle\GrapheBundle(),
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
+
 
         ];
 
