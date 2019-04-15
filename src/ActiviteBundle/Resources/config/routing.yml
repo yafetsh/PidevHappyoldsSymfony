@@ -28,7 +28,15 @@ recherche_ac:
 
 ajouter_c:
     path:     /ajoutec
-    defaults: { _controller: ActiviteBundle:CategorieActivite:ajoutec }
+    defaults: { _controller: ActiviteBundle:Categorie:ajoutec }
+
+affiche_c:
+    path:     /affichec
+    defaults: { _controller: ActiviteBundle:Categorie:showc }
+
+supprimer_c:
+    path:     /deletec/{id}
+    defaults: { _controller: ActiviteBundle:Categorie:deletec }
 
 show_c:
     path:     /showa/{id}
@@ -41,6 +49,10 @@ list_activite:
 detailed_activite:
     path:     /detailedac/{id}
     defaults: { _controller: ActiviteBundle:Activite:showdetailed }
+
+add_comment:
+    path:     /addcomment
+    defaults: { _controller: ActiviteBundle:Activite:addComment }
 
 
 

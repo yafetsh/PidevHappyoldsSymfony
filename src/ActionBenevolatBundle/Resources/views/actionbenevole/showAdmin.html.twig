@@ -28,6 +28,7 @@
                     <ul>
 <td>                           <a class="btn btn-primary" href="{{ path('edit',{'id':actionBenevole.idAction})}}">edit</a>
                             <a class="btn btn-danger" href="{{ path('delete',{'id':actionBenevole.idAction})}}">delete</a>
+                      <a href="{{ path('valider',{'id':actionBenevole.idAction})}}">Valider</a>
                     </ul>
                 </td>
             </tr>
@@ -40,8 +41,8 @@
             <a href="{{ path('new') }}">Create a new actionBenevole</a>
         </li>
     </ul>
-    {# <div class="navigation">
-         {{ knp_pagination_render(pagination) }}
+    {#<div class="navigation">
+         {{ knp_pagination_render(actionBenevoles) }}
      </div>#}
 </div>
     <br>    <br>

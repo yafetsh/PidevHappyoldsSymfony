@@ -1,10 +1,10 @@
 {% extends 'base1.html.twig' %}
 {% block container %}
+    <!--suppress JSUnusedLocalSymbols -->
     <div class="right_col" role="main">
         <div class="">
-            <div class="count">
-                {#{{ maisons.getTotalItemCount }}#}
-            </div>
+            {{ render(controller('MaisonretraiteBundle:Notification:display')) }}
+
             <h1>Maison</h1>
 <br>
             <br>
@@ -45,6 +45,8 @@
             </table>
             <div class="navigation">
                 {#{{ knp_pagination_render(maisons) }}#}
+                {{ knp_pagination_render(maisons) }}
+
             </div>
 
             <ul>
@@ -56,6 +58,49 @@
             </ul>
         </div>
     </div>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+            crossorigin="anonymous"></script>
+    {#Call NotificationsBundles's assets#}
+    {{ notifications_assets() }}
+    <script>
+        // /**
+        //  * After calling notifications_assets() "pusher" is now available
+        //  * and you can use it this way
+        //  */
 
+            // select the channel you want to listen to
+        // var channel = pusher.subscribe("notifications");// notifications channel
+        // channel.bind(`my-event`, function(data) {
+        //     console.log('from notifications channel', data);
+        // });
+        //
+        // var channel = pusher.subscribe("messages");// messages channel
+        // channel.bind(`my-event`, function(data) {
+        //     console.log('from messages channel', data);
+        //
+        // });
+
+        /**
+         * This function will be triggered each time a data comes from the server
+         * Make sure you call it otherwise you won't get any data
+         * @param data contains your data sent from the server
+         */
+        function onNotificationsPushed(data){
+            console.log('data',data)
+        data.forEach(function (item) {
+            let li = `
+ <li>
+        ` +item.title <br>`
+        ` +item.description <br>`
+        <a href="`+item.fullUrl+`">See</a>
+    </li>
+                `;
+            $('#notifications').append(li);
+        });
+        }
+
+    </script>
 {% endblock %}
 

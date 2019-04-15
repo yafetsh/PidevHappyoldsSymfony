@@ -9,7 +9,7 @@ class NotificationController extends Controller
 {
     public function displayAction(){
         $notifications = $this->getDoctrine()->getManager()->getRepository("MaisonretraiteBundle:Notification")->findAll();
-        return $this->render("@MaisonretraiteBundle:maison:ajoutema.html.twig",array(
+        return $this->render('MaisonretraiteBundle:notification:notificaitons.html.twig',array(
             'notifications' => $notifications
         ));
     }

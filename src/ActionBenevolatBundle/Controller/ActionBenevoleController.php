@@ -39,7 +39,7 @@ class ActionBenevoleController extends Controller
         $actionBenevoles = $em->getRepository('ActionBenevolatBundle:ActionBenevole')->findAll();
 
 
-        return $this->render('ActionBenevolatBundle:actionbenevole:show.html.twig', array(
+        return $this->render('ActionBenevolatBundle:actionbenevole:showAdmin.html.twig', array(
             'actionBenevoles' => $actionBenevoles,
         ));
     }

@@ -270,10 +270,14 @@ class Resident
 
     /**
      * @return \DateTime
+     * @throws \Exception
      */
     public function getDateResident()
     {
-        return $this->dateResident;
+//        return new \DateTime('now', (new \DateTimeZone('Africa/Tunis'));
+        return $this->dateResident = new \DateTime();
+
+//        return $this->dateResident;
     }
 
     /**
@@ -282,6 +286,22 @@ class Resident
     public function setDateResident($dateResident)
     {
         $this->dateResident = $dateResident;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAlzheimerResident()
+    {
+        return $this->alzheimerResident;
+    }
+
+    /**
+     * @param string $alzheimerResident
+     */
+    public function setAlzheimerResident($alzheimerResident)
+    {
+        $this->alzheimerResident = $alzheimerResident;
     }
 
 

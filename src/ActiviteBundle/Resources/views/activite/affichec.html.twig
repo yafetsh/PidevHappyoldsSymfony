@@ -1,0 +1,41 @@
+{% extends 'base1.html.twig' %}
+{% block container %}
+
+
+
+    <div class="right_col" role="main">
+        <a class="btn btn-round btn-success" href="{{ path('ajouter_c') }}" >Ajouter une nouveau catégorie</a>
+        <h1>Categorie list</h1>
+
+            <table class="table table-striped projects">
+                <thead >
+                <tr>
+
+                    <th>NomCategorie </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for categorie in categories %}
+                    <tr>
+                        <td>{{ categorie.type }}</td>
+                        <td>
+
+                            <ul>
+                                <li>
+                                    <a class="btn btn-round btn-danger" href="{{ path('supprimer_c',{'id':categorie.idCategoriea })}}">Delete</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+
+{% endblock %}

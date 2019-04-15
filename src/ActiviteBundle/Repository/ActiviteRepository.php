@@ -11,21 +11,9 @@ namespace ActiviteBundle\Repository;
 use ActiviteBundle\Entity\Activite;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
-
-
 use Doctrine\ORM\NonUniqueResultException;
 
 
-
-/**
- * Class ActiviteRepository
- * @package Esprit\ParcBundle\Entity
- */
-
-/**
- * @ORM\Entity(repositoryClass="Esprit\ParcBundle\Repository\ActiviteRepository")
- */
 
 
 
@@ -38,14 +26,7 @@ class ActiviteRepository extends ServiceEntityRepository
         parent::__construct($registry, Activite::class);
     }
 
-    /**
-     * get one by id
-     *
-     * @param integer $id
-     *
-     * @return object or null
-     */
-    public function findActiviteByid($id)
+    public function findPostByid($id)
     {
         try {
             return $this->getEntityManager()
@@ -58,7 +39,5 @@ class ActiviteRepository extends ServiceEntityRepository
                 ->getOneOrNullResult();
         } catch (NonUniqueResultException $e) {
         }
-
-
     }
 }

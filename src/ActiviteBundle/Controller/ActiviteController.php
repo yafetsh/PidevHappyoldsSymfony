@@ -55,16 +55,13 @@ class ActiviteController extends Controller
 
     public function addCommentAction(Request $request, UserInterface $user)
     {
-        //if ($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_ANONYMOUSLY')) {
-        //   return new RedirectResponse('/login');
-        //}
-        //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY', null, 'unable to access this page.');
+
 
         $ref = $request->headers->get('referer');
 
         $post = $this->getDoctrine()
             ->getRepository(Activite::class)
-            ->findActiviteByid($request->request->get('idactivite'));
+            ->findPostByid($request->request->get('post_id'));
 
         $comment = new Postcomment();
 

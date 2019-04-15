@@ -28,3 +28,6 @@ edit1:
 affiche2:
     path:     /affiche2
     defaults: { _controller: ActionBenevolatBundle:ActionBenevole:affiche2 }
+valider:
+    path:     /valider/{id}
+    defaults: { _controller: ActionBenevolatBundle:Admin:valider }

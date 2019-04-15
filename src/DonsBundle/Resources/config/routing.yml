@@ -1,3 +1,41 @@
 dons_homepage:
     path:     /
     defaults: { _controller: DonsBundle:Default:index }
+
+ajout:
+    path:     /ajout
+    defaults: { _controller: DonsBundle:CategorieDemande:ajout}
+
+affichecategorie:
+    path:     /afficheCategorie
+    defaults: { _controller: DonsBundle:CategorieDemande:affiche}
+
+
+modif:
+    path:     /modif/{id}
+    defaults: { _controller: DonsBundle:CategorieDemande:modif}
+
+delete:
+    path:     /delete/{id}
+    defaults: { _controller: DonsBundle:CategorieDemande:delete}
+ajoutdemande:
+    path:     /ajoutdemande
+    defaults: { _controller: DonsBundle:Demande:ajoutdemande}
+afficherdemande:
+    path:     /afficherdemande
+    defaults: { _controller: DonsBundle:Demande:afficherdemande}
+deletedemande:
+    path:     /deletedemande/{id}
+    defaults: { _controller: DonsBundle:Demande:deletedemande}
+modifdemande:
+    path:     /modifdemande/{id}
+    defaults: { _controller: DonsBundle:Demande:modifdemande}
+_graphePie:
+    path: /pie
+    defaults: { _controller: GrapheBundle:Default:index}
+participedon:
+    path: /particpedon
+    defaults: { _controller: DonsBundle:Don:afficherdlistedemande}
+affecterdon:
+    path: /affecterdon
+    defaults: { _controller: DonsBundle:Don:affecterdon}

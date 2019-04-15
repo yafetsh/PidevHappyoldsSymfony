@@ -1,7 +1,9 @@
 <?php
 
 namespace MaisonretraiteBundle\Controller;
+use MaisonretraiteBundle\Entity\Notification;
 
+use MaisonretraiteBundle\Entity\Maison;
 use MaisonretraiteBundle\Entity\Resident;
 use MaisonretraiteBundle\Form\ResidentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,15 +27,36 @@ class ResidentController extends Controller
     public function ajoutreAction(Request $request)
 
     {
-        $m = new Resident();
-        $Form = $this->createForm(ResidentType::class, $m);
+        $r = new Resident();
+        $Form = $this->createForm(ResidentType::class, $r);
         $Form->handleRequest($request);
+//        $nomMaison = $request->get('nom_maison');
 
         if ($Form->isSubmitted()) {
+//            $maison = $this->getDoctrine()->getRepository(Maison::class)->find($nomMaison);
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($m);
+//          foreach ($maison as $i){
+
+//              $maison->setNbrPersonne($maison->getNbrPersonne()-1);
+//              $em->persist($maison);
+//              $em->flush();
+//          }
+
+            $em->persist($r);
             $em->flush();
+
+            $notification = new Notification();
+            $notification
+                ->setTitle('Un nouveau résident est inscrit')
+                ->setDescription($r->getPrenomResident())
+                ->setRoute('affiche_re')// I suppose you have a show route for your entity
+                ->setParameters(array('id' => $r->getIdResident()))
+            ;
+            $em->persist($notification);
+            $em->flush();
+            $pusher = $this->get('mrad.pusher.notificaitons');
+            $pusher->trigger($notification);
             return $this->redirectToRoute('affiche_re');
 
 
@@ -69,4 +92,5 @@ class ResidentController extends Controller
 
         return $this->render('MaisonretraiteBundle:resident:editre.html.twig', array('edit_form' => $Form->createView()));
     }
+
 }

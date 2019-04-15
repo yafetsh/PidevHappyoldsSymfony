@@ -66,6 +66,12 @@
                     <li><a href="#team">Team</a></li>
 
                     <li><a href="#contact">Contact</a></li>
+                    <li> {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <a href="{{ path('fos_user_security_logout') }}" class="header-top-button"><i class="lni-lock"></i> Log Out</a>
+                        {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                        <a href="{{ path('fos_user_security_login') }}" class="header-top-button"><i class="lni-lock"></i> Log In</a> |
+                        <a href="{{ path('fos_user_registration_register') }}" class="header-top-button"><i class="lni-pencil"></i> Register</a></li>
+                    {% endif %}
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
