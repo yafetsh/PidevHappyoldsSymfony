@@ -68,7 +68,7 @@ class AnimateurController extends Controller
     {
         $deleteForm = $this->createDeleteForm($animateur);
 
-        return $this->render('animateur/show.html.twig', array(
+        return $this->render('animateur/showAdmin.html.twig', array(
             'animateur' => $animateur,
             'delete_form' => $deleteForm->createView(),
         ));
