@@ -52,7 +52,8 @@ class EvenementController extends Controller
                 ->setTo('chernisabrine32@gmail.com')
                 ->setBody(
                     $this->renderView(
-                        'EventBundle:evenement:mail.html.twig'
+                        'EventBundle:evenement:mail.html.twig',
+                        array('evenement' => $m)
                     ),
                     'text/html'
                 );
@@ -102,7 +103,8 @@ class EvenementController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $evenement = $em->getRepository("EventBundle:Evenement")->find($evenementId);
-        if ($evenement) {
+        $currentDate = new \DateTime('now');
+        if ($evenement && $currentDate <= $evenement->getDateFEvenement()) {
             $form = $this->createFormBuilder()
                 ->add('name', TextType::class)
                 ->add('email', EmailType::class)
