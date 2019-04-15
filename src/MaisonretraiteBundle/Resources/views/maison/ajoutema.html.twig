@@ -39,25 +39,25 @@
     </div>
 </div>
      {#Call NotificationsBundles's assets#}
-    {{ notifications_assets() }}
-    <script>
-        /**
-         * After calling notifications_assets() "pusher" is now available
-         * and you can use it this way
-         */
+    {#{{ notifications_assets() }}#}
+    {#<script>#}
+        {#/**#}
+         {#* After calling notifications_assets() "pusher" is now available#}
+         {#* and you can use it this way#}
+         {#*/#}
 
-            // select the channel you want to listen to
-        var channel = pusher.subscribe("notifications");// notifications channel
-        channel.bind(`my-event`, function(data) {
-            console.log('from notifications channel', data);
-        });
+            {#// select the channel you want to listen to#}
+        {#var channel = pusher.subscribe("notifications");// notifications channel#}
+        {#channel.bind(`my-event`, function(data) {#}
+            {#console.log('from notifications channel', data);#}
+        {#});#}
 
-        var channel = pusher.subscribe("messages");// messages channel
-        channel.bind(`my-event`, function(data) {
-            console.log('from messages channel', data);
-        });
-        // function onNotificationsPushed(data){
-        //     console.log('data',data)
-        // }
-    </script>
+        {#var channel = pusher.subscribe("messages");// messages channel#}
+        {#channel.bind(`my-event`, function(data) {#}
+            {#console.log('from messages channel', data);#}
+        {#});#}
+        {#// function onNotificationsPushed(data){#}
+        {#//     console.log('data',data)#}
+        {#// }#}
+    {#</script>#}
 {% endblock %}
