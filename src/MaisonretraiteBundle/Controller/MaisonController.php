@@ -5,6 +5,7 @@ use MaisonretraiteBundle\Entity\Notification;
 use MaisonretraiteBundle\Form\MaisonType;
 use MaisonretraiteBundle\Entity\Maison;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -93,5 +94,26 @@ class MaisonController extends Controller
         }
 
         return $this->render('MaisonretraiteBundle:maison:editma.html.twig', array('form' => $Form->createView()));
+    }
+
+    public function ajaxAction(Request $request) {
+        $maisons = $this->getDoctrine()
+            ->getRepository('MaisonretraiteBundle:Maison')
+            ->findAll();
+
+        if ($request->isXmlHttpRequest() || $request->query->get('showJson') == 1) {
+            $jsonData = array();
+            $idx = 0;
+            foreach($maisons as $maison) {
+                $temp = array(
+                    'nom_maison' => $maison->getNomMaison(),
+                    'adresse_maison' => $maison->getAdresseMaison(),
+                );
+                $jsonData[$idx++] = $temp;
+            }
+            return new JsonResponse($jsonData);
+        } else {
+            return $this->render('MaisonretraiteBundle:maison:affichema.html.twig');
+        }
     }
 }
