@@ -6,6 +6,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AdminController extends Controller
 {
+
+    public function affiche2Action()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $actionBenevoles = $em->getRepository('ActionBenevolatBundle:ActionBenevole')->findAll();
+
+
+        return $this->render('ActionBenevolatBundle:actionbenevole:showAdmin.html.twig', array(
+            'actionBenevoles' => $actionBenevoles,
+        ));
+    }
     public function validerAction($id)
     {
         $em1 = $this->getDoctrine()->getManager();

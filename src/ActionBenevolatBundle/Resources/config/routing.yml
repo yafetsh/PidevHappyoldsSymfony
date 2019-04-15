@@ -27,7 +27,7 @@ edit1:
     defaults: { _controller: ActionBenevolatBundle:Type:update }
 affiche2:
     path:     /affiche2
-    defaults: { _controller: ActionBenevolatBundle:ActionBenevole:affiche2 }
+    defaults: { _controller: ActionBenevolatBundle:Admin:affiche2 }
 valider:
     path:     /valider/{id}
     defaults: { _controller: ActionBenevolatBundle:Admin:valider }
