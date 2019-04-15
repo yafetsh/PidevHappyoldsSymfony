@@ -30,10 +30,8 @@
         "symfony/polyfill-apcu": "^1.0",
         "symfony/swiftmailer-bundle": "^2.6.4",
         "symfony/symfony": "3.4.*",
-<<<<<<< HEAD
-=======
+
         "symfony/validator": "^3.4",
->>>>>>> 35e9ce8e6cb19941e6b89a53b6f756de90ba6d8d
         "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
