@@ -21,6 +21,10 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
     );
 
     public static $prefixLengthsPsr4 = array (
+        'V' => 
+        array (
+            'Vich\\UploaderBundle\\' => 20,
+        ),
         'T' => 
         array (
             'Twig\\' => 5,
@@ -96,6 +100,10 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
     );
 
     public static $prefixDirsPsr4 = array (
+        'Vich\\UploaderBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vich/uploader-bundle',
+        ),
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
@@ -290,6 +298,13 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
             'Nomaya\\SocialBundle\\' => 
             array (
                 0 => __DIR__ . '/..' . '/nomaya/social-bundle',
+            ),
+        ),
+        'M' => 
+        array (
+            'Metadata\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/metadata/src',
             ),
         ),
         'K' => 

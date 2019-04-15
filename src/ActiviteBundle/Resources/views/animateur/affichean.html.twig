@@ -1,0 +1,81 @@
+{% extends 'base1.html.twig' %}
+{% block container %}
+<div class="right_col" role="main">
+    <h1>Animateur list</h1>
+
+
+        <div class="title_right">
+            <form method="post" >
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" name="nomActivite" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit" value="recherche" >Go!</button>
+                    </span>
+                </div>
+            </div>
+            </form>
+
+    <table class="table table-striped projects">
+        <thead >
+            <tr>
+
+                <th>Nomanimateur </th>
+                <th>Mail </th>
+                <th>Telephone </th>
+                <th>Adresse</th>
+                <th>Disponibilité</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for animateur in animateurs %}
+            <tr>
+
+
+
+                <td>{{ animateur.nomAnimateur }}</td>
+                <td>{{ animateur.mailAnimateur }}</td>
+                <td>{{ animateur.telAnimateur }}</td>
+                <td>{{ animateur.adresseAnimateur }}</td>
+                <td>{{ animateur.dispo }}</td>
+
+
+                <td>
+                    <a class="btn btn-round btn-warning btn-xs" href="{{ path('change_ad',{'id':animateur.idAnimateur })}}" >Changer Disponibilité</a>
+
+
+                </td>
+                <td>
+
+                    <ul>
+
+
+                        <li>
+                            <a class="btn btn-round btn-primary" href="{{ path('modifier_an',{'id':animateur.idAnimateur })}} ">Edit</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-round btn-danger" href="{{ path('supprimer_an',{'id':animateur.idAnimateur })}} ">Delete</a>
+                        </li>
+                    </ul>
+
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+
+
+            <a class="btn btn-round btn-success" href="{{ path('ajouter_an') }}" >Create a new Animateur</a>
+
+    </ul>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

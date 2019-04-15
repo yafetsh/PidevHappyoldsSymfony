@@ -19,7 +19,7 @@ class ActiviteType extends AbstractType
     {
         $builder->add('nomActivite')->add('dateActivite')->add('descriptionActivite')->add('animateur',EntityType::class, array(
 
-            'class' => 'ActiviteBundle:Animateur',
+            'class' => 'ActiviteBundle:animateur',
             'choice_label' => 'nom_animateur',
             'multiple' => false,
 

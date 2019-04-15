@@ -5,6 +5,7 @@ namespace ActiviteBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class AnimateurType extends AbstractType
 {
@@ -13,7 +14,7 @@ class AnimateurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomAnimateur')->add('prenomAnimateur')->add('mailAnimateur')->add('telAnimateur')->add('adresseAnimateur');
+        $builder->add('nomAnimateur')->add('prenomAnimateur')->add('mailAnimateur')->add('telAnimateur')->add('adresseAnimateur') ->add('image', FileType::class, array('data_class'=>null, 'required'=>false));;
     }/**
      * {@inheritdoc}
      */

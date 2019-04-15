@@ -30,7 +30,7 @@ class CategorieController extends Controller
     }
 
 
-    public function showcAction()
+    public function affichecAction()
     {
         $em = $this->getDoctrine()->getManager();
 
