@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base1.html.twig' %}
 {#{% block header %} {% endblock %}#}
 {% block container %}
     <h1>liste des Sponsors evenements</h1>
@@ -24,8 +24,24 @@
                 <td>{{ spevenement.adresseSponsor }}</td>
                 <td>{{ spevenement.telSponsor }}</td>
                 <td>{{ spevenement.descriptionSponsoring }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('editspo', { 'id_sp': spevenement.idSponsor }) }}">modifier</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('deletespo', { 'id_sp': spevenement.idSponsor }) }}">supprimer</a>
+                        </li>
+                    </ul>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('newspo') }}">créer un nouveau sponsor evenement</a>
+        </li>
+    </ul>
 {% endblock %}

@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 {#{% block header %} {% endblock %}#}
 {% block container %}
-    <h1>Sponsor evenement edit</h1>
+    <h1>Modification d'un Sponsor evenement</h1>
 
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    <input type="submit" value="Edit" />
+    <input type="submit" value="modifier" />
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('affichesp') }}">Back to the list</a>
+            <a href="{{ path('affichespo') }}">Retour à la liste</a>
         </li>
 
     </ul>

@@ -152,6 +152,16 @@
 </section><!-- #intro -->
 
 <main id="main">
+    {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-success">
+            {{ msg }}
+        </div>
+    {% endfor %}
+    {% for msg in app.session.flashBag.get('error') %}
+        <div class="alert alert-danger">
+            {{ msg }}
+        </div>
+    {% endfor %}
     {% block container %}
         {#<section id="contact" class="section-bg wow fadeInUp">#}
             {#<div class="container">#}
