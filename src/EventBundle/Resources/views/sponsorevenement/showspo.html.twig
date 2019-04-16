@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {#{% block header %} {% endblock %}#}
 {% block container %}
-    <h1>Sponsorevenement</h1>
+    <h1>Sponsor evenement</h1>
 
     <table>
         <tbody>
@@ -34,14 +34,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('sponsorevenement_index') }}">Back to the list</a>
+            <a href="{{ path('sponsorevenement_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('sponsorevenement_edit', { 'idSponsor': sponsorEvenement.idSponsor }) }}">Edit</a>
+            <a href="{{ path('sponsorevenement_edit', { 'idSponsor': sponsorEvenement.idSponsor }) }}">modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

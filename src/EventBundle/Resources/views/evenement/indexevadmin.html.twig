@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base1.html.twig' %}
 {#{% block header %} {% endblock %}#}
 {% block container %}
 
@@ -31,7 +31,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('participer', { 'evenementId': evenement.idEvenement }) }}">participer</a>
+                            <a href="{{ path('editev', { 'id': evenement.idEvenement }) }}">modifier</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('deleteev', { 'id': evenement.idEvenement }) }}">supprimer</a>
                         </li>
                     </ul>
                 </td>
