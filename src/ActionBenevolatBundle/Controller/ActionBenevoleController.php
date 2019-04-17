@@ -32,7 +32,27 @@ class ActionBenevoleController extends Controller
             'actionBenevoles' => $result,
         ));
     }
+    public function affiche2Action(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
 
+        $actionBenevoles = $em->getRepository('ActionBenevolatBundle:ActionBenevole')->findAll();
+
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $result=$paginator->paginate(
+            $actionBenevoles,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',5)
+
+
+        );
+        return $this->render('ActionBenevolatBundle:actionbenevole:showAdmin.html.twig', array(
+            'actionBenevoles' => $result,
+        ));
+    }
     public function ajoutAction(Request $request)
 
     {
