@@ -2,42 +2,37 @@
 /**
  * Created by PhpStorm.
  * User: poste
- * Date: 25/02/2019
- * Time: 14:34
+ * Date: 16/04/2019
+ * Time: 16:54
  */
 
 namespace ActiviteBundle\Repository;
 
-use ActiviteBundle\Entity\Activite;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
-use Doctrine\ORM\NonUniqueResultException;
 
+use Doctrine\ORM\EntityRepository;
 
+/**
+ * @ORM\Entity(repositoryClass="ActiviteBundle\Repository\ActiviteRepository")
+ * @ORM\Table(name="activite")
+ * @ORM\HasLifecycleCallbacks()
+ */
 
-
-
-
-class ActiviteRepository extends ServiceEntityRepository
+class ActiviteRepository extends EntityRepository
 {
 
-    public function __construct(RegistryInterface $registry)
-    {
-        parent::__construct($registry, Activite::class);
+
+
+    public function findOneByChercher($str){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM ActiviteBundle:Activite p
+                WHERE p.nom_activite LIKE :str'
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
     }
 
-    public function findPostByid($id)
-    {
-        try {
-            return $this->getEntityManager()
-                ->createQuery(
-                    "SELECT p
-                FROM ActiviteBundle:Activite
-                p WHERE p.idActivite =:idActivite"
-                )
-                ->setParameter('id', $id)
-                ->getOneOrNullResult();
-        } catch (NonUniqueResultException $e) {
-        }
-    }
+
+
 }

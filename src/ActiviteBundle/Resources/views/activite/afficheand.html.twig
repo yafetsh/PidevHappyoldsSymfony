@@ -1,0 +1,44 @@
+{% extends 'base1.html.twig' %}
+{% block container %}
+
+
+
+    <div class="right_col" role="main">
+
+        <h1>liste des animateur</h1>
+
+        <table class="table table-striped projects">
+            <thead >
+            <tr>
+
+                <th>NomCategorie </th>
+                <th>Etat</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for animateur in animateurs %}
+                <tr>
+                    <td>{{ animateur.nomAnimateur }}</td>
+                    <td>{{ animateur.dispo }}</td>
+                    <td>
+
+                        <ul>
+                            <li>
+
+                                <a class="btn btn-round btn-danger" href="{{ path('ajouter_ac',{'id':animateur.idAnimateur }) }}" >Affecter</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+
+    </div>
+
+{% endblock %}

@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new GrapheBundle\GrapheBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
 
 
         ];
