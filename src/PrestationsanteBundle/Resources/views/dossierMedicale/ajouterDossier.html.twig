@@ -1,21 +1,166 @@
-{% extends 'base1.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block container %}
-<h2> Ajouter dossier </h2>
-
-<form method="POST">
-
-
- nombre de visite :<input type="text" name="nbvisite"><br>
- probleme de sanyé :<input type="text" name="problemesante"><br>
- description medicament :<input type="text" name="descmedicament"><br>
- antecedents :<input type="text" name="antecedent"><br>
- description allergie :<input type="text" name="descallergie"><br>
+    {% block service %}{% endblock %}
+<!--div style="margin-left: 25%"-->
 
 
- <input type="submit" value="add">
+{#<h2> Ajouter dossier </h2>#}
 
-</form>
-<a href="{{ path('afficher_liste_dossier' )}}">afficher les dossiers:</a>
+{#<form method="POST" >#}
+
+
+ {#nombre de visite :<input type="text" name="nbvisite"><br>#}
+ {#probleme de sanyé :<input type="text" name="problemesante"><br>#}
+ {#description medicament :<input type="text" name="descmedicament"><br>#}
+ {#antecedents :<input type="text" name="antecedent"><br>#}
+ {#description allergie :<input type="text" name="descallergie"><br>#}
+
+
+ {#<input type="submit" value="add">#}
+
+{#</form>#}
+{#<a href="{{ path('afficher_liste_dossier' )}}">afficher les dossiers:</a>#}
+
+
+ <div class="container mt-4">
+     {% for flashMessage in app.session.flashbag.get('forum_ranks_failure') %}
+      <div class="alert alert-danger" id="msg">
+       <b>{{ flashMessage }}</b>
+      </div>
+     {% endfor %}
+ <form method="post">
+
+
+
+   <div class="card mb-4">
+    <div class="card-body">
+
+
+     <div class="card mb-4">
+      <div class="card-body"><h2><strong>Données personnelles :</strong></h2>
+       <!--Table-->
+       <table class="table table-hover">
+        <!--Table head-->
+
+        <tr >
+         <td class="text-black"><strong>Nom :</strong></td>
+         <td>{{ resident.nomResident }}</td>
+         <td class="text-black"><strong>Prénom :</strong></td>
+         <td>{{ resident.prenomResident }}</td>
+
+
+        </tr>
+        <tr >
+         <td class="text-black"><strong>Age :</strong></td>
+         <td>{{ resident.ageResident }}</td>
+         <td class="text-black"><strong>Sexe :</strong></td>
+         <td>{{ resident.sexeResident }}</td>
+
+
+        </tr>
+        <tr >
+         <td class="text-black"><strong>Nom Maison de retraite :</strong></td>
+         <td>{{ resident.nomMaison }}</td>
+         <td class="text-black"><strong>Nombre de visite :</strong></td>
+         <td>
+          <div class="form-group col-md-4" >
+
+           <input class="form-control " type="number" name="nbvisite" >
+          </div>
+         </td>
+
+
+        </tr>
+        <tr >
+         <td class="text-black"><strong>Problémes de santé :</strong></td>
+         <td>
+          <div class="form-group">
+
+           <input class="form-control " type="text" name="problemesante">
+
+          </div>
+         </td>
+
+
+        </tr>
+
+
+       </table>
+       <!--Table-->
+      </div>
+
+
+     </div>
+
+
+     <div class="card mb-4">
+      <div class="card-body"><h2><strong>Allergies et antécédants :</strong></h2>
+       <!--Table-->
+       <table class="table table-hover">
+        <!--Table head-->
+
+        <tr >
+         <td class="text-black"><strong>Nom de l'allergie:</strong></td>
+         <td> <div class="form-group">
+
+           <input class="form-control " type="text" name="descallergie">
+          </div>
+         </td>
+
+
+
+        </tr>
+        <tr >
+         <td class="text-black"><strong>Antécédants :</strong></td>
+         <td> <div class="form-group">
+
+           <input class="form-control " type="text"name="antecedent" >
+          </div>
+         </td>
+
+
+
+        </tr>
+
+
+
+
+       </table>
+       <!--Table-->
+      </div>
+
+
+     </div>
+
+     <div class="card mb-4">
+      <div class="card-body"><h2><strong>Prescription de médicaments :</strong></h2>
+       <!--Table-->
+       <table class="table table-hover">
+        <!--Table head-->
+
+        <tr >
+         <td class="text-black"><strong>Descriptions :</strong></td>
+         <td>
+          <div class="form-group">
+
+           <input class="form-control " type="text" name="descmedicament">
+          </div>
+         </td>
+
+
+
+       </table>
+       <!--Table-->
+      </div>
+
+
+     </div>
+     <input type="submit" value="Ajouter le dossier" class="btn btn-success">
+     <a href="{{ path('afficher_liste_resident')}}" class="btn btn-danger" role="button">retourner à la liste des residents</a>
+
+
+ </form>
+   </div>
 
 {% endblock %}

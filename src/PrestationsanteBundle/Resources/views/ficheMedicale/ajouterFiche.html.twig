@@ -1,24 +1,317 @@
 {% extends 'base.html.twig' %}
 
+{% block other_stylesheet %}
+
+    <style>
+     .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 15px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+     }
+
+     .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+     }
+
+     .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+     }
+
+
+     /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+     .slider::-webkit-slider-thumb {
+      -webkit-appearance: none; /* Override default look */
+      appearance: none;
+      width: 25px; /* Set a specific slider handle width */
+      height: 25px; /* Slider handle height */
+      background: #4CAF50; /* Green background */
+      cursor: pointer; /* Cursor on hover */
+     }
+
+     .slider::-moz-range-thumb {
+      width: 25px; /* Set a specific slider handle width */
+      height: 25px; /* Slider handle height */
+      background: #4CAF50; /* Green background */
+      cursor: pointer; /* Cursor on hover */
+     }
+    </style>
+
+
+{% endblock %}
 {% block container %}
-<h2> Ajouter fiche </h2>
+{#<h2> Ajouter fiche </h2>#}
 
-<form method="POST">
-
-
- remarquesFiche:<input type="text" name="remarques_fiche"><br>
- niveauTemp:<input type="text" name="niveau_temp"><br>
- niveauSec:<input type="text" name="niveau_sec"><br>
- niveauTension:<input type="text" name="niveau_tension"><br>
- groupeSanguin:<input type="text" name="groupe_sanguin"><br>
- medicaments:<input type="text" name="medicaments"><br>
- tailleResident:<input type="text" name="taille_resident"><br>
- poidsResident:<input type="text" name="poids_resident"><br>
+{#<form method="POST">#}
 
 
- <input type="submit" value="add">
+ {#remarquesFiche:<input type="text" name="remarques_fiche"><br>#}
+ {#niveauTemp:<input type="text" name="niveau_temp"><br>#}
+ {#niveauSec:<input type="text" name="niveau_sec"><br>#}
+ {#niveauTension:<input type="text" name="niveau_tension"><br>#}
+ {#groupeSanguin:<input type="text" name="groupe_sanguin"><br>#}
+ {#medicaments:<input type="text" name="medicaments"><br>#}
+ {#tailleResident:<input type="text" name="taille_resident"><br>#}
+ {#poidsResident:<input type="text" name="poids_resident"><br>#}
 
-</form>
-<a href="{{ path('afficher_fiche' )}}">afficher les fiches:</a>
 
+ {#<input type="submit" value="add">#}
+
+{#</form>#}
+{#<a href="{{ path('afficher_fiche' )}}">afficher les fiches:</a>#}
+
+
+
+
+
+
+ <div class="card-body">
+
+
+ <div class="card mb-4">
+  <div class="card-body"><h2><strong>Remplissez les données de la fiche :</strong></h2>
+   <!--Table-->
+      {% for flashMessage in app.session.flashbag.get('forum_ranks_failure') %}
+       <div class="alert alert-danger" id="msg">
+        <b>{{ flashMessage }}</b>
+       </div>
+      {% endfor %}
+   <form method="post">
+
+
+   <table class="table table-hover">
+
+        <!--Table head-->
+
+        <tr >
+         <td class="text-black"><strong>Nom :</strong></td>
+         <td>{{ resident.nomResident }}</td>
+         <td class="text-black"><strong>Prénom :</strong></td>
+         <td>{{ resident.prenomResident }}</td>
+
+
+        </tr>
+        <tr >
+         <td class="text-black"><strong>Niveau de temperature :</strong></td>
+         <td>
+          {#<input type="text" name="niveau_temperature">#}
+
+          <div class="slidecontainer">
+           <input type="range" min="36" max="41" value="37" step="0.1" class="slider" id="niveau_temperature" name="niveau_temperature">
+          </div>
+
+
+          <p id="niveau_temperaturedemo" style="text-align: center"></p>
+
+
+         </td>
+         <td class="text-black"><strong>Niveau de sucre :</strong></td>
+         <td>
+          {#<input type="text" name="niveau_sucre">#}
+          <div class="slidecontainer">
+           <input type="range" min="0.7" max="1.4" value="0.9" step="0.01" class="slider" id="niveau_sucre" name="niveau_sucre">
+          </div>
+
+
+          <p id="niveau_sucredemo" style="text-align: center"></p>
+
+         </td>
+
+
+        </tr>
+        <tr >
+         <td class="text-black"><strong>Niveau de tension :</strong></td>
+         <td>
+          {#<input type="text" name="niveau_tension">#}
+          <div class="slidecontainer">
+           <input type="range" min="10.8" max="25" value="12.5" step="0.1" class="slider" id="niveau_tension" name="niveau_tension">
+          </div>
+
+
+          <p id="niveau_tensiondemo" style="text-align: center"></p>
+
+
+         </td>
+         <td class="text-black"><strong>Groupe sanguin  :</strong></td>
+         <td>
+          {#<input type="text" name="groupe_sanguin">#}
+          <div class="form-group col-md-5">
+
+           <select id="inputState" class="custom-select" name="groupe_sanguin">
+            <option> A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+
+
+           </select>
+          </div>
+         </td>
+
+
+        </tr>
+        <tr >
+         <td class="text-black"><strong>Poids :</strong></td>
+         <td>
+          {#<input type="text" name="poids_resident">#}
+          <div class="slidecontainer">
+           <input type="range" min="60" max="120" value="75" step="0.1" class="slider" id="poids" name="poids_resident">
+          </div>
+
+
+          <p id="poidsdemo" style="text-align: center"></p>
+         </td>
+         <td class="text-black"><strong>Taille  :</strong></td>
+         <td>
+          {#<input type="text" name="taille_resident">#}
+          <div class="slidecontainer">
+           <input type="range" min="150" max="190" value="170" step="0.1" class="slider" id="taille" name="taille_resident">
+          </div>
+
+
+          <p id="tailledemo" style="text-align: center"></p>
+         </td>
+
+
+        </tr>
+        <tr >
+
+         <td class="text-black"><strong>Médicaments :</strong></td>
+         <td><input type="text" class="form-control" name="medicaments"  /></td>
+        </tr>
+         <tr>
+
+          <td class="text-black"><strong>Remarques :</strong></td>
+         <td><input type="text" class="form-control" name="remarques_fiche"/></td>
+
+
+        </tr>
+        <tr >
+
+         <td>
+             {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button">Modifier</a>#}
+             {#<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modifierProblemeSante" data-whatever="@mdo">Modifier</button>#}
+
+         </td>
+
+
+        </tr>
+
+
+   </table>
+    {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button">retourner a la liste des residents</a>#}
+    <input type="submit" value="Ajouter" class="btn btn-success">
+    <a href="{{ path('afficher_liste_resident')}}" class="btn btn-danger" role="button">retourner à la liste des residents</a>
+
+   </form>
+   <!--Table-->
+  </div>
+
+
+ </div>
+<!--
+ <form>
+  <div class="form-row">
+   <div class="form-group col-md-6">
+    <label for="inputEmail4">Email</label>
+    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+   </div>
+   <div class="form-group col-md-6">
+    <label for="inputPassword4">Password</label>
+    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+   </div>
+  </div>
+  <div class="form-group">
+   <label for="inputAddress">Address</label>
+   <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="form-group">
+   <label for="inputAddress2">Address 2</label>
+   <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-row">
+   <div class="form-group col-md-6">
+    <label for="inputCity">City</label>
+    <input type="text" class="form-control" id="inputCity">
+   </div>
+   <div class="form-group col-md-4">
+    <label for="inputState">State</label>
+    <select id="inputState" class="form-control">
+     <option selected>Choose...</option>
+     <option>...</option>
+    </select>
+   </div>
+   <div class="form-group col-md-2">
+    <label for="inputZip">Zip</label>
+    <input type="text" class="form-control" id="inputZip">
+   </div>
+  </div>
+  <div class="form-group">
+   <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="gridCheck">
+    <label class="form-check-label" for="gridCheck">
+     Check me out
+    </label>
+   </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+ </form>
+ -->
+
+ <script>
+     var niveau_temperature_slider = document.getElementById("niveau_temperature");
+     var niveau_sucre_slider = document.getElementById("niveau_sucre");
+     var niveau_tension_slider = document.getElementById("niveau_tension");
+     var poids_slider = document.getElementById("poids");
+     var taille_slider = document.getElementById("taille");
+
+     var niveau_temperaturedemo_output = document.getElementById("niveau_temperaturedemo");
+     var niveau_sucredemo_output = document.getElementById("niveau_sucredemo");
+     var niveau_tension_output = document.getElementById("niveau_tensiondemo");
+     var poids_output = document.getElementById("poidsdemo");
+     var taille_output = document.getElementById("tailledemo");
+
+
+     niveau_temperaturedemo_output.innerHTML = niveau_temperature_slider.value+"°";
+     niveau_sucredemo_output.innerHTML = niveau_sucre_slider.value+"g";//centimètres de mercure
+     niveau_tension_output.innerHTML = niveau_tension_slider.value+"cmHg";
+     poids_output.innerHTML = poids_slider.value+"Kg";
+     taille_output.innerHTML = taille_slider.value+"cm";
+
+     // Update the current slider value (each time you drag the slider handle)
+     niveau_temperature_slider.oninput = function() {
+         niveau_temperaturedemo_output.innerHTML = this.value+"°";
+     }
+     niveau_sucre_slider.oninput = function() {
+         niveau_sucredemo_output.innerHTML = this.value+"g";
+     }
+     niveau_tension_slider.oninput = function() {
+         niveau_tension_output.innerHTML = this.value+"cmHg";
+     }
+     poids_slider.oninput = function() {
+         poids_output.innerHTML = this.value+"Kg";
+     }
+     taille_slider.oninput = function() {
+         taille_output.innerHTML = this.value+"cm";
+     }
+ </script>
 {% endblock %}

@@ -1,44 +1,271 @@
 {% extends 'base.html.twig' %}
 
 {% block container %}
-<h3>Liste des modèles</h3>
+    {% block service %}{% endblock %}
+<a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button">retourner a la liste des residents</a>
+<a href="{{ path('ajouter_fiche',{'idResident':resident.idResident })}}">ajouter fiche</a>
 
 
-<a href="{{ path('ajouter_fiche' )}}">Ajout d'une fiche</a>
-<table border="2">
+
+    {#<a href="{{ path('ajouter_fiche' ,{'idResident':resident.idResident}) }}" class="btn btn-success" role="button">Ajout d'une fiche</a>#}
 
 
-   <!-- <th> dateCreationFiche </th>
-    <th> dateDermodifFiche </th>-->
-    <th> remarquesFiche </th>
-    <th> niveauTemp </th>
-    <th> niveauSec </th>
-    <th> niveauTension </th>
-    <th> groupeSanguin </th>
-    <th> medicaments </th>
-    <th> tailleResident </th>
-    <th> poidsResident </th>
+    {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button">retourner a la liste des residents</a>#}
 
-    <tr>
+    {#<div class="col-md-12 col-sm-12 col-xs-12">#}
+    {#<div class="x_panel">#}
+    {#<div class="x_title">#}
+    {#<ul class="nav navbar-right panel_toolbox">#}
+    {#<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>#}
+    {#</li>#}
+    {#<li class="dropdown">#}
+    {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>#}
+    {#<ul class="dropdown-menu" role="menu">#}
+    {#<li><a href="#">Settings 1</a>#}
+    {#</li>#}
+    {#<li><a href="#">Settings 2</a>#}
+    {#</li>#}
+    {#</ul>#}
+    {#</li>#}
+    {#<li><a class="close-link"><i class="fa fa-close"></i></a>#}
+    {#</li>#}
+    {#</ul>#}
+    {#<div class="clearfix"></div>#}
+    {#</div>#}
 
- {% for i in f %}
+    {#<div class="x_content">#}
 
-     <td>{{ i.remarquesFiche }}</td>
-     <td>{{ i.niveauTemp }}</td>
-     <td>{{ i.niveauSec }}</td>
-     <td>{{ i.niveauTension }}</td>
-     <td>{{ i.groupeSanguin }}</td>
-     <td>{{ i.medicaments }}</td>
-     <td>{{ i.tailleResident }}</td>
-     <td>{{ i.poidsResident }}</td>
+    {#<div class="table-responsive">#}
+    {#<table class="table table-striped jambo_table bulk_action">#}
+    {#<thead>#}
+    {#<tr class="headings">#}
+    {#<th>#}
+    {#<input type="checkbox" id="check-all" class="flat">#}
+    {#</th>#}
+    {#<th class="column-title"> # </th>#}
+        {#<th class="column-title"> nom  </th>#}
+        {#<th class="column-title"> prenom </th>#}
+    {#<th class="column-title"> remarquesFiche </th>#}
+    {#<th class="column-title"> niveauTemp </th>#}
+    {#<th class="column-title"> niveauSec </th>#}
+    {#<th class="column-title"> niveauTension </th>#}
+    {#<th class="column-title"> groupeSanguin </th>#}
+    {#<th class="column-title"> medicaments </th>#}
+    {#<th class="column-title">  tailleResident </th>#}
+    {#<th class="column-title"> poidsResident </th>#}
+    {#<th class="bulk-actions" colspan="7">#}
+    {#</th>#}
+    {#</tr>#}
+    {#</thead>#}
 
-     <td> <a href="{{ path('supprimer_fiche',{'id':i.idFiche })}}">Supprimer</a> </td>
-     <td> <a href="{{ path('modifier_fiche',{'id':i.idFiche })}}">Modifier</a> </td>
+    {#<tbody>#}
+    {#{% for i in f %}#}
+    {#<tr class="even pointer">#}
+    {#<td class="a-center ">#}
+    {#<input type="checkbox" class="flat" name="table_records">#}
+    {#</td>#}
+        {#<td>{{ i.idFiche }}</td>#}
+        {#<td>{{ resident.nomResident }}</td>#}
+        {#<td>{{ resident.prenomResident }}</td>#}
+
+    {#<td>{{ i.remarquesFiche }}</td>#}
+    {#<td>{{ i.niveauTemp }}</td>#}
+    {#<td>{{ i.niveauSec }}</td>#}
+    {#<td>{{ i.niveauTension }}</td>#}
+    {#<td>{{ i.groupeSanguin }}</td>#}
+    {#<td>{{ i.medicaments }}</td>#}
+    {#<td>{{ i.tailleResident }}</td>#}
+    {#<td>{{ i.poidsResident }}</td>#}
+
+    {#<td class=" last"> <a href="{{ path('modifier_fiche',{'id':i.idFiche })}}">Modifier</a> </td>#}
+
+    {#</tr>#}
 
 
-     </tr>
-    {% endfor %}
+    {#{% endfor %}#}
 
-</table>
+
+
+    {#</tbody>#}
+    {#</table>#}
+    {#</div>#}
+
+
+    {#</div>#}
+    {#</div>#}
+    {#</div>#}
+
+<div class="card mb-4">
+    <div class="card-body">
+
+
+        <div class="card mb-4">
+            {% for i in f %}
+                <div class="card-body"><h2><strong>La fiche numero {{ i.idFiche }} :</strong></h2>
+                <a href="{{ path('modifier_fiche' ,{'idFiche': i.idFiche , 'idResident':resident.idResident}) }}" class="btn btn-success" role="button">Modifier</a>
+
+
+                <!--Table-->
+                <table class="table table-hover">
+
+
+
+                    <!--Table head-->
+
+                    <tr >
+                        <td class="text-black"><strong>Nom :</strong></td>
+                        <td>{{ resident.nomResident }}</td>
+                        <td class="text-black"><strong>Prénom :</strong></td>
+                        <td>{{ resident.prenomResident }}</td>
+
+
+                    </tr>
+                    <tr >
+                        <td class="text-black"><strong>Niveau de temperature :</strong></td>
+                        <td>{{ i.niveauTemp }}°</td>
+                        <td class="text-black"><strong>Niveau de sucre :</strong></td>
+                        <td>{{ i.niveauSec }}g</td>
+
+
+                    </tr>
+                    <tr >
+                        <td class="text-black"><strong>Niveau de tension :</strong></td>
+                        <td>{{ i.niveauTension }}cmHg</td>
+                        <td class="text-black"><strong>Groupe sanguin  :</strong></td>
+                        <td>{{ i.groupeSanguin }}</td>
+
+
+                    </tr>
+                        <tr >
+                            <td class="text-black"><strong>Poids :</strong></td>
+                            <td>{{ i.poidsResident }}Kg</td>
+                            <td class="text-black"><strong>Taille  :</strong></td>
+                            <td>{{ i.tailleResident }}cm</td>
+
+
+                        </tr>
+                        <tr >
+
+                            <td class="text-black"><strong>Médicaments :</strong></td>
+                            <td>{{ i.medicaments }}</td>
+                            <td class="text-black"> <strong>Remarques :</strong></td>
+                            <td>{{ i.remarquesFiche }}</td>
+
+
+                        </tr>
+                    <tr >
+
+                        <td>
+                            {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button">Modifier</a>#}
+                            {#<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modifierProblemeSante" data-whatever="@mdo">Modifier</button>#}
+
+                        </td>
+                        <td></td>
+                        <td><strong>Date création :</strong></td>
+                        <td>
+                            {{ i.dateCreationFiche | date('Y-m-d')}}
+                        </td>
+
+
+                    </tr>
+
+
+
+                </table>
+                <!--Table-->
+            </div>
+            {% endfor %}
+
+        </div>
+
 
 {% endblock %}
+
+{#<h3>Liste des modèles</h3>#}
+
+
+{#<a href="{{ path('ajouter_fiche' )}}">Ajout d'une fiche</a>#}
+    {##}
+
+    {#{% block service %}{% endblock %}#}
+
+
+    {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button">retourner a la liste des residents</a>#}
+
+    {#<div class="col-md-12 col-sm-12 col-xs-12">#}
+        {#<div class="x_panel">#}
+            {#<div class="x_title">#}
+                {#<ul class="nav navbar-right panel_toolbox">#}
+                    {#<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>#}
+                    {#</li>#}
+                    {#<li class="dropdown">#}
+                        {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>#}
+                        {#<ul class="dropdown-menu" role="menu">#}
+                            {#<li><a href="#">Settings 1</a>#}
+                            {#</li>#}
+                            {#<li><a href="#">Settings 2</a>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</li>#}
+                    {#<li><a class="close-link"><i class="fa fa-close"></i></a>#}
+                    {#</li>#}
+                {#</ul>#}
+                {#<div class="clearfix"></div>#}
+            {#</div>#}
+
+            {#<div class="x_content">#}
+
+                {#<div class="table-responsive">#}
+                    {#<table class="table table-striped jambo_table bulk_action">#}
+                        {#<thead>#}
+                        {#<tr class="headings">#}
+                            {#<th>#}
+                                {#<input type="checkbox" id="check-all" class="flat">#}
+                            {#</th>#}
+                            {#<th class="column-title"> # </th>#}
+                            {#<th class="column-title"> remarquesFiche </th>#}
+                            {#<th class="column-title"> niveauTemp </th>#}
+                            {#<th class="column-title"> niveauSec </th>#}
+                            {#<th class="column-title"> niveauTension </th>#}
+                            {#<th class="column-title"> groupeSanguin </th>#}
+                            {#<th class="column-title"> medicaments </th>#}
+                            {#<th class="column-title">  tailleResident </th>#}
+                            {#<th class="column-title"> poidsResident </th>#}
+                            {#<th class="bulk-actions" colspan="7">#}
+                            {#</th>#}
+                        {#</tr>#}
+                        {#</thead>#}
+
+                        {#<tbody>#}
+                        {#{% for i in f %}#}
+                            {#<tr class="even pointer">#}
+                                {#<td class="a-center ">#}
+                                    {#<input type="checkbox" class="flat" name="table_records">#}
+                                {#</td>#}
+                                {#<td>{{ i.idFiche }}</td>#}
+                                {#<td>{{ i.remarquesFiche }}</td>#}
+                                {#<td>{{ i.niveauTemp }}</td>#}
+                                {#<td>{{ i.niveauSec }}</td>#}
+                                {#<td>{{ i.niveauTension }}</td>#}
+                                {#<td>{{ i.groupeSanguin }}</td>#}
+                                {#<td>{{ i.medicaments }}</td>#}
+                                {#<td>{{ i.tailleResident }}</td>#}
+                                {#<td>{{ i.poidsResident }}</td>#}
+
+                                {#<td class=" last"> <a href="{{ path('supprimer_fiche',{'id':i.idFiche })}}">Supprimer</a> </td>#}
+                                {#<td class=" last"> <a href="{{ path('modifier_fiche',{'id':i.idFiche })}}">Modifier</a> </td>#}
+
+                            {#</tr>#}
+
+                        {#{% endfor %}#}
+
+
+
+                        {#</tbody>#}
+                    {#</table>#}
+                {#</div>#}
+
+
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}

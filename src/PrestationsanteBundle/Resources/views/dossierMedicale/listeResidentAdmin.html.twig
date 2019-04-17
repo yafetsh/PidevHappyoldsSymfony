@@ -1,13 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'base1.html.twig' %}
 
 {% block container %}
     {% block other_stylesheet %}
 
-
     {% endblock %}
-    {% block service %}{% endblock %}
+<div style="margin-left: 30%;">
 
-<h3 id="listeresident">Liste des residents</h3>
+
+
+
 
 
 <!--
@@ -208,7 +209,7 @@
         <div class="x_panel">
             <div class="x_title">
                 <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    <li><a class="collapse-link"><h3>Liste des residents</h3></a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
@@ -243,36 +244,30 @@
                         <th scope="row">{{ i.idResident }}</th>
                         <td>{{ i.nomResident }}</td>
                         <td>{{ i.prenomResident }}</td>
+
                         {% set dossierexist = 0 %}
                         {% for dossier in d %}
 
-                        {% if i.idResident == dossier.idResident.idResident %}
-                            {% set dossierexist =1 %}
-                        {% endif %}
+                            {% if i.idResident == dossier.idResident.idResident %}
+                                {% set dossierexist =1 %}
+                            {% endif %}
                         {% endfor %}
 
                         {% if dossierexist==1 %}
-                            <td><a  href="{{ path('afficher_dossier_par_resident',{'id':i.idResident })}}">afficher dossier</a> </td>
-
-                            {% else %}
-                            <td> <a  href="{{ path('ajouter_dossier',{'id':i.idResident })}}">ajouter dossier</a> </td>
-
+                        <td><a href="{{ path('afficher_dossier_par_resident_pour_admin',{'id':i.idResident })}}">afficher dossier</a> </td>
                         {% endif %}
 
                         {% set residentexist =0 %}
                         {% for prestation in p %}
 
-                         {% if i.idResident == prestation.idResident.idResident %}
-                           {% set residentexist=1 %}
-                         {% endif %}
+                            {% if i.idResident == prestation.idResident.idResident %}
+                                {% set residentexist=1 %}
+                            {% endif %}
                         {% endfor %}
 
                         {% if residentexist==1 %}
-                        <td><a href="{{ path('afficher_fiche_par_resident',{'id':i.idResident })}}">afficher fiches</a> </td>
-                        {% else %}
-                            <td><a href="{{ path('ajouter_fiche',{'idResident':i.idResident })}}">ajouter fiche</a> </td>
+                        <td><a href="{{ path('afficher_fiche_par_resident_pour_admin',{'id':i.idResident })}}">afficher fiches</a> </td>
                         {% endif %}
-
                     </tr>
                     {% endfor %}
 
@@ -282,8 +277,13 @@
             </div>
         </div>
     </div>
+    <a href="{{ path('afficher_liste_dossier_pour_admin')}}" class="btn btn-success" role="button">afficher tous les dossiers</a>
 
     {% block other_javascripts %}
 
     {% endblock %}
+
+
+
+</div>
 {% endblock %}

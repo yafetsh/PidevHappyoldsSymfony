@@ -31,14 +31,14 @@ class Allergies
     /**
      * @var string
      *
-     * @ORM\Column(name="antecedants", type="string", length=200, nullable=false)
+     * @ORM\Column(name="antecedants", type="string", length=2000, nullable=false)
      */
     private $antecedants;
 
     /**
      * @var \string
      *
-     * @ORM\Column(name="description_allergie",type="string", length=200, nullable=false)
+     * @ORM\Column(name="description_allergie",type="string", length=20000, nullable=false)
      */
     private $descriptionAllergie;
 

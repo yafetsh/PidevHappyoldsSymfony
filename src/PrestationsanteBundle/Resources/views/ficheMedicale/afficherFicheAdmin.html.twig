@@ -1,0 +1,184 @@
+{% extends 'base1.html.twig' %}
+
+{% block container %}
+    {% block service %}
+
+    {% endblock %}
+<div style="margin-left: 20%;">
+
+
+
+    <a href="{{ path('afficher_liste_resident_pour_admin')}}" class="btn btn-success" role="button">retourner a la liste des residents</a>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+    <div class="x_title">
+    <ul class="nav navbar-right panel_toolbox">
+    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+    </li>
+    <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+    <ul class="dropdown-menu" role="menu">
+    <li><a href="#">Settings 1</a>
+    </li>
+    <li><a href="#">Settings 2</a>
+    </li>
+    </ul>
+    </li>
+    <li><a class="close-link"><i class="fa fa-close"></i></a>
+    </li>
+    </ul>
+    <div class="clearfix"></div>
+    </div>
+
+    <div class="x_content">
+
+    <div class="table-responsive">
+    <table class="table table-striped jambo_table bulk_action">
+    <thead>
+    <tr class="headings">
+
+    <th class="column-title"> # </th>
+        <th class="column-title"> nom  </th>
+        <th class="column-title"> prenom </th>
+    <th class="column-title"> remarquesFiche </th>
+    <th class="column-title"> niveauTemp </th>
+    <th class="column-title"> niveauSec </th>
+    <th class="column-title"> niveauTension </th>
+    <th class="column-title"> groupeSanguin </th>
+    <th class="column-title"> medicaments </th>
+    <th class="column-title">  tailleResident </th>
+    <th class="column-title"> poidsResident </th>
+        <th class="column-title"> Action </th>
+    <th class="bulk-actions" colspan="7">
+    </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for i in f %}
+    <tr class="even pointer">
+
+        <td>{{ i.idFiche }}</td>
+        <td>{{ resident.nomResident }}</td>
+        <td>{{ resident.prenomResident }}</td>
+
+    <td>{{ i.remarquesFiche }}</td>
+    <td>{{ i.niveauTemp }}</td>
+    <td>{{ i.niveauSec }}</td>
+    <td>{{ i.niveauTension }}</td>
+    <td>{{ i.groupeSanguin }}</td>
+    <td>{{ i.medicaments }}</td>
+    <td>{{ i.tailleResident }}</td>
+    <td>{{ i.poidsResident }}</td>
+
+    <td class=" last"> <a href="{{ path('supprimer_fiche',{'id':i.idFiche ,'idResident':resident.idResident})}}" class="btn btn-danger" role="button">Supprimer</a> </td>
+
+
+    </tr>
+
+    {% endfor %}
+
+
+
+    </tbody>
+    </table>
+    </div>
+
+
+    </div>
+    </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{#<h3>Liste des modèles</h3>#}
+
+
+{#<a href="{{ path('ajouter_fiche' )}}">Ajout d'une fiche</a>#}
+    {##}
+
+    {#{% block service %}{% endblock %}#}
+
+
+    {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button">retourner a la liste des residents</a>#}
+
+    {#<div class="col-md-12 col-sm-12 col-xs-12">#}
+        {#<div class="x_panel">#}
+            {#<div class="x_title">#}
+                {#<ul class="nav navbar-right panel_toolbox">#}
+                    {#<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>#}
+                    {#</li>#}
+                    {#<li class="dropdown">#}
+                        {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>#}
+                        {#<ul class="dropdown-menu" role="menu">#}
+                            {#<li><a href="#">Settings 1</a>#}
+                            {#</li>#}
+                            {#<li><a href="#">Settings 2</a>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</li>#}
+                    {#<li><a class="close-link"><i class="fa fa-close"></i></a>#}
+                    {#</li>#}
+                {#</ul>#}
+                {#<div class="clearfix"></div>#}
+            {#</div>#}
+
+            {#<div class="x_content">#}
+
+                {#<div class="table-responsive">#}
+                    {#<table class="table table-striped jambo_table bulk_action">#}
+                        {#<thead>#}
+                        {#<tr class="headings">#}
+                            {#<th>#}
+                                {#<input type="checkbox" id="check-all" class="flat">#}
+                            {#</th>#}
+                            {#<th class="column-title"> # </th>#}
+                            {#<th class="column-title"> remarquesFiche </th>#}
+                            {#<th class="column-title"> niveauTemp </th>#}
+                            {#<th class="column-title"> niveauSec </th>#}
+                            {#<th class="column-title"> niveauTension </th>#}
+                            {#<th class="column-title"> groupeSanguin </th>#}
+                            {#<th class="column-title"> medicaments </th>#}
+                            {#<th class="column-title">  tailleResident </th>#}
+                            {#<th class="column-title"> poidsResident </th>#}
+                            {#<th class="bulk-actions" colspan="7">#}
+                            {#</th>#}
+                        {#</tr>#}
+                        {#</thead>#}
+
+                        {#<tbody>#}
+                        {#{% for i in f %}#}
+                            {#<tr class="even pointer">#}
+                                {#<td class="a-center ">#}
+                                    {#<input type="checkbox" class="flat" name="table_records">#}
+                                {#</td>#}
+                                {#<td>{{ i.idFiche }}</td>#}
+                                {#<td>{{ i.remarquesFiche }}</td>#}
+                                {#<td>{{ i.niveauTemp }}</td>#}
+                                {#<td>{{ i.niveauSec }}</td>#}
+                                {#<td>{{ i.niveauTension }}</td>#}
+                                {#<td>{{ i.groupeSanguin }}</td>#}
+                                {#<td>{{ i.medicaments }}</td>#}
+                                {#<td>{{ i.tailleResident }}</td>#}
+                                {#<td>{{ i.poidsResident }}</td>#}
+
+                                {#<td class=" last"> <a href="{{ path('supprimer_fiche',{'id':i.idFiche })}}">Supprimer</a> </td>#}
+                                {#<td class=" last"> <a href="{{ path('modifier_fiche',{'id':i.idFiche })}}">Modifier</a> </td>#}
+
+                            {#</tr>#}
+
+                        {#{% endfor %}#}
+
+
+
+                        {#</tbody>#}
+                    {#</table>#}
+                {#</div>#}
+
+
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}

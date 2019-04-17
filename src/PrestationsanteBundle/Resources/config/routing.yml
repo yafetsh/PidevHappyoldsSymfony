@@ -1,17 +1,23 @@
 crud_homepage:
-    path:     /
+    path:     /index
     defaults: { _controller: PrestationsanteBundle:Default:index }
 afficher_fiche:
     path:     /afficherFiche
     defaults: { _controller: PrestationsanteBundle:ficheMedicale:afficherFiche }
+afficher_fiche_par_resident:
+  path:     /afficherFiche/{id}
+  defaults: { _controller: PrestationsanteBundle:ficheMedicale:afficherFicheParResident }
+afficher_fiche_par_resident_pour_admin:
+  path:     /afficherFicheAdmin/{id}
+  defaults: { _controller: PrestationsanteBundle:ficheMedicale:afficherFicheParResidentAdmin }
 supprimer_fiche:
-    path:     /supprimerFiche/{id}
+    path:     /supprimerFiche/{id} {idResident}
     defaults: { _controller: PrestationsanteBundle:ficheMedicale:supprimerFiche }
 modifier_fiche:
-    path:     /modifierFiche/{id}
+    path:     /modifierFiche/{idFiche} {idResident}
     defaults: { _controller: PrestationsanteBundle:ficheMedicale:modifierFiche }
 ajouter_fiche:
-    path:     /ajouterFiche
+    path:     /ajouterFiche/{idResident}
     defaults: { _controller: PrestationsanteBundle:ficheMedicale:ajouterFiche }
 ajouter_dossier:
     path:     /ajouterDossier/{id}
@@ -19,9 +25,15 @@ ajouter_dossier:
 afficher_liste_dossier:
     path:     /afficherListDossier
     defaults: { _controller: PrestationsanteBundle:Dossier:afficherListeDossier }
+afficher_liste_dossier_pour_admin:
+  path:     /afficherListDossierAdmin
+  defaults: { _controller: PrestationsanteBundle:Dossier:afficherListeDossierAdmin }
 afficher_dossier_par_resident:
   path:     /afficherDossierParResident/{id}
   defaults: { _controller: PrestationsanteBundle:Dossier:getDossierByResident }
+afficher_dossier_par_resident_pour_admin:
+  path:     /afficherDossierParResidentAdmin/{id}
+  defaults: { _controller: PrestationsanteBundle:Dossier:getDossierByResidentAdmin }
 afficher_liste_resident:
   path:     /afficherListeResident
   defaults: { _controller: PrestationsanteBundle:Dossier:afficherListeResident }
@@ -34,3 +46,15 @@ supprimer_dossier:
 modifier_dossier:
     path:     /modifierDossier/{id}
     defaults: { _controller: PrestationsanteBundle:Dossier:modifierDossier }
+ajouter_allergie:
+  path:     /ajouterAllergie
+  defaults: { _controller: PrestationsanteBundle:Dossier:ajouterAllergie }
+supprimer_allergie:
+  path:     /supprimerAllergie/{id}
+  defaults: { _controller: PrestationsanteBundle:Dossier:supprimerAllergie }
+ajouter_prescription:
+  path:     /ajouterPrescription
+  defaults: { _controller: PrestationsanteBundle:Dossier:ajouterPrescription }
+supprimer_prescription:
+  path:     /supprimerPrescription/{id}
+  defaults: { _controller: PrestationsanteBundle:Dossier:supprimerPrescription }

@@ -1,0 +1,253 @@
+{% extends 'base1.html.twig' %}
+
+{% block container %}
+    <div style="margin-left: 20%;">
+
+
+
+    <a href="{{ path('afficher_liste_resident_pour_admin')}}" class="btn btn-success" role="button">retourner a la liste des residents</a>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title"> <h3>Liste des dossiers</h3>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content">
+
+                <div class="table-responsive">
+                    <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                        <tr class="headings">
+                            <th>
+                                <input type="checkbox" id="check-all" class="flat">
+                            </th>
+                            <th class="column-title">Invoice </th>
+                            <th class="column-title">Invoice Date </th>
+                            <th class="column-title">Order </th>
+                            <th class="column-title">Bill to Name </th>
+                            <th class="column-title">Status </th>
+                            <th class="column-title no-link last"><span class="nobr">Action</span>
+                            </th>
+                            <th class="bulk-actions" colspan="7">
+                            </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for i in dossier %}
+                        <tr class="even pointer">
+                            <td class="a-center ">
+                                <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">{{ i.idDossier }}</td>
+                            <td class=" ">{{ i.problemesSante }} </td>
+                            <td class=" ">{{ i.nbVisite }}</td>
+                            <td class=" ">{{ i.idResident.nomResident }}</td>
+                            <td class=" ">{{ i.idResident.prenomResident }}</td>
+                            <td class=" last"><a href="{{ path('supprimer_dossier',{'id':i.idDossier })}}" class="btn btn-danger" role="button">Supprimer</a>
+                            <!--td> <a href="{ path('modifier_dossier',{'id':i.idDossier })}">modifier</a> </td-->
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!--donnees personnelles-->
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="card-body"><h2>Données personnelles :</h2>
+                <!--Table-->
+                <table class="table table-hover">
+                    <!--Table head-->
+
+                    <tr >
+                        <td class="text-black">Nom :</td>
+                        <td>{{ resident.nomResident }}</td>
+                        <td class="text-black">Prénom :</td>
+                        <td>{{ resident.prenomResident }}</td>
+
+
+                    </tr>
+                    <tr >
+                        <td class="text-black">Age :</td>
+                        <td>{{ resident.ageResident }}</td>
+                        <td class="text-black">Sexe :</td>
+                        <td>{{ resident.sexeResident }}</td>
+
+
+                    </tr>
+                    <tr >
+                        <td class="text-black">Nom Maison de retraite :</td>
+                        <td>{{ resident.Maison.nomMaison }}</td>
+                        <td class="text-black">Nombre de visite :</td>
+                        <td>{{ dossier[0].nbVisite }}</td>
+
+
+                    </tr>
+                    <tr >
+                        <td class="text-black">Problémes de santé :</td>
+                        <td>{{ dossier[0].problemesSante }}</td>
+
+
+
+                    </tr>
+
+
+                </table>
+                <!--Table-->
+            </div>
+        </div>
+
+        <!-- allergies -->
+
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title"> <h3>Allergies :</h3>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Settings 1</a>
+                                </li>
+                                <li><a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                    <div class="table-responsive">
+                        <table class="table table-striped jambo_table bulk_action">
+                            <thead>
+                            <tr class="headings">
+                                <th>
+                                </th>
+                                <th class="column-title">Nom d'allergie </th>
+                                <th class="column-title">Antecedants </th>
+                                <th class="column-title">Date </th>
+
+                                </th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% for allergie in allergies %}
+
+                            <tr class="even pointer">
+                                    <td class="a-center ">
+                                    </td>
+                                <td>{{ allergie.descriptionAllergie }}</td>
+                                <td>{{ allergie.antecedants }}</td>
+                                <td>{{ allergie.dateAllergies |date('Y-m-d') }}</td>
+
+                                </tr>
+
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!--prescriptions-->
+
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title"> <h3>Prescriptions de médicaments :</h3>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Settings 1</a>
+                                </li>
+                                <li><a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                    <div class="table-responsive">
+                        <table class="table table-striped jambo_table bulk_action">
+                            <thead>
+                            <tr class="headings">
+                                <th>
+                                </th>
+                                <th class="column-title">Médicament </th>
+                                <th class="column-title">Date de début de traitement </th>
+
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% for prescription in prescriptions %}
+
+                            <tr class="even pointer">
+                                    <td class="a-center ">
+                                    </td>
+                                <td scope="row">{{ prescription.descriptionMedicament }}</td>
+                                <td>{{ prescription.dateDebutTraitement |date('Y-m-d')  }}</td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+         <a href="#" class="btn btn-danger" role="button">Supprimer</a>
+
+
+    </div>
+{% endblock %}

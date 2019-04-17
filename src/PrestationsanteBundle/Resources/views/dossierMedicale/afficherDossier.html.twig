@@ -2,33 +2,527 @@
 
 {% block container %}
 
-<table border="2">
+    {% block service %}
+    {% endblock %}
 
 
-   <!-- <th> dateCreationFiche </th>
-    <th> dateDermodifFiche </th>-->
-    <th> idDossier </th>
-    <th> problemes_sante </th>
-    <th> nb_visite </th>
-    <th> nom resident </th>
-    <th> prenom resident </th>
 
 
-    <tr>
 
- {% for i in d %}
 
-     <td>{{ i.idDossier }}</td>
-     <td>{{ i.problemesSante }}</td>
-     <td>{{ i.nbVisite }}</td>
-     <td>{{ i.idResident.nomResident }}</td>
-     <td>{{ i.idResident.prenomResident }}</td>
 
-     <td> <a href="{{ path('supprimer_dossier',{'id':i.idDossier })}}">Supprimer</a> </td>
-     <td> <a href="{{ path('modifier_dossier',{'id':i.idDossier })}}">modifier</a> </td>
-     </tr>
-    {% endfor %}
 
-</table>
+
+    {#<div class="col-md-12 col-sm-12 col-xs-12">#}
+        {#<div class="x_panel">#}
+            {#<div class="x_title">#}
+                {#<ul class="nav navbar-right panel_toolbox">#}
+                    {#<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>#}
+                    {#</li>#}
+                    {#<li class="dropdown">#}
+                        {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>#}
+                        {#<ul class="dropdown-menu" role="menu">#}
+                            {#<li><a href="#">Settings 1</a>#}
+                            {#</li>#}
+                            {#<li><a href="#">Settings 2</a>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</li>#}
+                    {#<li><a class="close-link"><i class="fa fa-close"></i></a>#}
+                    {#</li>#}
+                {#</ul>#}
+                {#<div class="clearfix"></div>#}
+            {#</div>#}
+
+            {#<div class="x_content">#}
+
+                {#<div class="table-responsive">#}
+                    {#<table class="table table-striped jambo_table bulk_action">#}
+                        {#<thead>#}
+                        {#<tr class="headings">#}
+                            {#<th>#}
+                                {#<input type="checkbox" id="check-all" class="flat">#}
+                            {#</th>#}
+                            {#<th class="column-title">Invoice </th>#}
+                            {#<th class="column-title">Invoice Date </th>#}
+                            {#<th class="column-title">Order </th>#}
+                            {#<th class="column-title">Bill to Name </th>#}
+                            {#<th class="column-title">Status </th>#}
+                            {#<th class="column-title no-link last"><span class="nobr">Action</span>#}
+                            {#</th>#}
+                            {#<th class="bulk-actions" colspan="7">#}
+                            {#</th>#}
+                        {#</tr>#}
+                        {#</thead>#}
+
+                        {#<tbody>#}
+                        {#{% for i in dossier %}#}
+                        {#<tr class="even pointer">#}
+                            {#<td class="a-center ">#}
+                                {#<input type="checkbox" class="flat" name="table_records">#}
+                            {#</td>#}
+                            {#<td class=" ">{{ dossier[0].idDossier }}</td>#}
+                            {#<td class=" ">{{ i.problemesSante }} </td>#}
+                            {#<td class=" ">{{ i.nbVisite }}</td>#}
+                            {#<td class=" ">{{ i.idResident.nomResident }}</td>#}
+                            {#<td class=" ">{{ i.idResident.prenomResident }}</td>#}
+                            {#<td class=" last"><a href="{{ path('modifier_dossier',{'id':i.idDossier })}}">Modifier</a>#}
+                            {#<!--td> <a href="{ path('modifier_dossier',{'id':i.idDossier })}">modifier</a> </td-->#}
+                            {#</td>#}
+                        {#</tr>#}
+                        {#{% endfor %}#}
+
+                        {#</tr>#}
+
+                        {#</tbody>#}
+                    {#</table>#}
+                {#</div>#}
+
+
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+
+    <!--MDB Tables-->
+    <div class="container mt-4">
+
+
+        <div class="card mb-4">
+
+            <div class="card-body">
+
+
+                <div class="card mb-4">
+                    <div class="card-body"><h2><strong>Données personnelles :</strong></h2>
+                        <!--Table-->
+                        <table class="table table-hover">
+                            <!--Table head-->
+
+                            <tr >
+                                <td class="text-black"><strong>Nom :</strong></td>
+                                <td>{{ resident.nomResident }}</td>
+                                <td class="text-black"><strong>Prénom :</strong></td>
+                                <td>{{ resident.prenomResident }}</td>
+
+
+                            </tr>
+                            <tr >
+                                <td class="text-black"><strong>Age :</strong></td>
+                                <td>{{ resident.ageResident }}</td>
+                                <td class="text-black"><strong>Sexe :</strong></td>
+                                <td>{{ resident.sexeResident }}</td>
+
+
+                            </tr>
+                            <tr >
+                                <td class="text-black"><strong>Nom Maison de retraite :</strong></td>
+                                <td>{{ resident.Maison.nomMaison }}</td>
+                                <td class="text-black"><strong>Nombre de visite :</strong></td>
+                                <td>{{ dossier[0].nbVisite }}</td>
+
+
+                            </tr>
+                            <tr >
+                                <td class="text-black"><strong>Problémes de santé :</strong></td>
+                                <td>{{ dossier[0].problemesSante }}</td>
+                                <td>
+                                    {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button">Modifier</a>#}
+                                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modifierProblemeSante" data-whatever="@mdo">Modifier</button>
+
+                                </td>
+
+
+                            </tr>
+
+
+                        </table>
+                        <!--Table-->
+                    </div>
+
+
+                </div>
+
+
+        <div class="card mb-4">
+            <div class="card-body"><h2><strong>Allergies et antécédants :</strong></h2>
+                <!--Table-->
+                <table class="table table-hover">
+                    <!--Table head-->
+                    <thead class="mdb-color dark">
+                    <tr class="text-black">
+                        <th><strong>Nom d'allergie</strong></th>
+                        <th><strong>Antecedants</strong></th>
+                        <th><strong>Date</strong></th>
+                        <th>
+                            <button  type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#addAllergies" data-whatever="@mdo">+</button>
+                        </th>
+
+                    </tr>
+                    </thead>
+                    <!--Table head-->
+                    <!--Table body-->
+                    <tbody>
+                    {% for allergie in allergies %}
+                    <tr>
+                        <td>{{ allergie.descriptionAllergie }}</td>
+                        <td>{{ allergie.antecedants }}</td>
+                        <td>{{ allergie.dateAllergies |date('Y-m-d') }}</td>
+                        <td>
+                            {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button">Modifier</a>#}
+                            {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-danger" role="button">Suprimer</a>#}
+
+                                {% set allerg = allergie.descriptionAllergie %}
+
+                            {#<button type="button" class="btn btn-success" data-toggle="modal" data-target="#allergies" data-whatever="@@@@@">Modifier</button>#}
+                            <button  type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteAllergies" data-whatever="@mdo">Supprimer</button>
+
+                        </td>
+
+                    </tr>
+
+
+                    {% endfor %}
+
+
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
+            </div>
+
+
+        </div>
+
+                <div class="card mb-4">
+                    <div class="card-body"><h2><strong>Prescription de médicaments :</strong></h2>
+
+
+                        <!--Table-->
+                        <table class="table table-hover">
+                            <!--Table head-->
+                            <thead class="mdb-color dark">
+                            <tr class="text-black">
+                                <th><strong>Médicament</strong></th>
+                                <th><strong>Date de début de traitement</strong></th>
+                                <th>
+                                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#addPrescription" data-whatever="@mdo">+</button>
+                                </th>
+
+                            </tr>
+                            </thead>
+                            <!--Table head-->
+                            <!--Table body-->
+                            <tbody>
+                            {% for prescription in prescriptions %}
+
+                            <tr>
+                                <td scope="row">{{ prescription.descriptionMedicament }}</td>
+                                <td>{{ prescription.dateDebutTraitement |date('Y-m-d')  }}</td>
+                                <td>
+                                    {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Modifier</a>#}
+                                    {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-danger" role="button">Supprimer</a>#}
+                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deletePrescription" data-whatever="@mdo">Supprimer</button>
+
+                                </td>
+
+
+                            </tr>
+
+
+                            {% endfor %}
+
+                            </tbody>
+                            <!--Table body-->
+                        </table>
+                        <!--Table-->
+                    </div>
+
+                    <a href="{{ path('afficher_liste_resident')}}"  class="btn btn-success" role="button"><<<  Retourner a la liste des résidents</a>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <!--MDB Tables-->
+
+
+
+
+    {#<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>#}
+    {#<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>#}
+    {#<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>#}
+<!----- modal block -->
+    <!--modal modify probleme de santé -->
+    <div class="modal fade" id="modifierProblemeSante" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modifier les problémes de santé</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" class="needs-validation" novalidate>
+
+                        <div class="form-row">
+                            {#<label for="message-text" class="col-form-label">Message:</label>#}
+                            <textarea class="form-control" id="validationCustom01" name="problemesante" required>{{ dossier[0].problemesSante }}</textarea>
+                            <input type="hidden" name="iddossierhidden" value={{ dossier[0].idDossier }}>
+                            <div class="invalid-feedback">
+                                champs obligatoir !!
+                            </div>
+
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-primary" name="modifierDossier">Modifier</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- modal allergie -->
+    <!--modal ajouter allergies -->
+    <div class="modal fade" id="addAllergies" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addAllergiesModal"> Ajouter une allergie : </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" class="needs-validation" novalidate>
+
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label"> Nom de l'allergie : </label>
+                            <textarea class="form-control" id="message-text" name="descAllergie" required></textarea>
+                            <div class="invalid-feedback">
+                                champs obligatoir !!
+                            </div>
+                            <label for="message-text" class="col-form-label"> Ses Antécédants : </label>
+                            <textarea class="form-control" id="message-text" name="antecedants" required></textarea>
+                            <input type="hidden" name="iddossierhidden" value={{ dossier[0].idDossier }}>
+                            <div class="invalid-feedback">
+                                champs obligatoir !!
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-primary" name="ajouterAllergie">Ajouter</button>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--modal supprimer allergies -->
+    <div class="modal fade" id="deleteAllergies" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title text-center" id="Heading">Supprimer une allergie</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Etes vous sure de supprimer cette allergie ??</div>
+
+                </div>
+                <div class="modal-footer ">
+                    {#{{ allergie.idAllergie }}#}
+                    {#<a href="{{ path('supprimer_allergie',{'id':allergie.idAllergie })}}" class="btn btn-success" role="button">Oui</a>#}
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Non</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <!---------------------->
+
+
+    <!--- modal precription -->
+    <!--modal ajouter prescription -->
+    <div class="modal fade" id="addPrescription" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Ajouter une prescription de medicaments : </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" class="needs-validation" novalidate>
+
+                        <div class="form-group" >
+                            <label for="message-text" class="col-form-label">  </label>
+                            <textarea class="form-control" id="message-text" name="medicaments" required></textarea>
+                            <div class="invalid-feedback">
+                                champs obligatoir !!
+                            </div>
+                            <input type="hidden" name="iddossierhidden" value={{ dossier[0].idDossier }}>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-primary" name="ajouterPrescription">Ajouter</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--modal supprimer prescription -->
+    <div class="modal fade" id="deletePrescription" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title custom_align" id="Heading">Supprimer une prescription de medicament</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Etes vous sure de supprimer cette prescription ??</div>
+
+                </div>
+                <div class="modal-footer ">
+                    {#<a href="{{ path('supprimer_prescription',{'id':prescription.idPrescriptionsMedicaments})}}" class="btn btn-success" role="button">Oui</a>#}
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Non</button>
+                </div>
+
+            </div>
+            <!-- /.modal-content -->
+
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!------------------------>
+
+    {#<!--modal modify allergies -->#}
+    {#<div class="modal fade" id="allergies" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">#}
+        {#<div class="modal-dialog" role="document">#}
+            {#<div class="modal-content">#}
+                {#<div class="modal-header">#}
+                    {#<h5 class="modal-title" id="exampleModalLabel">Modifier les antécédants :</h5>#}
+                    {#<button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+                        {#<span aria-hidden="true">&times;</span>#}
+                    {#</button>#}
+                {#</div>#}
+                {#<div class="modal-body">#}
+                    {#<form>#}
+
+                        {#<div class="form-group">#}
+                            {#<label for="message-text" class="col-form-label"></label>#}
+                            {#<textarea class="form-control" id="message-text"></textarea>#}
+                        {#</div>#}
+                    {#</form>#}
+                {#</div>#}
+                {#<div class="modal-footer">#}
+                    {#<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>#}
+                    {#<button type="button" class="btn btn-primary">Send message</button>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+
+
+    <!--modal modify prescription medicaments -->
+    <div class="modal fade" id="prescriptionMedicaments" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form >
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                            <div class="invalid-feedback">
+                                champs obligatoir !!
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                            <div class="invalid-feedback">
+                                champs obligatoir !!
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary">Ajouter</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end  block modal -->
+
+
 
 {% endblock %}
+ {% block other_javascripts %}
+     <script>
+         $('#addAllergies').on('show.bs.modal', function (event) {
+             var button = $(event.relatedTarget) ;// Button that triggered the modal
+             var recipient = button.data('whatever'); // Extract info from data-* attributes
+             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+             var modal = $(this);
+             modal.find('.modal-title #addAllergiesModal').text('New message to ' + recipient);
+             //modal.find('.modal-body input').val(recipient)
+             console.log('test : ')
+         })
+     </script>
+
+     <script>
+         // Example starter JavaScript for disabling form submissions if there are invalid fields
+         (function() {
+             'use strict';
+             window.addEventListener('load', function() {
+                 // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                 var forms = document.getElementsByClassName('needs-validation');
+                 // Loop over them and prevent submission
+                 var validation = Array.prototype.filter.call(forms, function(form) {
+                     form.addEventListener('submit', function(event) {
+                         if (form.checkValidity() === false) {
+                             event.preventDefault();
+                             event.stopPropagation();
+                         }
+                         form.classList.add('was-validated');
+                     }, false);
+                 });
+             }, false);
+         })();
+     </script>
+ {% endblock %}
