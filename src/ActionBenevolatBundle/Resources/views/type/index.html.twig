@@ -3,10 +3,10 @@
 {% block container %}
     <div class="right_col" role="main">
         <div class="">
-    <h1>Types list</h1>
+    <h1>La liste des catgories</h1>
 
-    <table>
-        <thead>
+    <table class="table table-bordered">
+        <thead align="1">
             <tr>
                 <th>Idtype</th>
                 <th>Categorie</th>
@@ -20,12 +20,12 @@
                 <td>{{ type.categorie }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('delete1', { 'id': type.idType }) }}">delete</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('edit1', { 'id': type.idType }) }}">edit</a>
-                        </li>
+
+
+
+                            <a class="btn btn-primary" href="{{ path('edit1', { 'id': type.idType }) }}">Modifier</a>
+                        <a class="btn btn-danger" href="{{ path('delete1', { 'id': type.idType }) }}">Supprimer</a>
+
                     </ul>
                 </td>
             </tr>
@@ -34,9 +34,9 @@
     </table>
 
     <ul>
-        <li>
-            {#<a href="{{ path('type_new') }}">Create a new type</a>#}
-        </li>
+
+            <a class="btn btn-dark" href="{{ path('new1') }}">Ajouter une nouvelle categorie</a>
+
     </ul>
         </div>
     </div>

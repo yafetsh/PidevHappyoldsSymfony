@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block container  %}
+
     <!-- Page Content -->
     <div class="container">
 
@@ -32,6 +33,8 @@
 
             <!-- Post Content -->
             <p class="lead">{{ descripion }}</p>
+            <p class="lead">{{ activite.animateur.nomanimateur }}</p>
+
 
 
 
@@ -41,7 +44,7 @@
             <div class="card my-4">
                 <h5 class="card-header">Leave a Comment:</h5>
                 <div class="card-body">
-                    <form action="{{ path('add_comment') }}" method="post" id="comment">
+                    <form  method="post" id="comment">
                         <div class="form-group">
 
                             <textarea class="form-control" rows="3" name="comment" placeholder="Comment here"></textarea>

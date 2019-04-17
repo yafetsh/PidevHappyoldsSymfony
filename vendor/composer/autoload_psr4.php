@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Vich\\UploaderBundle\\' => array($vendorDir . '/vich/uploader-bundle'),
     'Twig\\' => array($vendorDir . '/twig/twig/src'),
     'Tests\\' => array($baseDir . '/tests'),
     'Symfony\\Polyfill\\Util\\' => array($vendorDir . '/symfony/polyfill-util'),
@@ -34,12 +35,14 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'League\\Csv\\' => array($vendorDir . '/league/csv/src'),
     'Knp\\Bundle\\PaginatorBundle\\' => array($vendorDir . '/knplabs/knp-paginator-bundle'),
     'Incenteev\\ParameterHandler\\' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'Gregwar\\CaptchaBundle\\' => array($vendorDir . '/gregwar/captcha-bundle'),
     'Gregwar\\' => array($vendorDir . '/gregwar/captcha/src/Gregwar'),
     'Fig\\Link\\' => array($vendorDir . '/fig/link-util/src'),
     'FOS\\UserBundle\\' => array($vendorDir . '/friendsofsymfony/user-bundle'),
+    'Egyg33k\\CsvBundle\\' => array($vendorDir . '/egyg33k/csv-bundle'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations'),

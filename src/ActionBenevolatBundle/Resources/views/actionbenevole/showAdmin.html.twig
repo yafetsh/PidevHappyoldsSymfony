@@ -4,7 +4,13 @@
 <div class="right_col" role="main">
     <div class="">
 
-               <h1>Actionbenevoles list</h1>
+               <h1>Action de benevolat </h1>
+        <div class="shedule-search-box">
+            <form method="post" action="{{ path('recherchea')}}">
+                <input type="date"  name="search" placeholder="Recherche..." required="">
+                <button type="submit">Rechercher</button>
+            </form>
+        </div>
 
     <table class="table table-bordered">
         <thead align="1">
@@ -26,9 +32,10 @@
                 <td>{{ actionBenevole.description }}</td>
                 <td>{{ actionBenevole.etat }}</td>
                     <ul>
-<td>                           <a class="btn btn-primary" href="{{ path('edit',{'id':actionBenevole.idAction})}}">edit</a>
-                            <a class="btn btn-danger" href="{{ path('delete',{'id':actionBenevole.idAction})}}">delete</a>
-                      <a href="{{ path('valider',{'id':actionBenevole.idAction})}}">Valider</a>
+<td>
+
+                      <a class="btn btn-primary" href="{{ path('valider',{'id':actionBenevole.idAction})}}">Valider</a>
+    <a class="btn btn-danger" href="{{ path('delete2',{'id':actionBenevole.idAction})}}">Supprimer</a>
                     </ul>
                 </td>
             </tr>
@@ -36,14 +43,9 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('new') }}">Create a new actionBenevole</a>
-        </li>
-    </ul>
-    {#<div class="navigation">
+    <div class="navigation">
          {{ knp_pagination_render(actionBenevoles) }}
-     </div>#}
+     </div>
 </div>
     <br>    <br>
     <br>

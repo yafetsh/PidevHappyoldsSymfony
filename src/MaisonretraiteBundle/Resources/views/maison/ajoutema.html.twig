@@ -15,7 +15,8 @@
         <br>
         <h2>Ajouter votre maison</h2>
 <br>
-    {{ form_start(form) }}
+    {{ form_start(form, {'attr': {'novalidate':'novalidate'}})
+    }}
         <br>
         {{ form_widget(form) }}
         <br>

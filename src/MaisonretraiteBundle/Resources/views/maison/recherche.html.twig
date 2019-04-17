@@ -1,0 +1,118 @@
+{% extends 'base1.html.twig' %}
+{% block container %}
+    <script src="{{asset('js/jquery-2.2.4.min.js')}}"></script>
+
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+
+    <!-- Start of Async Drift Code -->
+
+    <!--suppress JSUnusedLocalSymbols -->
+    <div class="right_col" role="main">
+        <div class="">
+            {{ render(controller('MaisonretraiteBundle:Notification:display')) }}
+
+            <h1>Maison</h1>
+<br>
+            <form method="post" >
+
+                <input type="text" name="nom" placeholder="Nom maison" />
+                <input type="submit" value="Rechercher">
+            </form>
+            <br>
+
+            <table class="table table-bordered">
+                <thead align="1">
+                <tr>
+
+                    <th> Nom </th>
+                    <th> Adresse </th>
+                    <th> Telephone </th>
+                    <th> Mail </th>
+                    <th>Nbr personne</th>
+                    <th>Actions </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for maison in maisons %}
+                    <tr>
+
+                        <td>{{ maison.nomMaison }}</td>
+                        <td>{{ maison.adresseMaison}}</td>
+                        <td>{{ maison.telephoneMaison }}</td>
+                        <td>{{ maison.mailMaison }}</td>
+                        <td>{{ maison.nbrPersonne }}</td>
+
+                        <td>
+                            <ul>
+
+                                    <a class="btn btn-primary" href="{{ path('edit_ma',{'id':maison.idMaison })}}">Modifier</a>
+                                <a class="btn btn-danger" href="{{ path('delete_ma',{'id':maison.idMaison })}}">Supprimer</a>
+
+
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="navigation">
+                {#{{ knp_pagination_render(maisons) }}#}
+                {{ knp_pagination_render(maisons) }}
+
+            </div>
+
+            <ul>
+               <br>
+                <br>
+
+                    <a class="btn btn-success" href="{{ path('ajouter_ma') }}" >Ajouter une nouvelle maison</a>
+
+            </ul>
+        </div>
+    </div>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+            crossorigin="anonymous"></script>
+    {#Call NotificationsBundles's assets#}
+    {{ notifications_assets() }}
+    <script>
+        // /**
+        //  * After calling notifications_assets() "pusher" is now available
+        //  * and you can use it this way
+        //  */
+
+            // select the channel you want to listen to
+        // var channel = pusher.subscribe("notifications");// notifications channel
+        // channel.bind(`my-event`, function(data) {
+        //     console.log('from notifications channel', data);
+        // });
+        //
+        // var channel = pusher.subscribe("messages");// messages channel
+        // channel.bind(`my-event`, function(data) {
+        //     console.log('from messages channel', data);
+        //
+        // });
+
+        /**
+         * This function will be triggered each time a data comes from the server
+         * Make sure you call it otherwise you won't get any data
+         * @param data contains your data sent from the server
+         */
+        function onNotificationsPushed(data){
+            console.log('data',data)
+        data.forEach(function (item) {
+            let li = `
+ <li>
+        ` +item.title <br>`
+        ` +item.description <br>`
+        <a href="`+item.fullUrl+`">See</a>
+    </li>
+                `;
+            $('#notifications').append(li);
+        });
+        }
+
+    </script>
+{% endblock %}
+

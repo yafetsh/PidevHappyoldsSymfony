@@ -1,0 +1,79 @@
+{% extends 'base1.html.twig' %}
+
+{% block container %}
+<div class="right_col" role="main">
+    <div class="">
+        <header class="section-header wow fadeInUp">
+
+        <h1>
+        {{ 'Vos résidents !'|upper }}
+    </h1>
+
+        <br>
+
+            <div >
+                <a  class="" href="{{ path('export') }}">Exporter vos résidents</a>
+
+            </div>
+            <br>
+            <br>
+
+    <table class="table table-bordered" >
+        <thead align="1">
+            <tr>
+                <th> Nom </th>
+                <th> Prénom </th>
+                <th> Age </th>
+                <th> Sexe </th>
+
+                {#<th> Alzheimer </th>#}
+                {#<th> Maladie </th>#}
+                <th> Responsable </th>
+                <th> Telephone responsable </th>
+                <th> Maison</th>
+
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for resident in residents %}
+            <tr>
+                <td>{{ resident.nomResident }}</td>
+                <td>{{ resident.prenomResident }}</td>
+                <td>{{ resident.ageResident }}</td>
+                <td>{{ resident.sexeResident }}</td>
+
+                <td>{{ resident.responsable }}</td>
+                <td>{{ resident.telephoneResponsable }}</td>
+                <td>{{ resident.Maison.nomMaison }}</td>
+
+                <td>
+                    <ul>
+
+                            {#<a class="btn btn-primary" href="{{ path('edit_re', { 'id': resident.idResident }) }}">Modifier</a>#}
+
+                            <a class="btn btn-danger" href="{{ path('delete_reA', { 'id': resident.idResident,'idMaison': resident.Maison.idMaison }) }}">Supprimer</a>
+                        <a class="btn btn-success" href="{{ path('validerR', { 'id': resident.idResident,'idMaison': resident.Maison.idMaison }) }}">Confirmer</a>
+
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <br>
+        <br>
+
+        <br>
+        <br>
+
+    </ul>
+        </header>
+    </div>
+</section>
+</div>
+    </div>
+
+{% endblock %}

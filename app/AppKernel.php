@@ -31,6 +31,10 @@ class AppKernel extends Kernel
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new GrapheBundle\GrapheBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new Egyg33k\CsvBundle\Egyg33kCsvBundle(),
+
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
 
 
         ];

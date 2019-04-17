@@ -3,11 +3,13 @@
 namespace ActiviteBundle\Controller;
 
 use ActiviteBundle\Entity\Activite;
-use ActiviteBundle\Entity\Postcomment;
+use ActiviteBundle\Entity\Animateur;
+use ActiviteBundle\Entity\Rating;
 use ActiviteBundle\Form\ActiviteType;
-use FOS\UserBundle\Model\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 
 
 class ActiviteController extends Controller
@@ -27,7 +29,7 @@ class ActiviteController extends Controller
     }
 
 
-    public function showdetailedAction($id)
+    public function showdetailedAction($id,Activite $activite)
     {
         $em= $this->getDoctrine()->getManager();
         $p=$em->getRepository('ActiviteBundle:Activite')->find($id);
@@ -35,6 +37,7 @@ class ActiviteController extends Controller
             'title'=>$p->getNomActivite(),
             'date'=>$p->getDateActivite(),
             'photo'=>$p->getPhoto(),
+            'activite' => $activite,
             'descripion'=>$p->getDescriptionActivite(),
             'posts'=>$p,
             'comments'=>$p,
@@ -53,31 +56,6 @@ class ActiviteController extends Controller
         ));
     }
 
-    public function addCommentAction(Request $request, UserInterface $user)
-    {
-
-
-        $ref = $request->headers->get('referer');
-
-        $post = $this->getDoctrine()
-            ->getRepository(Activite::class)
-            ->findPostByid($request->request->get('post_id'));
-
-        $comment = new Postcomment();
-
-        $comment->setUser($user);
-        $comment->setPost($post);
-        $comment->setContent($request->request->get('comment'));
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($comment);
-        $em->flush();
-
-
-        return $this->redirect($ref);
-
-    }
-
-
 
 
     public function afficheacAction()
@@ -91,12 +69,15 @@ class ActiviteController extends Controller
         ));
     }
 
-    public function ajouteacAction(Request $request)
+    public function ajouteacAction(Request $request, $id)
 
     {
+
+
         $activite = new Activite();
         $Form = $this->createForm(ActiviteType::class, $activite);
         $Form->handleRequest($request);
+
 
         if ($Form->isSubmitted()) {
 
@@ -105,9 +86,24 @@ class ActiviteController extends Controller
             $filename= md5(uniqid()) . '.' . $file->guessExtension();
             $file->move($this->getParameter('photos_directory'), $filename);
             $activite->setPhoto($filename);
-
+            $em= $this->getDoctrine()->getManager();
+            $p=$em->getRepository('ActiviteBundle:Animateur')->find($id);
+            $activite->setAnimateur($p);
             $em->persist($activite);
             $em->flush();
+
+
+            $despo = "Nondisponible";
+            $ema= $this->getDoctrine()->getManager();
+            $dq = $ema->createQueryBuilder();
+            $dq ->update('ActiviteBundle:Animateur', 'a')
+                ->set('a.dispo',"'$despo'")
+                ->where('a.idAnimateur  = :e')
+                ->setParameter('e', $id)
+                ->getQuery()
+                ->execute();
+
+
 
             return $this->redirectToRoute('affiche_ac');
 
@@ -152,27 +148,79 @@ class ActiviteController extends Controller
 
         return $this->render('ActiviteBundle:activite:editac.html.twig', array('form' => $Form->createView()));
     }
-    public function rechercheAction(Request $request)
 
+
+    function addratingAction(Request $request,$id)
     {
+        $h = $this->getDoctrine()->getRepository('ActiviteBundle:Activite')->find($id);
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $r = new Rating();
+        $r->setIdCli($user);
+        $r->setIdact($h->getIdact());
+        $r->setNote($_POST['rating']);
 
         $em = $this->getDoctrine()->getManager();
-        $activites = $em->getRepository("ActiviteBundle:Activite")
-            ->findAll();
-        if($request->isMethod("post")){
-            $criteria = $request->get('nom_activite');
+        $em->persist($r);
+        $em->flush();
 
-            $activites = $em->getRepository("ActiviteBundle:Activite")
-                ->findBy(array('nomActivite'=>$criteria));
+        return $this->redirectToRoute('affiche_ac');
+
+    }
+
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $requestString = $request->get('q');
+
+        $posts =$this->getDoctrine()->getManager()
+        ->createQuery("SELECT p
+                FROM ActiviteBundle:Activite p
+                WHERE p.nomActivite LIKE :str")
+
+
+            ->setParameter('str', '%'.$requestString.'%')
+            ->getResult();
+
+
+
+
+        if(!$posts) {
+            $result['posts']['error'] = "Article non trouvé ";
+        } else {
+            $result['posts'] = $this->getRealEntities($posts);
+        }
+        return new Response(json_encode($result));
+    }
+    public function getRealEntities($posts){
+        foreach ($posts as $posts){
+            $realEntities[$posts->getIdActivite()] = [$posts-> getNomActivite()];
 
         }
-
-
-
-        return $this->render('ActiviteBundle:activite:afficheac.html.twig', array("activites"=>$activites));
+        return $realEntities;
     }
 
 
+    public function afficheladAction(){
 
+
+
+        $despo = "Disponible";
+        $em = $this->getDoctrine()->getManager();
+        $dq = $em->createQueryBuilder('a');
+          $result = $dq ->SELECT( 'e')
+            ->From('ActiviteBundle:Animateur','e')
+            ->where('e.dispo  = :a')
+            ->setParameter('a', $despo)
+            ->getQuery()
+            ->getResult();
+
+
+
+
+        return $this->render('ActiviteBundle:activite:afficheand.html.twig', array(
+            'animateurs' => $result ,
+
+        ));
+    }
 
 }

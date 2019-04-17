@@ -5,6 +5,7 @@ use MaisonretraiteBundle\Entity\Notification;
 use MaisonretraiteBundle\Form\MaisonType;
 use MaisonretraiteBundle\Entity\Maison;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -19,11 +20,11 @@ class MaisonController extends Controller
         /**
          * @var $paginator \Knp\Component\Pager\Paginator
          */
-        $paginator  = $this->get('knp_paginator');
+        $paginator = $this->get('knp_paginator');
         $result = $paginator->paginate(
             $listmaisons,
-            $request->query->getInt('page',1),
-            $request->query->getInt('limit',5)
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit', 5)
         );
 
 //qfsdff
@@ -77,6 +78,7 @@ class MaisonController extends Controller
 
         return $this->redirectToRoute('affiche_ma');
     }
+
     public function editmaAction(Request $request, $id)
 
     {
@@ -93,5 +95,51 @@ class MaisonController extends Controller
         }
 
         return $this->render('MaisonretraiteBundle:maison:editma.html.twig', array('form' => $Form->createView()));
+    }
+
+    public function ajaxAction(Request $request)
+    {
+        $maisons = $this->getDoctrine()
+            ->getRepository('MaisonretraiteBundle:Maison')
+            ->findAll();
+
+        if ($request->isXmlHttpRequest() || $request->query->get('showJson') == 1) {
+            $jsonData = array();
+            $idx = 0;
+            foreach ($maisons as $maison) {
+                $temp = array(
+                    'nom_maison' => $maison->getNomMaison(),
+                    'adresse_maison' => $maison->getAdresseMaison(),
+                );
+                $jsonData[$idx++] = $temp;
+            }
+            return new JsonResponse($jsonData);
+        } else {
+            return $this->render('MaisonretraiteBundle:maison:affichema.html.twig');
+        }
+    }
+
+    public function rechercheAction(Request $request)
+
+    {
+
+
+        $sr = $request->get('search');
+
+        $em1 = $this->getDoctrine()->getManager();
+        $qb = $em1->createQueryBuilder('e');
+        $query = $em1->createQuery('SELECT e  FROM MaisonretraiteBundle:Maison e WHERE e.nomMaison = :id')
+            ->setParameter('id', $sr);
+
+
+        $users = $query->getResult();
+
+
+
+
+
+        return $this->render('MaisonretraiteBundle:maison:rechercheaction.html.twig', array(
+            'maisons' => $users,
+        ));
     }
 }

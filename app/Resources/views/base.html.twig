@@ -152,6 +152,16 @@
 </section><!-- #intro -->
 
 <main id="main">
+    {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-success">
+            {{ msg }}
+        </div>
+    {% endfor %}
+    {% for msg in app.session.flashBag.get('error') %}
+        <div class="alert alert-danger">
+            {{ msg }}
+        </div>
+    {% endfor %}
     {% block container %}
         {#<section id="contact" class="section-bg wow fadeInUp">#}
             {#<div class="container">#}
@@ -284,15 +294,16 @@
 
             <header class="section-header wow fadeInUp">
                 <h3>Services</h3>
-                <p>Happy Olds est une plateforme intèrmédiaire entre les maisons des retraites et les bénévoles et les associations.</p>
+                <p>Happy Olds est une plateforme intèrmédiaire entre les maisons des retraites , les bénévoles et les associations.</p>
             </header>
 
             <div class="row">
 
                 <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-                    <h4 class="title"><a href="">Gestion maisons des retraites</a></h4>
-                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                    <h4 class="title"><a href="{{ path('ajout_re') }}">Inscrivez-Vous!</a></h4>
+                    <p class="description">Ne ratez pas cette occasion et inscrivez-vous dans HappyOlds pour vivre une expèrience extraordinaire
+                    </p>
                 </div>
                 <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
@@ -316,8 +327,8 @@
                 </div>
                 <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-people-outline"></i></div>
-                    <h4 class="title"><a href="">Gestion des bénévoles</a></h4>
-                    <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                    <h4 class="title"><a href="{{ path('new') }}">Gestion des actions de  bénévolat</a></h4>
+                    <p class="description">HappyOlds Bénévolat œuvre pour un bénévolat ouvert à tous. Son ambition est de faire du bénévolat un formidable levier d’inclusion sociale et d’éducation, notamment aux personnes agées, et ainsi contribuer aux grands défis sociétaux de notre pays.</p>
                 </div>
 
             </div>

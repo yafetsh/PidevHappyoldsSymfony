@@ -21,6 +21,10 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
     );
 
     public static $prefixLengthsPsr4 = array (
+        'V' => 
+        array (
+            'Vich\\UploaderBundle\\' => 20,
+        ),
         'T' => 
         array (
             'Twig\\' => 5,
@@ -61,6 +65,10 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
         array (
             'Monolog\\' => 8,
         ),
+        'L' => 
+        array (
+            'League\\Csv\\' => 11,
+        ),
         'K' => 
         array (
             'Knp\\Bundle\\PaginatorBundle\\' => 27,
@@ -79,6 +87,10 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
             'Fig\\Link\\' => 9,
             'FOS\\UserBundle\\' => 15,
         ),
+        'E' => 
+        array (
+            'Egyg33k\\CsvBundle\\' => 18,
+        ),
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
@@ -96,6 +108,10 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
     );
 
     public static $prefixDirsPsr4 = array (
+        'Vich\\UploaderBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vich/uploader-bundle',
+        ),
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
@@ -208,6 +224,10 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'League\\Csv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/csv/src',
+        ),
         'Knp\\Bundle\\PaginatorBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
@@ -231,6 +251,10 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
         'FOS\\UserBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
+        ),
+        'Egyg33k\\CsvBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egyg33k/csv-bundle',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -271,6 +295,13 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
     );
 
     public static $prefixesPsr0 = array (
+        'b' => 
+        array (
+            'blackknight467\\StarRatingBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/blackknight467/star-rating-bundle',
+            ),
+        ),
         'T' => 
         array (
             'Twig_' => 
@@ -290,6 +321,13 @@ class ComposerStaticInitcdbd8e89bd49270a0e487557a709707b
             'Nomaya\\SocialBundle\\' => 
             array (
                 0 => __DIR__ . '/..' . '/nomaya/social-bundle',
+            ),
+        ),
+        'M' => 
+        array (
+            'Metadata\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/metadata/src',
             ),
         ),
         'K' => 

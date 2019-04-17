@@ -1,6 +1,6 @@
 Bonsoir ,
 
-On vous informe qu'il y aura un évènement qui sera lieu le {% if evenement.dateDEvenement %}{{ evenement.dateDEvenement|date('Y-m-d') }}{% endif %}
+On vous informe qu'il y aura un évènement {{ evenement.nomEvenement }} qui sera lieu le {% if evenement.dateDEvenement %}{{ evenement.dateDEvenement|date('Y-m-d') }}{% endif %}
 à {{ evenement.heureEvenement }} dans {{ evenement.adresseEvenement }}
 , si vous êtes interessé merci de participer et merci .
 

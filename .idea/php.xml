@@ -51,7 +51,11 @@
       <path value="$PROJECT_DIR$/vendor/gregwar/captcha" />
       <path value="$PROJECT_DIR$/vendor/nomaya/social-bundle" />
       <path value="$PROJECT_DIR$/vendor/cmen/google-charts-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/league/csv" />
+      <path value="$PROJECT_DIR$/vendor/egyg33k/csv-bundle" />
+      <path value="$PROJECT_DIR$/vendor/blackknight467/star-rating-bundle" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />
 </project>
