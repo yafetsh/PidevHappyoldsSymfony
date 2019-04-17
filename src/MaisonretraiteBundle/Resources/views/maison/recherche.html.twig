@@ -4,7 +4,6 @@
 
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
-
     <!-- Start of Async Drift Code -->
 
     <!--suppress JSUnusedLocalSymbols -->
@@ -14,16 +13,11 @@
 
             <h1>Maison</h1>
 <br>
+            <form method="post" >
 
-            <a class="btn-group-toggle" href="{{ path('affiche_reA')}}">Afficher la liste des résidents</a>
-
-            {#<form method="post" >#}
-
-            {#<input type="text" name="nom" placeholder="Nom maison" />#}
-            {#<input type="submit" value="Rechercher" href="{{ path('Maison_recherche') }}">#}
-            {#</form>#}
-            <input id="myInput" type="text" placeholder="Search..">
-
+                <input type="text" name="nom" placeholder="Nom maison" />
+                <input type="submit" value="Rechercher">
+            </form>
             <br>
 
             <table class="table table-bordered">
@@ -76,61 +70,6 @@
             </ul>
         </div>
     </div>
-
-
-
-    <script src="{{ asset('//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js')}}"></script>
-
-
-    <script>
-
-
-
-
-        $(document).ready(function(){
-            $("#myInput").on("keyup", function() {
-
-                var value = $(this).val().toLowerCase();
-                console.log(value);
-                $(".myDIV ").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-
-
-        if (annyang) {
-
-            annyang.addCallback('result', function(userSaid, commandText, phrases) {
-                console.log(userSaid); // sample output: 'hello'
-                console.log(commandText); // sample output: 'hello (there)'
-                console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
-                if(userSaid[0]!= "calendar") {
-                    console.log(userSaid[0]);
-                    console.log(userSaid[0]!== 'calendar');
-                    document.getElementById('myInput').value = userSaid[0];
-                    var value=userSaid[0].toLowerCase();
-                    $(".myDIV ").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
-                }
-            });
-
-            annyang.start();
-        }
-
-
-
-
-
-
-
-
-    </script>
-
-
-
-
     <script
             src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="

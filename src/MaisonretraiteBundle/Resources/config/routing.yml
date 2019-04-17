@@ -20,6 +20,9 @@ edit_ma:
     path:     /editma/{id}
     defaults: { _controller: MaisonretraiteBundle:Maison:editma }
 
+Maison_recherche:
+    path:     /recherche
+    defaults: { _controller: MaisonretraiteBundle:Maison::recherche }
 
 
 #RESIDENT
@@ -31,6 +34,8 @@ affiche_re:
     path:     /affichere
     defaults: { _controller: MaisonretraiteBundle:Resident:affichere }
 
+
+
 delete_re:
         path:     /deletere/{id}
         defaults: { _controller: MaisonretraiteBundle:Resident:deletere }
@@ -39,3 +44,14 @@ edit_re:
     path:     /editre/{id}
     defaults: { _controller: MaisonretraiteBundle:Resident:editre }
 
+confirmer:
+    path:     /confirmer/{id}
+    defaults: { _controller: MaisonretraiteBundle:Resident:confirmer }
+
+export:
+        path:     /export
+        defaults: { _controller: MaisonretraiteBundle:Resident:export }
+
+affiche_reA:
+    path:     /affichereA
+    defaults: { _controller: MaisonretraiteBundle:Resident:affichereA }

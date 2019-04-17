@@ -23,24 +23,54 @@ class ResidentController extends Controller
             'residents' => $residents,
         ));
     }
+    public function affichereAAction()
+    {
+        $em = $this->getDoctrine()->getManager();
 
+        $residents = $em->getRepository('MaisonretraiteBundle:Resident')->findAll();
+
+        return $this->render('MaisonretraiteBundle:resident:affichereA.html.twig', array(
+            'residents' => $residents,
+        ));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function ajoutreAction(Request $request)
 
     {
+        $m = new Maison();
         $r = new Resident();
         $Form = $this->createForm(ResidentType::class, $r);
         $Form->handleRequest($request);
-//        $nomMaison = $request->get('nom_maison');
+        $nomMaison =  $request->query->get('nom_maison');
+//        $idMaison =  $request->query->get('id_maison');
+        $maison = $this->getDoctrine()->getRepository(Maison::class)->findBy(['nomMaison' => $nomMaison]);
+//        $idMaison = $maison->getId();
+//        var_dump ($nomMaison);
+//        $infoArray['idMaison'] = $maison->getCountry() ? $maison->getCountry()->getId() ;
+        var_dump($Form->getData());
 
         if ($Form->isSubmitted()) {
 //            $maison = $this->getDoctrine()->getRepository(Maison::class)->find($nomMaison);
+//            $maison = $this->getDoctrine()->getRepository(Maison::class)->findByNomMaison($nomMaison);
+//            $maison = $this->getDoctrine()->getRepository(Maison::class)->findOneBy(['nom_maison' => $nomMaison]);
 
             $em = $this->getDoctrine()->getManager();
 //          foreach ($maison as $i){
-
-//              $maison->setNbrPersonne($maison->getNbrPersonne()-1);
-//              $em->persist($maison);
-//              $em->flush();
+//            $em1 = $this->getDoctrine()->getManager();
+//            $qb = $em1->createQueryBuilder();
+//            $qb ->update('MaisonretraiteBundle:Maison', 'm')
+//                ->set('m.nbrPersonne',$maison->getNbrPersonne()-1)
+//            ->where('m.idMaison  = :idMaison')
+//                ->setParameter('idMaison', $idMaison)
+//                ->getQuery()
+//                ->execute();
+             $m->setNbrPersonne($m->getNbrPersonne()-1);
+              $em->persist($m);
+              $em->flush();
 //          }
 
             $em->persist($r);
@@ -91,6 +121,64 @@ class ResidentController extends Controller
         }
 
         return $this->render('MaisonretraiteBundle:resident:editre.html.twig', array('edit_form' => $Form->createView()));
+    }
+
+    public function confirmerAction( $id,Request $request)
+
+    {
+        $nomMaison =  $request->query->get('nom_maison');
+
+        $em = $this->getDoctrine()->getManager();
+        $modele = $em->getRepository("MaisonretraiteBundle:Maison")->find($id);
+//        $maison = $this->getDoctrine()->getRepository(Resident::class)->findBy(['idMaison' => $nomMaison]);
+        $nomMaison =  $request->query->get('id_maison');
+
+        $maison = $this->getDoctrine()->getRepository(Maison::class)->findOneBy(['idMaison' => $modele]);
+//        $idMaison = $maison->getMaison()->getNomMaison();
+//        $em1 = $this->getDoctrine()->getManager();
+//        $qb = $em1->createQueryBuilder('e');
+//        $query = $em1->createQuery('SELECT e  FROM MaisonretraiteBundle:Resident e WHERE e.idResident = :id')
+//            ->setParameter('id',$id );
+//        $users = $query->getResult();
+
+//        $query = $em->createQuery("SELECT nbr_personne From MaisonretraiteBundle:Maison ");
+//        $rs = $query->getResult();
+//        return $this->redirectToRoute('affiche2');
+//        return $this->render('ActionBenevolatBundle:actionbenevole:showAdmin.html.twig');
+//            $em1 = $this->getDoctrine()->getManager();
+//            $qb = $em1->createQueryBuilder();
+//            $qb ->update('MaisonretraiteBundle:Maison', 'm')
+//                ->set('m.nbrPersonne',$maison->getNbrPersonne()-1)
+//            ->where('m.idMaison  = :idMaison')
+//                ->setParameter('idMaison', $idMaison)
+//                ->getQuery()
+//                ->execute();
+//            $maison->setNbrPersonne($maison->getNbrPersonne()-1);
+//            $em->persist($m);
+//            $em->flush();
+            var_dump($nomMaison);
+
+
+
+
+
+//        return $this->redirectToRoute('confirmer');
+        return $this->render('MaisonretraiteBundle:resident:confirmer.html.twig');
+
+    }
+    public function exportAction(){
+        $em = $this->getDoctrine()->getManager();
+        $maisons = $em->getRepository("MaisonretraiteBundle:Resident")->findAll();
+
+        $writer = $this->container->get('egyg33k.csv.writer');
+        $csv = $writer::createFromFileObject(new \SplTempFileObject());
+        $csv->insertOne(['Nom ', 'Prenom','Age','Sexe','Responsable','Telephone responsable','Maison']);
+        foreach ($maisons as $maison){
+            $csv->insertOne([$maison->getNomResident(), $maison->getPrenomResident(), $maison->getAgeResident(),$maison->getSexeResident(), $maison->getResponsable(), $maison->getTelephoneResponsable(),$maison->getMaison()->getNomMaison()]);
+
+        }
+        $csv->output('ListeResidents.csv');
+        exit;
     }
 
 }

@@ -1,9 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends 'base1.html.twig' %}
 
 {% block container %}
-<section  class="section-bg wow fadeInUp">
-    <div class="container">
-        <br>
+<div class="right_col" role="main">
+    <div class="">
         <header class="section-header wow fadeInUp">
 
         <h1>
@@ -11,6 +10,13 @@
     </h1>
 
         <br>
+
+            <div >
+                <a  class="" href="{{ path('export') }}">Exporter vos résidents</a>
+
+            </div>
+            <br>
+            <br>
 
     <table class="table table-bordered" >
         <thead align="1">
@@ -37,8 +43,6 @@
                 <td>{{ resident.ageResident }}</td>
                 <td>{{ resident.sexeResident }}</td>
 
-                {#<td>{{ resident.alzheimerResident }}</td>#}
-                {#<td>{{ resident.maladieResident }}</td>#}
                 <td>{{ resident.responsable }}</td>
                 <td>{{ resident.telephoneResponsable }}</td>
                 <td>{{ resident.Maison.nomMaison }}</td>
@@ -46,10 +50,10 @@
                 <td>
                     <ul>
 
-                            <a class="btn btn-primary" href="{{ path('edit_re', { 'id': resident.idResident }) }}">Modifier</a>
+                            {#<a class="btn btn-primary" href="{{ path('edit_re', { 'id': resident.idResident }) }}">Modifier</a>#}
 
                             <a class="btn btn-danger" href="{{ path('delete_re', { 'id': resident.idResident }) }}">Supprimer</a>
-                        {#<a class="btn btn-success" href="{{ path('confirmer', { 'id': resident.idResident }) }}">Confirmer</a>#}
+                        <a class="btn btn-success" href="{{ path('confirmer', { 'id': resident.idResident }) }}">Confirmer</a>
 
                     </ul>
                 </td>
@@ -61,7 +65,6 @@
     <ul>
         <br>
         <br>
-            <a class="btn btn-success" href="{{ path('ajout_re') }}">Inscrivez Vous</a>
 
         <br>
         <br>
@@ -70,4 +73,7 @@
         </header>
     </div>
 </section>
+</div>
+    </div>
+
 {% endblock %}

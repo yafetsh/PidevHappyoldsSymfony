@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="resident", indexes={@ORM\Index(name="id_maison", columns={"id_maison"})})
  * @ORM\Entity
+ * @UniqueEntity("email")
  */
 class Resident
 {
