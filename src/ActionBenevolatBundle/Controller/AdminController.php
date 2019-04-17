@@ -50,7 +50,7 @@ class AdminController extends Controller
 
 
 
-        return $this->render('ActionBenevolatBundle:actionbenevole:recherche.html.twig', array(
+        return $this->render('ActionBenevolatBundle:actionbenevole:rechercheaction.html.twig', array(
             'actionBenevoles' => $users,
         ));
 

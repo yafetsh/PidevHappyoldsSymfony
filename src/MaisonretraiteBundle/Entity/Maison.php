@@ -14,8 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="maison", indexes={@ORM\Index(name="id_user", columns={"id_user"})})
  * @ORM\Entity
  */
-class Maison implements NotifiableInterface
-{
+class Maison {
     /**
      * @var integer
      *
@@ -29,6 +28,7 @@ class Maison implements NotifiableInterface
      * @var string
      *
      * @ORM\Column(name="nom_maison", type="string", length=20, nullable=false)
+     * @Assert\NotBlank(message="Entrez le nom de votre maison")
      */
     private $nomMaison;
 
@@ -36,7 +36,7 @@ class Maison implements NotifiableInterface
      * @var string
      *
      * @ORM\Column(name="adresse_maison", type="string", length=20, nullable=false)
-     * @Assert\NotBlank(message="Le nom est obligatoire")
+     * @Assert\NotBlank(message="Entrez l'adresse de votre maison")
      */
     private $adresseMaison;
 
@@ -44,6 +44,18 @@ class Maison implements NotifiableInterface
      * @var string
      *
      * @ORM\Column(name="telephone_maison", type="string", length=8, nullable=false)
+     * @Assert\NotBlank(message="Entrez le numero de votre maison")
+     * @Assert\Type(
+     *     type="integer",
+     *     message="{{ value }} Ne s'agit pas d'un numéro téléphone, c'est un {{ type }}."
+     * )
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 8,
+     *      minMessage = "Entrez un nombre de téléphone valide (8 chiffres)",
+     *      maxMessage = "Entrez un nombre de téléphone valide (8 chiffres)"
+     * )
+
      */
     private $telephoneMaison;
 
@@ -51,7 +63,11 @@ class Maison implements NotifiableInterface
      * @var string
      *
      * @ORM\Column(name="mail_maison", type="string", length=30, nullable=false)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Entrez l'adresse mail de votre maison")
+     * @Assert\Email(
+     *     message = "Entrez une adresse mail valide",
+     *     checkMX = true
+     * )
      */
     private $mailMaison;
 
@@ -59,7 +75,10 @@ class Maison implements NotifiableInterface
      * @var integer
      *
      * @ORM\Column(name="nbr_personne", type="integer", nullable=false)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Entrez le nombre des places")
+     * * @Assert\Type(
+     *     type="integer",
+     *     message="{{ value }} N'est pas un nombre {{ type }}.")
      */
     private $nbrPersonne;
 
@@ -185,37 +204,6 @@ class Maison implements NotifiableInterface
         $this->idUser = $idUser;
     }
 
-    public function notificationsOnCreate(NotificationBuilder $builder)
-    {
-        $notification = new Notification();
-        $notification
-            ->setTitle('New Maison')
-            ->setDescription($this->nomMaison)
-            ->setRoute('affiche_ma')// I suppose you have a show route for your entity
-            ->setParameters(array('id' => $this->idMaison))
-        ;
-        $builder->addNotification($notification);
-
-        return $builder;    }
-
-    public function notificationsOnUpdate(NotificationBuilder $builder)
-    {
-        $notification = new Notification();
-        $notification
-            ->setTitle('Maison updated')
-            ->setDescription($this->nomMaison)
-            ->setRoute('affiche_ma')
-            ->setParameters(array('id' => $this->idMaison))
-        ;
-        $builder->addNotification($notification);
-
-        return $builder;    }
-
-    public function notificationsOnDelete(NotificationBuilder $builder)
-    {
-        // in case you don't want any notification for a special event
-        // you can simply return an empty $builder
-        return $builder;    }
 
 
 }

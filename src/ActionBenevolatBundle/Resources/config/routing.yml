@@ -31,8 +31,8 @@ affiche2:
 valider:
     path:     /valider/{id}
     defaults: { _controller: ActionBenevolatBundle:Admin:valider }
-recherche:
-    path:     /recherche
+recherchea:
+    path:     /recherchea
     defaults: { _controller: ActionBenevolatBundle:Admin:recherche }
 delete2:
     path:     /delete2/{id}

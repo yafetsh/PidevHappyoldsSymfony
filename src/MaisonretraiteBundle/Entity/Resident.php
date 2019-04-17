@@ -3,14 +3,17 @@
 namespace MaisonretraiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use SBC\NotificationsBundle\Builder\NotificationBuilder;
+use SBC\NotificationsBundle\Model\NotifiableInterface;
 
 /**
  * Resident
  *
  * @ORM\Table(name="resident", indexes={@ORM\Index(name="id_maison", columns={"id_maison"})})
  * @ORM\Entity
+ *
  */
-class Resident
+class Resident implements NotifiableInterface , \JsonSerializable
 {
     /**
      * @var integer
@@ -90,6 +93,29 @@ class Resident
      * @ORM\Column(name="telephone_responsable", type="integer", nullable=false)
      */
     private $telephoneResponsable;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string", length=32, nullable=false, options={"default":"invalide"})
+     */
+    private $etat;
+
+    /**
+     * @return string
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
 
 //    /**
 //     * @var \Maison
@@ -304,6 +330,45 @@ class Resident
         $this->alzheimerResident = $alzheimerResident;
     }
 
+    public function notificationsOnCreate(NotificationBuilder $builder)
+    {
+        $notification = new Notification();
+        $notification
+            ->setTitle('Un nouveau résident est inscrit')
+            ->setDescription($this->prenomResident)
+            ->setRoute('affiche_reA')// I suppose you have a show route for your entity
+            ->setParameters(array('id' => $this->idResident))
+        ;
+        $builder->addNotification($notification);
 
+        return $builder;    }
+
+    public function notificationsOnUpdate(NotificationBuilder $builder)
+    {
+        $notification = new Notification();
+        $notification
+            ->setTitle('Un résident a modifié ces données')
+            ->setDescription($this->prenomResident)
+            ->setRoute('affiche_reA')
+            ->setParameters(array('id' => $this->idResident))
+        ;
+        $builder->addNotification($notification);
+
+        return $builder;    }
+
+    public function notificationsOnDelete(NotificationBuilder $builder)
+    {
+        // in case you don't want any notification for a special event
+        // you can simply return an empty $builder
+        $this->etat='valide';
+
+        return $builder;    }
+
+
+
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 }
 

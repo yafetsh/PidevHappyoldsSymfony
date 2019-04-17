@@ -152,14 +152,59 @@
                 <br>
 
                 <!--travaille de frond office-->
+                <script src="{{ asset('jquery/jquery.js') }}"></script>
+
+                <script>
+
+
+
+                  $(function () {
+
+
+                      $("#affecter").click(function () {
+                          valid=true;
+                          if($("#nom").val()!= ""){
+                           alert("Votre don est affecté avec succé");
+                             return valid;
+
+                          }
+                          if($("#nom").val()== ""){
+                              $("#nom").css("border-color","#FF0000");
+                              $("#erreur-message").text("veuillez selectionner la quantite");
+                              valid = false;
+
+                          }
+
+
+
+
+                          return valid;
+
+
+                      });
+
+
+
+                  });
+
+
+
+
+
+
+                </script>
 
 
 
                 <form class="needs-validation" novalidate  method="post">
                     <div class="form-row">
+
                         <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">Votre quantite :</label>
-                            <input type="number" min ="1" class="form-control" name="quantite" id="validationCustom01" placeholder="Quantie"  required>
+                            <label for="validationCustom01">Affecter Quantite</label>
+                            <input type="number" min ="1" name="quantite" id="nom" placeholder="Votre Quantite">
+
+                            <div id="erreur-message" style="color:#FF0000;"></div>
+
 
                         </div>
 
@@ -172,14 +217,17 @@
                     <div class="form-group">
                         <div class="form-check">
 
-                            <div class="invalid-feedback">
-                                Affecter votre don
-                            </div>
+
                         </div>
                     </div>
-                    <button class="btn btn-success" type="submit">Affecter</button>
+                    <button class="btn btn-success" type="submit" id="affecter">Affecter</button>
+
                 </form>
 
+
+
+
+                </table>
                 <div class="navigation text-center">
                 </div>
 

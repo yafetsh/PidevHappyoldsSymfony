@@ -2,24 +2,33 @@
 {#{% block header %} {% endblock %}#}
 {% block container %}
 
-    <h1>Ajouter une action de benevolat</h1>
+    <h1 class="title">Ajouter une action de bénévolat</h1>
 
     {{ form_start(form,{'method':'POST'}) }}
-    dateDaction
+    Date début
     <br>
     {{ form_widget(form.dateDAction) }}
-    dateFaction
+    Date fin
+    <br>
     {{ form_widget(form.dateFAction) }}
-    descrption
+    description
     {{ form_widget(form.description) }}
     <div style="display: none;">
-    {{ form_widget(form.etat) }}
+
+        {{ form_widget(form.etat) }}
     </div>
-    type
+    <br>
+    <div>
+    Type
     {{ form_widget(form.type) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    </div>
+    <br>
+        <input class="btn btn-success" type="submit" value="Ajouter" />
+    <br>
     {{ socialButtons() }}
+    {{ form_end(form) }}
+    <br>
+
 
 
 {% endblock %}

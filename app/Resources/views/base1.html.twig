@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
     <title>{% block title %}Happy Olds{% endblock %} </title>
     {% block stylesheat %}
         <!-- Bootstrap -->
@@ -23,7 +24,10 @@
 
         <!-- Custom Theme Style -->
         <link href="{{ asset('build/css/custom.min.css') }}" rel="stylesheet">
+
     {% endblock %}
+
+
 </head>
 
 <body class="nav-md">
@@ -59,13 +63,17 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-home"></i> Gestion Action Benevolat <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="index.html">Dashboard</a></li>
-                                    <li><a href="index2.html">Dashboard2</a></li>
-                                    <li><a href="index3.html">Dashboard3</a></li>
+                                    <li><a href="{{ path('affiche2') }}">Action de benvolat</a></li>
+                                    <li><a href="{{ path('show1') }}">Categorie</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> Gestion Dons <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path ('affichecategorie') }}">Categorie Demande</a></li>
+                                    <li><a href="{{ path ('afficherdemande') }}">Demande dons</a></li>
+                                    <li><a href="{{ path ('_graphePie') }}">Stistiques dons</a></li>
 
+                                </ul>
                             </li>
                             <li><a><i class="fa fa-desktop"></i> Gestion Prestation Sante<span class="fa fa-chevron-down"></span></a>
 
@@ -77,7 +85,11 @@
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i> Gestion Maison Retraite <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('affiche_ma') }}">Maisons</a></li>
+                                    <li><a href="{{ path('affiche_reA') }}">Residents</a></li>
 
+                                </ul>
                             </li>
                             <li><a><i class="fa fa-clone"></i>Gestion Activite<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">

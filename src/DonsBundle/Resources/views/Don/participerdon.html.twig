@@ -152,11 +152,12 @@
                 <br>
 
                 <!--travaille de frond office-->
+                <h2 style="color: #990000">La liste des demandes</h2>
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th scope="col">nom maison</th>
-                        <th scope="col">nom categorie</th>
+                        <th scope="col">Nom maison</th>
+                        <th scope="col">Nom categorie</th>
                         <th scope="col">Quantite Demande</th>
                         <th scope="col">Description Demande</th>
                         <th scope="col">Participation</th>
@@ -171,7 +172,18 @@
                         <td>{{ i.idDemandeCategorie.nomCategorie}}</td>
                         <td>{{ i.quantiteDemande }}</td>
                         <td>{{ i.descriptionDemande }}</td>
-                        <td><a class="badge badge-success" href="{{ path('affecterdon',{'id':i.idDemande}) }}" >Participer</a></td>
+                        <td>
+
+
+                                <a class="badge badge-success" href={{ path('affecterdon',{'iddemande':i.idDemande,'decriptiondemande':i.descriptiondemande,'idcategorie':i.idDemandeCategorie.idCategorie}) }} >participer
+
+                                </a>
+
+
+
+                            </form>
+
+                        </td>
 
                     </tr>
 
