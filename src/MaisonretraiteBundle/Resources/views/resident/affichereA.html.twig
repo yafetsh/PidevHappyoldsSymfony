@@ -52,7 +52,7 @@
 
                             {#<a class="btn btn-primary" href="{{ path('edit_re', { 'id': resident.idResident }) }}">Modifier</a>#}
 
-                            <a class="btn btn-danger" href="{{ path('delete_re', { 'id': resident.idResident }) }}">Supprimer</a>
+                            <a class="btn btn-danger" href="{{ path('delete_reA', { 'id': resident.idResident,'idMaison': resident.Maison.idMaison }) }}">Supprimer</a>
                         <a class="btn btn-success" href="{{ path('validerR', { 'id': resident.idResident,'idMaison': resident.Maison.idMaison }) }}">Confirmer</a>
 
                     </ul>

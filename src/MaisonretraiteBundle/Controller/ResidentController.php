@@ -50,37 +50,10 @@ class ResidentController extends Controller
         $r = new Resident();
         $Form = $this->createForm(ResidentType::class, $r);
         $Form->handleRequest($request);
-//        $nomMaison =  $request->query->get('nom_maison');
-//        $idMaison =  $request->query->get('id_maison');
-//        $maison = $this->getDoctrine()->getRepository(Maison::class)->findBy(['nomMaison' => $nomMaison]);
-//        $idMaison = $maison->getId();
-//        var_dump ($nomMaison);
-//        $infoArray['idMaison'] = $maison->getCountry() ? $maison->getCountry()->getId() ;
-//        var_dump($Form->getData());
-
         if ($Form->isSubmitted()) {
             $resident = $Form->getData();
             $resident->setEtat("invalide");
-
-//            $maison = $this->getDoctrine()->getRepository(Maison::class)->find($nomMaison);
-//            $maison = $this->getDoctrine()->getRepository(Maison::class)->findByNomMaison($nomMaison);
-//            $maison = $this->getDoctrine()->getRepository(Maison::class)->findOneBy(['nom_maison' => $nomMaison]);
-
             $em = $this->getDoctrine()->getManager();
-//          foreach ($maison as $i){
-//            $em1 = $this->getDoctrine()->getManager();
-//            $qb = $em1->createQueryBuilder();
-//            $qb ->update('MaisonretraiteBundle:Maison', 'm')
-//                ->set('m.nbrPersonne',$maison->getNbrPersonne()-1)
-//            ->where('m.idMaison  = :idMaison')
-//                ->setParameter('idMaison', $idMaison)
-//                ->getQuery()
-//                ->execute();
-//             $m->setNbrPersonne($m->getNbrPersonne()-1);
-//              $em->persist($m);
-//              $em->flush();
-//          }
-
             $em->persist($resident);
             $em->flush();
 
@@ -103,16 +76,7 @@ class ResidentController extends Controller
         return $this->render('MaisonretraiteBundle:resident:ajoutre.html.twig', array('form' => $Form->createView()));
     }
 
-    public function deletereAction($id)
-    {
 
-        $em = $this->getDoctrine()->getManager();
-        $modele = $em->getRepository("MaisonretraiteBundle:Resident")->find($id);
-        $em->remove($modele);
-        $em->flush();
-
-        return $this->redirectToRoute('affiche_re');
-    }
     public function editreAction(Request $request, $id)
 
     {
@@ -188,6 +152,33 @@ class ResidentController extends Controller
         $csv->output('ListeResidents.csv');
         exit;
     }
+    public function deletereAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $modele = $em->getRepository("MaisonretraiteBundle:Resident")->find($id);
+        $em->remove($modele);
+        $em->flush();
+
+
+        return $this->redirectToRoute('affiche_re');
+    }
+    public function deletereAAction($id,$idMaison)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $em1 = $this->getDoctrine()->getManager();
+        $modele = $em->getRepository("MaisonretraiteBundle:Resident")->find($id);
+        $em->remove($modele);
+        $em->flush();
+        $maisons = $em1->getRepository("MaisonretraiteBundle:Maison")->find($idMaison);
+        $maisons->setNbrPersonne($maisons->getNbrPersonne()+1);
+        $em1->persist($maisons);
+        $em1->flush();
+
+        return $this->redirectToRoute('affiche_reA');
+    }
+
     public function validerAction($id,$idMaison)
     {
         $em1 = $this->getDoctrine()->getManager();
@@ -199,8 +190,9 @@ class ResidentController extends Controller
             ->getQuery()
             ->execute();;
         $maisons = $em1->getRepository("MaisonretraiteBundle:Maison")->find($idMaison);
+
         $maisons->setNbrPersonne($maisons->getNbrPersonne()-1);
-        $em1->persist($maisons);
+            $em1->persist($maisons);
             $em1->flush();
 
         return $this->redirectToRoute('affiche_reA');
