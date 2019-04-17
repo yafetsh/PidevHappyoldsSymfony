@@ -24,6 +24,23 @@ class DemandeController extends Controller
 
 
     }
+    public function ajoutquantitedemandeAction(\Symfony\Component\HttpFoundation\Request $request)
+    {
+        $m = new Demande();
+        $Form = $this->createForm(DemandeType::class, $m);
+        $Form->handleRequest($request);
+        if ($Form->isSubmitted()) {
+            $m->
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($m);
+            $em->flush();
+
+
+        }
+        return $this->render('@Dons/Demande/ajoutdemande.html.twig', array('form' => $Form->createView()));
+
+
+    }
     public function afficherdemandeAction(\Symfony\Component\HttpFoundation\Request $request)
     {
         $m = new Demande();
@@ -71,5 +88,15 @@ class DemandeController extends Controller
         return $this->render('@Dons/Demande/ajoutdemande.html.twig', array('form' => $Form->createView()));
 
     }
+    public function afficheAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $demande = $em->getRepository("DonsBundle:Demande")->findAll();
+        return $this->render('@Dons/Demande/affichedemande.html.twig', array('m' => $demande,'form' => $Form->createView()));
+    }
+
+
+
+
 
 }

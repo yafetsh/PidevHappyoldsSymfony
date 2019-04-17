@@ -18,6 +18,7 @@ class DemandeType extends AbstractType
         $builder->add('idMaison',EntityType::class,array(
             'class' => 'MaisonretraiteBundle:Maison',
             'choice_label' => 'nomMaison',
+            'label'=>'Nom maison',
 
             'multiple' => false,
         ))
@@ -25,6 +26,8 @@ class DemandeType extends AbstractType
                 'class' => 'DonsBundle:CategorieDemande',
                 'choice_label' => 'nomCategorie',
                 'multiple' => false,
+                'label'=>'Nom Catégprie',
+
             ))
             ->add('quantiteDemande')
             ->add('descriptionDemande')
