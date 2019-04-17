@@ -48,6 +48,8 @@ class CategorieDemandeController extends Controller
             $em->flush();
             return $this->redirectToRoute('affichecategorie');
 
+
+
         }
         //em(entitymanager) son role de gérer les entités
         $em=$this->getDoctrine()->getManager();
@@ -70,16 +72,16 @@ class CategorieDemandeController extends Controller
         return $this->render('@Dons/CategorieDon/modif.html.twig',array('form'=>$Form->createView()));
 
     }
-
-
     public function deleteAction($id)
     {
         $em=$this->getDoctrine()->getManager();
-       // $ki=$em->ge
+        // $ki=$em->ge
         $categorie=$em->getRepository("DonsBundle:CategorieDemande")->find($id);
         $em->remove($categorie);
         $em->flush();
-        return $this->redirectToRoute('affiche');
+        return $this->redirectToRoute('affichecategorie');
     }
+
+
 
 }

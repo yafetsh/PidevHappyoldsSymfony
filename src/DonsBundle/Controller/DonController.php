@@ -2,6 +2,7 @@
 
 namespace DonsBundle\Controller;
 
+use DonsBundle\Entity\Demande;
 use DonsBundle\Entity\Don;
 
 
@@ -30,24 +31,66 @@ class DonController extends Controller
 
     }
 
-    public function affecterdonAction(\Symfony\Component\HttpFoundation\Request $request){
 
 
 
-        $dons=new Don();
-        if($request->isMethod('POST')) {
+    public function affecterdonAction(\Symfony\Component\HttpFoundation\Request $request,$idcategorie, $decriptiondemande,$iddemande)
+    {
+
+
+        $em = $this->getDoctrine()->getManager();
+        $demande = $em->getRepository("DonsBundle:Demande")->find($iddemande);
+        $categorie = $em->getRepository("DonsBundle:CategorieDemande")->find($idcategorie);
+
+
+
+        $don=new Don();
+        if($request->isMethod('post')) {
             //handlde request
-            $dons->setQuantiteDon($request->get('quantite'));
-            //handleRequest
+
+
+            $don->setIdDonCategorie($categorie);
+            $don->setQuantiteDon($request->get('quantite'));
+
+
+            $don->setDescriptionDon($decriptiondemande);
+            $don->setIdDemande($demande);
+
             $em = $this->getDoctrine()->getManager();
-            $em->persist($dons);
+            $em->persist($don);
             $em->flush();
-            return $this->redirectToRoute('participedon');
+            // return $this->redirectToRoute('participedon');
+
+            $demande->setQuantiteDemande($demande->getQuantiteDemande()-$don->getQuantiteDon());
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($demande);
+            $em->flush();
+
+           if($demande->getQuantiteDemande()<= 0){
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($demande);
+                $em->flush();
+            }
+
+                return $this->redirectToRoute('participedon');
+
 
         }
-        return $this->render('@Dons/Don/affecterdon.html.twig');
 
 
+
+        //em(entitymanager) son role de gérer les entités
+        //$em=$this->getDoctrine()->getManager();
+       // $demande=$em->getRepository("DonsBundle:Demande")->findAll();
+        return $this->render('@Dons/Don/affecter.html.twig');
+
+
+
+
+
+    }
+
+    public function modiferQntiteDon(\Symfony\Component\HttpFoundation\Request $request){
 
     }
 }

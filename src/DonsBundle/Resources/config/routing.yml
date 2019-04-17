@@ -15,7 +15,7 @@ modif:
     path:     /modif/{id}
     defaults: { _controller: DonsBundle:CategorieDemande:modif}
 
-delete:
+deletecategorie:
     path:     /delete/{id}
     defaults: { _controller: DonsBundle:CategorieDemande:delete}
 ajoutdemande:
@@ -34,8 +34,8 @@ _graphePie:
     path: /pie
     defaults: { _controller: GrapheBundle:Default:index}
 participedon:
-    path: /particpedon
+    path: /participedon
     defaults: { _controller: DonsBundle:Don:afficherdlistedemande}
 affecterdon:
-    path: /affecterdon
+    path: /affecterdon/{decriptiondemande} {idcategorie} {iddemande}
     defaults: { _controller: DonsBundle:Don:affecterdon}
