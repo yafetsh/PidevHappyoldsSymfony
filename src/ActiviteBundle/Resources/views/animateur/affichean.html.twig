@@ -8,7 +8,7 @@
             <form method="post" >
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                 <div class="input-group">
-                    <input type="text" name="nomActivite" class="form-control" placeholder="Search for...">
+                    <input type="text" name="nomActivite" class="form-control" placeholder="Chercher...">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="submit" value="recherche" >Go!</button>
                     </span>
@@ -52,10 +52,10 @@
 
 
                         <li>
-                            <a class="btn btn-round btn-primary" href="{{ path('modifier_an',{'id':animateur.idAnimateur })}} ">Edit</a>
+                            <a class="btn btn-round btn-primary" href="{{ path('modifier_an',{'id':animateur.idAnimateur })}} ">Modifier</a>
                         </li>
                         <li>
-                            <a class="btn btn-round btn-danger" href="{{ path('supprimer_an',{'id':animateur.idAnimateur })}} ">Delete</a>
+                            <a class="btn btn-round btn-danger" href="{{ path('supprimer_an',{'id':animateur.idAnimateur })}} ">Supprimer</a>
                         </li>
                     </ul>
 
@@ -69,7 +69,7 @@
     <ul>
 
 
-            <a class="btn btn-round btn-success" href="{{ path('ajouter_an') }}" >Create a new Animateur</a>
+            <a class="btn btn-round btn-success" href="{{ path('ajouter_an') }}" >Ajouter nouveau animateur</a>
 
     </ul>
 

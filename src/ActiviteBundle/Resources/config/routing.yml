@@ -66,10 +66,6 @@ list_animateur:
     path:     /listan
     defaults: { _controller: ActiviteBundle:Animateur:affichelan }
 
-addrate:
-    path:     /addrate
-    defaults: { _controller: ActiviteBundle:Activite:addrating }
-
 ajax_search:
     path:     /search
     defaults: { _controller: ActiviteBundle:Activite:search }

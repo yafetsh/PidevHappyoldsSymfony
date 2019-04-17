@@ -2,16 +2,16 @@
 {% block container %}
     <div class="right_col" role="form">
         <div class="form-control" style="display: table-cell" align="">
-            <h1>Activite creation</h1>
+            <h1>Creation d'activite</h1>
 
             {{ form_start(form) }}
             {{ form_widget(form) }}
-            <input class="btn btn-dark" type="submit" value="Create" />
+            <input class="btn btn-dark" type="submit" value="Ajouter" />
             {{ form_end(form) }}
 
 
 
-                    <a class="btn btn-danger" href="{{ path('affiche_ac') }}">Back to the list</a>
+                    <a class="btn btn-danger" href="{{ path('affiche_ac') }}">Retourner à la liste</a>
 
 
 

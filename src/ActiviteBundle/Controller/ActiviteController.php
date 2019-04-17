@@ -3,8 +3,7 @@
 namespace ActiviteBundle\Controller;
 
 use ActiviteBundle\Entity\Activite;
-use ActiviteBundle\Entity\Animateur;
-use ActiviteBundle\Entity\Rating;
+
 use ActiviteBundle\Form\ActiviteType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -150,22 +149,7 @@ class ActiviteController extends Controller
     }
 
 
-    function addratingAction(Request $request,$id)
-    {
-        $h = $this->getDoctrine()->getRepository('ActiviteBundle:Activite')->find($id);
-        $user = $this->container->get('security.token_storage')->getToken()->getUser();
-        $r = new Rating();
-        $r->setIdCli($user);
-        $r->setIdact($h->getIdact());
-        $r->setNote($_POST['rating']);
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($r);
-        $em->flush();
-
-        return $this->redirectToRoute('affiche_ac');
-
-    }
 
     public function searchAction(Request $request)
     {
