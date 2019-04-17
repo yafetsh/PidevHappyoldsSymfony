@@ -138,7 +138,7 @@ class MaisonController extends Controller
 
 
 
-        return $this->render('MaisonretraiteBundle:maison:recherche.html.twig', array(
+        return $this->render('MaisonretraiteBundle:maison:rechercheaction.html.twig', array(
             'maisons' => $users,
         ));
     }
