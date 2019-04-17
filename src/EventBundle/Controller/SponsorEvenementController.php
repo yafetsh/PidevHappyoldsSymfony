@@ -31,6 +31,17 @@ class SponsorEvenementController extends Controller
         ));
     }
 
+    public function affichespoAdminAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $spevenements = $em->getRepository('EventBundle:SponsorEvenement')->findAll();
+
+        return $this->render('EventBundle:sponsorevenement:indexspoadmin.html.twig', array(
+            'spevenements' => $spevenements,
+        ));
+    }
+
     public function ajoutspoAction(Request $request)
 
     {

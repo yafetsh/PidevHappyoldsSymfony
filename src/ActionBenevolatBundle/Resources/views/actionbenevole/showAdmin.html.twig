@@ -33,8 +33,9 @@
                 <td>{{ actionBenevole.etat }}</td>
                     <ul>
 <td>
-                            <a class="btn btn-danger" href="{{ path('delete2',{'id':actionBenevole.idAction})}}">Supprimer</a>
+
                       <a class="btn btn-primary" href="{{ path('valider',{'id':actionBenevole.idAction})}}">Valider</a>
+    <a class="btn btn-danger" href="{{ path('delete2',{'id':actionBenevole.idAction})}}">Supprimer</a>
                     </ul>
                 </td>
             </tr>

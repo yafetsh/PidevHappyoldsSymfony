@@ -44,7 +44,6 @@ class AdminController extends Controller
         $query = $em1->createQuery('SELECT e  FROM ActionBenevolatBundle:ActionBenevole e WHERE e.dateDAction = :id')
             ->setParameter('id', $sr);
 
-
         $users = $query->getResult();
 
 

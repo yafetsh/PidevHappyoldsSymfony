@@ -1,0 +1,52 @@
+{% extends 'base1.html.twig' %}
+{#{% block header %} {% endblock %}#}
+{% block container %}
+
+
+    <h1>liste des evenements </h1>
+
+    <table>
+        <thead>
+            <tr>
+
+                <th>Date debut</th>
+                <th>Date fin</th>
+                <th>Heure</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Description</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+
+                <td>{% if evenement.dateDEvenement %}{{ evenement.dateDEvenement|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if evenement.dateFEvenement %}{{ evenement.dateFEvenement|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ evenement.heureEvenement }}</td>
+                <td>{{ evenement.nomEvenement }}</td>
+                <td>{{ evenement.adresseEvenement }}</td>
+                <td>{{ evenement.descriptionEvenement }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('editev', { 'id': evenement.idEvenement }) }}">modifier</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('deleteev', { 'id': evenement.idEvenement }) }}">supprimer</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('newev') }}">créer un nouveu evenement</a>
+        </li>
+    </ul>
+{% endblock %}
+

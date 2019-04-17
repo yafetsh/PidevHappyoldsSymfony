@@ -23,7 +23,7 @@ change_ad:
     defaults: { _controller: ActiviteBundle:Animateur:changead }
 
 ajouter_ac:
-    path:     /ajoutecn
+    path:     /ajoutecn/{id}
     defaults: { _controller: ActiviteBundle:Activite:ajouteac }
 
 affiche_ac:
@@ -65,6 +65,22 @@ detailed_activite:
 list_animateur:
     path:     /listan
     defaults: { _controller: ActiviteBundle:Animateur:affichelan }
+
+addrate:
+    path:     /addrate
+    defaults: { _controller: ActiviteBundle:Activite:addrating }
+
+ajax_search:
+    path:     /search
+    defaults: { _controller: ActiviteBundle:Activite:search }
+
+affiche_lad:
+    path:     /affichelad
+    defaults: { _controller: ActiviteBundle:Activite:affichelad }
+
+
+
+
 
 
 

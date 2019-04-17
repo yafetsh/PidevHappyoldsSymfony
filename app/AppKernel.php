@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Egyg33k\CsvBundle\Egyg33kCsvBundle(),
 
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
 
 
         ];

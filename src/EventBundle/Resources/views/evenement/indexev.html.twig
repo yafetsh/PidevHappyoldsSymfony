@@ -12,10 +12,10 @@
                 <th>Date debut</th>
                 <th>Date fin</th>
                 <th>Heure</th>
-                <th>Nome</th>
+                <th>Nom</th>
                 <th>Adresse</th>
                 <th>Description</th>
-                <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -31,13 +31,7 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('editev', { 'id': evenement.idEvenement }) }}">edit</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('deleteev', { 'id': evenement.idEvenement }) }}">delete</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('participer', { 'evenementId': evenement.idEvenement }) }}">Participer</a>
+                            <a href="{{ path('participer', { 'evenementId': evenement.idEvenement }) }}">participer</a>
                         </li>
                     </ul>
                 </td>
@@ -48,7 +42,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('newev') }}">Create a new evenement</a>
+            <a href="{{ path('newev') }}">créer un nouveu evenement</a>
         </li>
     </ul>
 {% endblock %}

@@ -85,6 +85,10 @@ class AnimateurController extends Controller
         return $this->render('ActiviteBundle:animateur:editan.html.twig', array('form' => $Form->createView()));
     }
 
+
+
+
+
     public function changeadAction($id)
     {
 $despo = "Nondisponible";
@@ -95,7 +99,7 @@ $despo = "Nondisponible";
         ->where('a.idAnimateur  = :e')
         ->setParameter('e', $id)
         ->getQuery()
-        ->execute();;
+        ->execute();
 
 
         return $this->redirectToRoute('affiche_an');
@@ -111,6 +115,8 @@ $despo = "Nondisponible";
             'animateurs' => $animateurs,
         ));
     }
+
+
 
 
 

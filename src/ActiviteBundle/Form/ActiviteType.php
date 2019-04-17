@@ -10,20 +10,20 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 
 
+
 class ActiviteType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
+
+
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomActivite')->add('dateActivite')->add('descriptionActivite')->add('animateur',EntityType::class, array(
 
-            'class' => 'ActiviteBundle:animateur',
-            'choice_label' => 'nom_animateur',
-            'multiple' => false,
 
-        ))->add('categorieActivite',EntityType::class, array(
+        $builder->add('nomActivite')->add('dateActivite')->add('descriptionActivite')->add('categorieActivite',EntityType::class, array(
 
         'class' => 'ActiviteBundle:CategorieActivite',
         'choice_label' => 'type',
