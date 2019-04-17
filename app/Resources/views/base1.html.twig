@@ -10,6 +10,8 @@
 
 
     <title>{% block title %}Happy Olds{% endblock %} </title>
+    {% block other_stylesheet %}{% endblock %}
+
     {% block stylesheat %}
         <!-- Bootstrap -->
         <link href="{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -227,6 +229,8 @@
 
 </body>
 </html>
+{% block other_javascripts %}{% endblock %}
+
 {% block javascripts %}
     <!-- jQuery -->
     <script src="{{ asset('vendors/jquery/dist/jquery.min.js') }}"></script>
