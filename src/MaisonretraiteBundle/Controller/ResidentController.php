@@ -17,8 +17,10 @@ class ResidentController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $residents = $em->getRepository('MaisonretraiteBundle:Resident')->findAll();
+        $residents = $em->getRepository('MaisonretraiteBundle:Resident')->findBy(
+            ['etat' => 'valide']
 
+        );
         return $this->render('MaisonretraiteBundle:resident:affichere.html.twig', array(
             'residents' => $residents,
         ));
@@ -27,7 +29,10 @@ class ResidentController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $residents = $em->getRepository('MaisonretraiteBundle:Resident')->findAll();
+        $residents = $em->getRepository('MaisonretraiteBundle:Resident')->findBy(
+            ['etat' => 'invalide']
+
+        );
 
         return $this->render('MaisonretraiteBundle:resident:affichereA.html.twig', array(
             'residents' => $residents,
@@ -45,15 +50,18 @@ class ResidentController extends Controller
         $r = new Resident();
         $Form = $this->createForm(ResidentType::class, $r);
         $Form->handleRequest($request);
-        $nomMaison =  $request->query->get('nom_maison');
+//        $nomMaison =  $request->query->get('nom_maison');
 //        $idMaison =  $request->query->get('id_maison');
-        $maison = $this->getDoctrine()->getRepository(Maison::class)->findBy(['nomMaison' => $nomMaison]);
+//        $maison = $this->getDoctrine()->getRepository(Maison::class)->findBy(['nomMaison' => $nomMaison]);
 //        $idMaison = $maison->getId();
 //        var_dump ($nomMaison);
 //        $infoArray['idMaison'] = $maison->getCountry() ? $maison->getCountry()->getId() ;
-        var_dump($Form->getData());
+//        var_dump($Form->getData());
 
         if ($Form->isSubmitted()) {
+            $resident = $Form->getData();
+            $resident->setEtat("invalide");
+
 //            $maison = $this->getDoctrine()->getRepository(Maison::class)->find($nomMaison);
 //            $maison = $this->getDoctrine()->getRepository(Maison::class)->findByNomMaison($nomMaison);
 //            $maison = $this->getDoctrine()->getRepository(Maison::class)->findOneBy(['nom_maison' => $nomMaison]);
@@ -68,25 +76,25 @@ class ResidentController extends Controller
 //                ->setParameter('idMaison', $idMaison)
 //                ->getQuery()
 //                ->execute();
-             $m->setNbrPersonne($m->getNbrPersonne()-1);
-              $em->persist($m);
-              $em->flush();
+//             $m->setNbrPersonne($m->getNbrPersonne()-1);
+//              $em->persist($m);
+//              $em->flush();
 //          }
 
-            $em->persist($r);
+            $em->persist($resident);
             $em->flush();
 
-            $notification = new Notification();
-            $notification
-                ->setTitle('Un nouveau résident est inscrit')
-                ->setDescription($r->getPrenomResident())
-                ->setRoute('affiche_re')// I suppose you have a show route for your entity
-                ->setParameters(array('id' => $r->getIdResident()))
-            ;
-            $em->persist($notification);
-            $em->flush();
-            $pusher = $this->get('mrad.pusher.notificaitons');
-            $pusher->trigger($notification);
+//            $notification = new Notification();
+//            $notification
+//                ->setTitle('Un nouveau résident est inscrit')
+//                ->setDescription($r->getPrenomResident())
+//                ->setRoute('affiche_re')// I suppose you have a show route for your entity
+//                ->setParameters(array('id' => $r->getIdResident()))
+//            ;
+//            $em->persist($notification);
+//            $em->flush();
+//            $pusher = $this->get('mrad.pusher.notificaitons');
+//            $pusher->trigger($notification);
             return $this->redirectToRoute('affiche_re');
 
 
@@ -180,5 +188,21 @@ class ResidentController extends Controller
         $csv->output('ListeResidents.csv');
         exit;
     }
+    public function validerAction($id,$idMaison)
+    {
+        $em1 = $this->getDoctrine()->getManager();
+        $qb = $em1->createQueryBuilder();
+        $qb ->update('MaisonretraiteBundle:Resident', 'e')
+            ->set('e.etat',"'valide'")
+            ->where('e.idResident  = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->execute();;
+        $maisons = $em1->getRepository("MaisonretraiteBundle:Maison")->find($idMaison);
+        $maisons->setNbrPersonne($maisons->getNbrPersonne()-1);
+        $em1->persist($maisons);
+            $em1->flush();
 
+        return $this->redirectToRoute('affiche_reA');
+    }
 }

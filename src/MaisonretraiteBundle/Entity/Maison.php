@@ -14,8 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="maison", indexes={@ORM\Index(name="id_user", columns={"id_user"})})
  * @ORM\Entity
  */
-class Maison implements NotifiableInterface
-{
+class Maison {
     /**
      * @var integer
      *
@@ -205,37 +204,6 @@ class Maison implements NotifiableInterface
         $this->idUser = $idUser;
     }
 
-    public function notificationsOnCreate(NotificationBuilder $builder)
-    {
-        $notification = new Notification();
-        $notification
-            ->setTitle('New Maison')
-            ->setDescription($this->nomMaison)
-            ->setRoute('affiche_ma')// I suppose you have a show route for your entity
-            ->setParameters(array('id' => $this->idMaison))
-        ;
-        $builder->addNotification($notification);
-
-        return $builder;    }
-
-    public function notificationsOnUpdate(NotificationBuilder $builder)
-    {
-        $notification = new Notification();
-        $notification
-            ->setTitle('Maison updated')
-            ->setDescription($this->nomMaison)
-            ->setRoute('affiche_ma')
-            ->setParameters(array('id' => $this->idMaison))
-        ;
-        $builder->addNotification($notification);
-
-        return $builder;    }
-
-    public function notificationsOnDelete(NotificationBuilder $builder)
-    {
-        // in case you don't want any notification for a special event
-        // you can simply return an empty $builder
-        return $builder;    }
 
 
 }
