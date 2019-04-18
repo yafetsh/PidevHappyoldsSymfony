@@ -50,11 +50,11 @@ ajouter_allergie:
   path:     /ajouterAllergie
   defaults: { _controller: PrestationsanteBundle:Dossier:ajouterAllergie }
 supprimer_allergie:
-  path:     /supprimerAllergie/{id}
+  path:     /supprimerAllergie/{id} {idResident}
   defaults: { _controller: PrestationsanteBundle:Dossier:supprimerAllergie }
 ajouter_prescription:
   path:     /ajouterPrescription
   defaults: { _controller: PrestationsanteBundle:Dossier:ajouterPrescription }
 supprimer_prescription:
-  path:     /supprimerPrescription/{id}
+  path:     /supprimerPrescription/{id} {idResident}
   defaults: { _controller: PrestationsanteBundle:Dossier:supprimerPrescription }

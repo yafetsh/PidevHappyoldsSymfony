@@ -55,6 +55,9 @@
 
 {% endblock %}
 {% block container %}
+    {% block service %}{% endblock %}
+    <section  class="section-bg wow fadeInUp">
+    <header class="section-header wow fadeInUp">
     <a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button">retourner a la liste des residents</a>
 
     <div class="card-body">
@@ -195,7 +198,9 @@
 
     </div>
 
-
+    </div>
+    </header>
+    </section>
     <script>
         var niveau_temperature_slider = document.getElementById("niveau_temperature");
         var niveau_sucre_slider = document.getElementById("niveau_sucre");

@@ -84,17 +84,27 @@
     {#</div>#}
 
     <!--MDB Tables-->
+    <section  class="section-bg wow fadeInUp">
+        <header class="section-header wow fadeInUp">
     <div class="container mt-4">
+
 
 
         <div class="card mb-4">
 
             <div class="card-body">
 
-
+                {% for flashMessage in app.session.flashbag.get('forum_ranks_failure') %}
+                    <div class="alert alert-danger" id="msg" style="text-align: center">
+                        <b>{{ flashMessage }}</b>
+                    </div>
+                {% endfor %}
                 <div class="card mb-4">
-                    <div class="card-body"><h2><strong>Données personnelles :</strong></h2>
+
+                    <div class="card-body"><h2><strong>Données personnelles :</strong> </h2>
+
                         <!--Table-->
+
                         <table class="table table-hover">
                             <!--Table head-->
 
@@ -174,7 +184,7 @@
                                 {% set allerg = allergie.descriptionAllergie %}
 
                             {#<button type="button" class="btn btn-success" data-toggle="modal" data-target="#allergies" data-whatever="@@@@@">Modifier</button>#}
-                            <button  type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteAllergies" data-whatever="@mdo">Supprimer</button>
+                            <a href="{{ path('supprimer_allergie',{'id':allergie.idAllergie ,'idResident':resident.idResident})}}"  class="btn btn-outline-danger" >Supprimer</a>
 
                         </td>
 
@@ -221,7 +231,7 @@
                                 <td>
                                     {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-success" role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Modifier</a>#}
                                     {#<a href="{{ path('afficher_liste_resident')}}" class="btn btn-danger" role="button">Supprimer</a>#}
-                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deletePrescription" data-whatever="@mdo">Supprimer</button>
+                                    <a class="btn btn-outline-danger" href="{{ path('supprimer_prescription',{'id':prescription.idPrescriptionsMedicaments ,'idResident':resident.idResident})}}">Supprimer</a>
 
                                 </td>
 
@@ -232,12 +242,15 @@
                             {% endfor %}
 
                             </tbody>
+
                             <!--Table body-->
                         </table>
                         <!--Table-->
+                        <a href="{{ path('afficher_liste_resident')}}"  class="btn btn-success" role="button"><<<  Retourner a la liste des résidents</a>
+                        <a href="{{ path('afficher_liste_resident')}}"  class="btn btn-danger" role="button">Exporter PDF</a>
+
                     </div>
 
-                    <a href="{{ path('afficher_liste_resident')}}"  class="btn btn-success" role="button"><<<  Retourner a la liste des résidents</a>
 
                 </div>
 
@@ -488,8 +501,8 @@
     </div>
     <!--end  block modal -->
 
-
-
+        </header>
+</section>
 {% endblock %}
  {% block other_javascripts %}
      <script>
