@@ -134,6 +134,32 @@ class Resident implements NotifiableInterface , \JsonSerializable
     private $Maison;
 
     /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * })
+     */
+    private $idUser;
+
+    /**
+     * @return \User
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param \User $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+    /**
      * @return int
      */
     public function getIdResident()

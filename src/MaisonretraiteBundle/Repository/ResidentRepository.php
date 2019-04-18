@@ -16,4 +16,12 @@ class ResidentRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('n',$id);
         return $query->getSingleScalarResult();
     }
+    public function findEtatUser($idUser)
+    {
+        $query=$this->getEntityManager($idUser)
+            ->createQuery("select r from MaisonretraiteBundle:Resident r WHERE r.etat='invalide' AND r.idUser=:id")
+            ->setParameter('id', $idUser);
+        return $query->getResult();
+
+    }
 }

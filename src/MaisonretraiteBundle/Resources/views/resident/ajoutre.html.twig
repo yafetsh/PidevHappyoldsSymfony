@@ -3,7 +3,7 @@
 {% block container %}
 <section id="contact" class="section-bg wow fadeInUp">
     <div class="container">
-    <h1> Inscrivez votre résident ! </h1>
+    <h1 style="text-align: center" > Inscrivez votre résident ! </h1>
     <br>
 
     {{ form_start(form) }}
@@ -17,7 +17,7 @@
 
     <input type="submit" value="S'inscrire" class="btn btn-success" />
     {{ form_end(form) }}
-<br>
+
             <a class="btn btn-dark" href="{{ path('affiche_re') }} ">Annuler</a>
     </div>
 </section>

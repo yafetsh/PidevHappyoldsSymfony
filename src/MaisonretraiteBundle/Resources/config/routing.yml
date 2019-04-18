@@ -37,7 +37,7 @@ affiche_re:
 
 
 delete_re:
-        path:     /deletere/{id}
+        path:     /deletere/{id}/{idMaison}
         defaults: { _controller: MaisonretraiteBundle:Resident:deletere }
 delete_reA:
     path:     /deletere/{id}/{idMaison}

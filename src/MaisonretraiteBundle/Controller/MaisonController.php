@@ -37,15 +37,18 @@ class MaisonController extends Controller
     public function ajoutemaAction(Request $request)
 
     {
+
         $m = new Maison();
         $Form = $this->createForm(MaisonType::class, $m);
         $Form->handleRequest($request);
+//        $m->setIdUser($this->getUser());
 
         if ($Form->isSubmitted() && $Form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($m);
             $em->flush();
+//            $res->setIdUser($this->getUser())
 
 //            $notification = new Notification();
 //            $notification

@@ -8,8 +8,8 @@
             <div class="">
             {{ render(controller('MaisonretraiteBundle:Notification:display2')) }}
             </div>
-        <h1>
-        {{ 'Vos résidents !'|upper }}
+        <h1 style="text-align: center">
+        {{ 'La liste de vos résidents'|upper }}
     </h1>
 
         <br>
@@ -33,6 +33,7 @@
         </thead>
         <tbody>
         {% for resident in residents %}
+            {% if app.user.id == resident.idUser.id %}
             <tr>
                 <td>{{ resident.nomResident }}</td>
                 <td>{{ resident.prenomResident }}</td>
@@ -50,12 +51,13 @@
 
                             <a class="btn btn-primary" href="{{ path('edit_re', { 'id': resident.idResident }) }}">Modifier</a>
 
-                            <a class="btn btn-danger" href="{{ path('delete_re', { 'id': resident.idResident }) }}">Supprimer</a>
+                            <a class="btn btn-danger" href="{{ path('delete_re', { 'id': resident.idResident,'idMaison': resident.Maison.idMaison }) }}">Supprimer</a>
                         {#<a class="btn btn-success" href="{{ path('confirmer', { 'id': resident.idResident }) }}">Confirmer</a>#}
 
                     </ul>
                 </td>
             </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>

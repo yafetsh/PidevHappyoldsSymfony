@@ -13,6 +13,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 
 class ResidentController extends Controller
 {
+//    public function findEtatUserAction($idUser)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//        $residents = $em->getRepository('MaisonretraiteBundle:Resident')->findEtatUser($idUser);
+////        $residents = $em->getRepository('MaisonretraiteBundle:Resident')->findBy(
+////            ['etat' => 'valide']);
+//
+//        return $this->render('MaisonretraiteBundle:resident:affichere.html.twig', array(
+//            'residents' => $residents,
+//        ));
+//    }
+
     public function affichereAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -46,10 +58,14 @@ class ResidentController extends Controller
     public function ajoutreAction(Request $request)
 
     {
+
         $m = new Maison();
         $r = new Resident();
         $Form = $this->createForm(ResidentType::class, $r);
         $Form->handleRequest($request);
+//        $r->setIdUser($this->getUser());
+        $r->setIdUser($this->getUser());
+
         if ($Form->isSubmitted()) {
             $resident = $Form->getData();
             $resident->setEtat("invalide");
@@ -57,17 +73,6 @@ class ResidentController extends Controller
             $em->persist($resident);
             $em->flush();
 
-//            $notification = new Notification();
-//            $notification
-//                ->setTitle('Un nouveau résident est inscrit')
-//                ->setDescription($r->getPrenomResident())
-//                ->setRoute('affiche_re')// I suppose you have a show route for your entity
-//                ->setParameters(array('id' => $r->getIdResident()))
-//            ;
-//            $em->persist($notification);
-//            $em->flush();
-//            $pusher = $this->get('mrad.pusher.notificaitons');
-//            $pusher->trigger($notification);
             return $this->redirectToRoute('affiche_re');
 
 
@@ -109,14 +114,18 @@ class ResidentController extends Controller
         $csv->output('ListeResidents.csv');
         exit;
     }
-    public function deletereAction($id)
+    public function deletereAction($id,$idMaison)
     {
         $em = $this->getDoctrine()->getManager();
+        $em1 = $this->getDoctrine()->getManager();
 
         $modele = $em->getRepository("MaisonretraiteBundle:Resident")->find($id);
         $em->remove($modele);
         $em->flush();
-
+        $maisons = $em1->getRepository("MaisonretraiteBundle:Maison")->find($idMaison);
+        $maisons->setNbrPersonne($maisons->getNbrPersonne()+1);
+        $em1->persist($maisons);
+        $em1->flush();
 
         return $this->redirectToRoute('affiche_re');
     }
