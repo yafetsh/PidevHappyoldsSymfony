@@ -185,14 +185,17 @@ return $this->afficherListeResidentAdminAction();
 
 
 
-    public  function supprimerAllergieAction($id)
+    public  function supprimerAllergieAction($id,$idResident,Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $allergie = $em->getRepository("PrestationsanteBundle:Allergies")->find($id);
         $em->remove($allergie);
         $em->flush();
 
-        return $this->redirectToRoute('afficher_liste_resident');
+      //  return $this->redirectToRoute('afficher_liste_resident');
+        $this->addFlash('forum_ranks_failure', 'Allergie supprimée !');
+
+        return $this->getDossierByResidentAction($request, $idResident);
     }
 
     public function ajouterAllergieAction(Request $request)
@@ -244,19 +247,20 @@ return $this->afficherListeResidentAdminAction();
         return $this->redirectToRoute('afficher_liste_resident');
     }
 
-    public  function supprimerPrescriptionAction(Request $request,$id)
+    public  function supprimerPrescriptionAction(Request $request,$id,$idResident)
     {
-        $id2= $request->get('idAllergie');
 
         $em = $this->getDoctrine()->getManager();
-        $prescription = $em->getRepository("PrestationsanteBundle:PrescriptionsMedicaments")->find($id2);
+        $prescription = $em->getRepository("PrestationsanteBundle:PrescriptionsMedicaments")->find($id);
         $em->remove($prescription);
         $em->flush();
 
 
 
-        var_dump($id);
-        return $this->redirectToRoute('afficher_liste_resident');
+        //var_dump($id);
+        $this->addFlash('forum_ranks_failure', 'Prescription supprimée !');
+        return $this->getDossierByResidentAction($request, $idResident);
+       // return $this->redirectToRoute('afficher_liste_resident');
     }
 
 

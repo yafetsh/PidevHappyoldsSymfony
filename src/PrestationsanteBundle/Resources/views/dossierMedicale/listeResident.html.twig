@@ -1,289 +1,110 @@
 {% extends 'base.html.twig' %}
+ {% block other_stylesheet %}
+     <!-- data tables -->
+     <link href="{{ asset('datatables/datatables.min.css') }}" rel="stylesheet" type="text/css">
+     <link href="{{ asset('datatables/datatables.css') }}" rel="stylesheet" type="text/css">
 
+ {% endblock %}
 {% block container %}
-    {% block other_stylesheet %}
 
-
-    {% endblock %}
     {% block service %}{% endblock %}
 
-<h3 id="listeresident">Liste des residents</h3>
+
+    <section  class="section-bg wow fadeInUp">
+    <div class="container">
+        <br>
+        <header class="section-header wow fadeInUp">
+
+            <h1>
+               Liste des résidents :
+            </h1>
+
+            <br>
+
+            <table  class="table table-bordered table-hover table-striped" id="myTable" >
+                <thead align="1">
+                <tr>
+                    <th> Nom </th>
+                    <th> Prénom </th>
+                    <th> Age </th>
+                    <th> Sexe </th>
 
 
-<!--
+                    <th> Responsable </th>
+                    <th> Telephone responsable </th>
+                    <th> Maison</th>
 
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Table design <small>Custom design</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="x_content">
-
-                <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>
-
-                <div class="table-responsive">
-                    <table class="table table-striped jambo_table bulk_action">
-                        <thead>
-                        <tr class="headings">
-                            <th>
-                                <input type="checkbox" id="check-all" class="flat">
-                            </th>
-                            <th class="column-title">Invoice </th>
-                            <th class="column-title">Invoice Date </th>
-                            <th class="column-title">Order </th>
-                            <th class="column-title">Bill to Name </th>
-                            <th class="column-title">Status </th>
-                            <th class="column-title">Amount </th>
-                            <th class="column-title no-link last"><span class="nobr">Action</span>
-                            </th>
-                            <th class="bulk-actions" colspan="7">
-                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
-                            </th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr class="even pointer">
-                            <td class="a-center ">
-                                <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000040</td>
-                            <td class=" ">May 23, 2014 11:47:56 PM </td>
-                            <td class=" ">121000210 <i class="success fa fa-long-arrow-up"></i></td>
-                            <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
-                            <td class="a-right a-right ">$7.45</td>
-                            <td class=" last"><a href="#">View</a>
-                            </td>
-                        </tr>
-                        <tr class="odd pointer">
-                            <td class="a-center ">
-                                <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000039</td>
-                            <td class=" ">May 23, 2014 11:30:12 PM</td>
-                            <td class=" ">121000208 <i class="success fa fa-long-arrow-up"></i>
-                            </td>
-                            <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
-                            <td class="a-right a-right ">$741.20</td>
-                            <td class=" last"><a href="#">View</a>
-                            </td>
-                        </tr>
-                        <tr class="even pointer">
-                            <td class="a-center ">
-                                <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000038</td>
-                            <td class=" ">May 24, 2014 10:55:33 PM</td>
-                            <td class=" ">121000203 <i class="success fa fa-long-arrow-up"></i>
-                            </td>
-                            <td class=" ">Mike Smith</td>
-                            <td class=" ">Paid</td>
-                            <td class="a-right a-right ">$432.26</td>
-                            <td class=" last"><a href="#">View</a>
-                            </td>
-                        </tr>
-                        <tr class="odd pointer">
-                            <td class="a-center ">
-                                <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000037</td>
-                            <td class=" ">May 24, 2014 10:52:44 PM</td>
-                            <td class=" ">121000204</td>
-                            <td class=" ">Mike Smith</td>
-                            <td class=" ">Paid</td>
-                            <td class="a-right a-right ">$333.21</td>
-                            <td class=" last"><a href="#">View</a>
-                            </td>
-                        </tr>
-                        <tr class="even pointer">
-                            <td class="a-center ">
-                                <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000040</td>
-                            <td class=" ">May 24, 2014 11:47:56 PM </td>
-                            <td class=" ">121000210</td>
-                            <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
-                            <td class="a-right a-right ">$7.45</td>
-                            <td class=" last"><a href="#">View</a>
-                            </td>
-                        </tr>
-                        <tr class="odd pointer">
-                            <td class="a-center ">
-                                <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000039</td>
-                            <td class=" ">May 26, 2014 11:30:12 PM</td>
-                            <td class=" ">121000208 <i class="error fa fa-long-arrow-down"></i>
-                            </td>
-                            <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
-                            <td class="a-right a-right ">$741.20</td>
-                            <td class=" last"><a href="#">View</a>
-                            </td>
-                        </tr>
-                        <tr class="even pointer">
-                            <td class="a-center ">
-                                <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000038</td>
-                            <td class=" ">May 26, 2014 10:55:33 PM</td>
-                            <td class=" ">121000203</td>
-                            <td class=" ">Mike Smith</td>
-                            <td class=" ">Paid</td>
-                            <td class="a-right a-right ">$432.26</td>
-                            <td class=" last"><a href="#">View</a>
-                            </td>
-                        </tr>
-                        <tr class="odd pointer">
-                            <td class="a-center ">
-                                <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000037</td>
-                            <td class=" ">May 26, 2014 10:52:44 PM</td>
-                            <td class=" ">121000204</td>
-                            <td class=" ">Mike Smith</td>
-                            <td class=" ">Paid</td>
-                            <td class="a-right a-right ">$333.21</td>
-                            <td class=" last"><a href="#">View</a>
-                            </td>
-                        </tr>
-
-                        <tr class="even pointer">
-                            <td class="a-center ">
-                                <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000040</td>
-                            <td class=" ">May 27, 2014 11:47:56 PM </td>
-                            <td class=" ">121000210</td>
-                            <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
-                            <td class="a-right a-right ">$7.45</td>
-                            <td class=" last"><a href="#">View</a>
-                            </td>
-                        </tr>
-                        <tr class="odd pointer">
-                            <td class="a-center ">
-                                <input type="checkbox" class="flat" name="table_records">
-                            </td>
-                            <td class=" ">121000039</td>
-                            <td class=" ">May 28, 2014 11:30:12 PM</td>
-                            <td class=" ">121000208</td>
-                            <td class=" ">John Blank L</td>
-                            <td class=" ">Paid</td>
-                            <td class="a-right a-right ">$741.20</td>
-                            <td class=" last"><a href="#">View</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
--->
-
-    <div class="col-md-6 col-sm-6 col-xs-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-
-                <table class="table">
-                    <thead>
+                    <th> Actions </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in r %}
                     <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Action</th>
-
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for i in r %}
-                    <tr>
-
-                        <th scope="row">{{ i.idResident }}</th>
                         <td>{{ i.nomResident }}</td>
                         <td>{{ i.prenomResident }}</td>
+                        <td>{{ i.ageResident }}</td>
+                        <td>{{ i.sexeResident }}</td>
+
+                        <td>{{ i.responsable }}</td>
+                        <td>{{ i.telephoneResponsable }}</td>
+                        <td>{{ i.Maison.nomMaison }}</td>
+                        <td>
                         {% set dossierexist = 0 %}
                         {% for dossier in d %}
 
-                        {% if i.idResident == dossier.idResident.idResident %}
-                            {% set dossierexist =1 %}
-                        {% endif %}
+                            {% if i.idResident == dossier.idResident.idResident %}
+                                {% set dossierexist =1 %}
+                            {% endif %}
                         {% endfor %}
 
                         {% if dossierexist==1 %}
-                            <td><a  href="{{ path('afficher_dossier_par_resident',{'id':i.idResident })}}">afficher dossier</a> </td>
+                            <a  class="btn btn-outline-primary" href="{{ path('afficher_dossier_par_resident',{'id':i.idResident })}}">afficher dossier</a>
 
-                            {% else %}
-                            <td> <a  href="{{ path('ajouter_dossier',{'id':i.idResident })}}">ajouter dossier</a> </td>
+                        {% else %}
+                             <a  class="btn btn-primary" href="{{ path('ajouter_dossier',{'id':i.idResident })}}">ajouter dossier</a>
 
                         {% endif %}
 
                         {% set residentexist =0 %}
                         {% for prestation in p %}
 
-                         {% if i.idResident == prestation.idResident.idResident %}
-                           {% set residentexist=1 %}
-                         {% endif %}
+                            {% if i.idResident == prestation.idResident.idResident %}
+                                {% set residentexist=1 %}
+                            {% endif %}
                         {% endfor %}
 
                         {% if residentexist==1 %}
-                        <td><a href="{{ path('afficher_fiche_par_resident',{'id':i.idResident })}}">afficher fiches</a> </td>
+                            <a  class="btn btn-outline-success" href="{{ path('afficher_fiche_par_resident',{'id':i.idResident })}}">afficher fiche(s)</a>
                         {% else %}
-                            <td><a href="{{ path('ajouter_fiche',{'idResident':i.idResident })}}">ajouter fiche</a> </td>
+                            <a  class="btn btn-success" href="{{ path('ajouter_fiche',{'idResident':i.idResident })}}">ajouter fiche</a>
                         {% endif %}
-
+                        </td>
                     </tr>
-                    {% endfor %}
+                {% endfor %}
+                </tbody>
+            </table>
 
-                    </tbody>
-                </table>
+           <!-- <ul>
+                <br>
+                <br>
+                <a class="btn btn-success" href="">Inscrivez Vous</a>
 
-            </div>
-        </div>
+                <br>
+                <br>
+
+            </ul>-->
+        </header>
     </div>
+    </section>
 
-    {% block other_javascripts %}
+{% endblock %}
+{% block other_javascripts %}
+    <script type="text/javascript" src="{{ asset('datatables/datatables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('datatables/datatables.min.js') }}"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').dataTable();
 
-    {% endblock %}
+        } );
+    </script>
 {% endblock %}

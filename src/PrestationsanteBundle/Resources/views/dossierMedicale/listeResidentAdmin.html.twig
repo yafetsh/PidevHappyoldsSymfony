@@ -1,9 +1,12 @@
 {% extends 'base1.html.twig' %}
 
+  {% block other_stylesheet %}
+      <!-- data tables -->
+      <link href="{{ asset('datatables/datatables.min.css') }}" rel="stylesheet" type="text/css">
+      <link href="{{ asset('datatables/datatables.css') }}" rel="stylesheet" type="text/css">
+  {% endblock %}
 {% block container %}
-    {% block other_stylesheet %}
 
-    {% endblock %}
 <div style="margin-left: 30%;">
 
 
@@ -227,7 +230,7 @@
             </div>
             <div class="x_content">
 
-                <table class="table">
+                <table class="table" id="myTable">
                     <thead>
                     <tr>
                         <th>#</th>
@@ -279,11 +282,19 @@
     </div>
     <a href="{{ path('afficher_liste_dossier_pour_admin')}}" class="btn btn-success" role="button">afficher tous les dossiers</a>
 
-    {% block other_javascripts %}
-
-    {% endblock %}
-
-
 
 </div>
+{% endblock %}
+
+{% block other_javascripts %}
+
+    <script type="text/javascript" src="{{ asset('datatables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('datatables.min.js') }}"></script>
+    <script>
+
+        $(document).ready( function () {
+           $('#myTable').dataTable();
+
+        } );
+    </script>
 {% endblock %}

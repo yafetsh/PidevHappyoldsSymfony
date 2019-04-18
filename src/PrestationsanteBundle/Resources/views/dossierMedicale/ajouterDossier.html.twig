@@ -22,7 +22,8 @@
 {#</form>#}
 {#<a href="{{ path('afficher_liste_dossier' )}}">afficher les dossiers:</a>#}
 
-
+ <section  class="section-bg wow fadeInUp">
+ <header class="section-header wow fadeInUp">
  <div class="container mt-4">
      {% for flashMessage in app.session.flashbag.get('forum_ranks_failure') %}
       <div class="alert alert-danger" id="msg">
@@ -162,5 +163,7 @@
 
  </form>
    </div>
+ </header>
+ </section>
 
 {% endblock %}
