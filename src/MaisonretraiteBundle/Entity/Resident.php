@@ -345,14 +345,14 @@ class Resident implements NotifiableInterface , \JsonSerializable
 
     public function notificationsOnUpdate(NotificationBuilder $builder)
     {
-        $notification = new Notification();
-        $notification
-            ->setTitle('Un résident a modifié ces données')
-            ->setDescription($this->prenomResident)
-            ->setRoute('affiche_reA')
-            ->setParameters(array('id' => $this->idResident))
-        ;
-        $builder->addNotification($notification);
+//        $notification = new Notification();
+//        $notification
+//            ->setTitle('Un résident a modifié ces données')
+//            ->setDescription($this->prenomResident)
+//            ->setRoute('affiche_reA')
+//            ->setParameters(array('id' => $this->idResident))
+//        ;
+//        $builder->addNotification($notification);
 
         return $builder;    }
 

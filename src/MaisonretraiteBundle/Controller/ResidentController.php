@@ -95,49 +95,6 @@ class ResidentController extends Controller
         return $this->render('MaisonretraiteBundle:resident:editre.html.twig', array('edit_form' => $Form->createView()));
     }
 
-//    public function confirmerAction( $id,Request $request)
-//
-//    {
-//        $nomMaison =  $request->query->get('nom_maison');
-//
-//        $em = $this->getDoctrine()->getManager();
-//        $modele = $em->getRepository("MaisonretraiteBundle:Maison")->find($id);
-////        $maison = $this->getDoctrine()->getRepository(Resident::class)->findBy(['idMaison' => $nomMaison]);
-//        $nomMaison =  $request->query->get('id_maison');
-//
-//        $maison = $this->getDoctrine()->getRepository(Maison::class)->findOneBy(['idMaison' => $modele]);
-////        $idMaison = $maison->getMaison()->getNomMaison();
-////        $em1 = $this->getDoctrine()->getManager();
-////        $qb = $em1->createQueryBuilder('e');
-////        $query = $em1->createQuery('SELECT e  FROM MaisonretraiteBundle:Resident e WHERE e.idResident = :id')
-////            ->setParameter('id',$id );
-////        $users = $query->getResult();
-//
-////        $query = $em->createQuery("SELECT nbr_personne From MaisonretraiteBundle:Maison ");
-////        $rs = $query->getResult();
-////        return $this->redirectToRoute('affiche2');
-////        return $this->render('ActionBenevolatBundle:actionbenevole:showAdmin.html.twig');
-////            $em1 = $this->getDoctrine()->getManager();
-////            $qb = $em1->createQueryBuilder();
-////            $qb ->update('MaisonretraiteBundle:Maison', 'm')
-////                ->set('m.nbrPersonne',$maison->getNbrPersonne()-1)
-////            ->where('m.idMaison  = :idMaison')
-////                ->setParameter('idMaison', $idMaison)
-////                ->getQuery()
-////                ->execute();
-////            $maison->setNbrPersonne($maison->getNbrPersonne()-1);
-////            $em->persist($m);
-////            $em->flush();
-//            var_dump($nomMaison);
-//
-//
-//
-//
-//
-////        return $this->redirectToRoute('confirmer');
-//        return $this->render('MaisonretraiteBundle:resident:confirmer.html.twig');
-//
-//    }
     public function exportAction(){
         $em = $this->getDoctrine()->getManager();
         $maisons = $em->getRepository("MaisonretraiteBundle:Resident")->findBy( array('etat' => 'valide'));
