@@ -140,7 +140,7 @@ class ResidentController extends Controller
 //    }
     public function exportAction(){
         $em = $this->getDoctrine()->getManager();
-        $maisons = $em->getRepository("MaisonretraiteBundle:Resident")->findAll();
+        $maisons = $em->getRepository("MaisonretraiteBundle:Resident")->findBy( array('etat' => 'valide'));
 
         $writer = $this->container->get('egyg33k.csv.writer');
         $csv = $writer::createFromFileObject(new \SplTempFileObject());
