@@ -272,13 +272,13 @@ class Resident implements NotifiableInterface , \JsonSerializable
         $this->telephoneResponsable = $telephoneResponsable;
     }
 
-    /**
-     * @return \Maison
-     */
-    public function getIdMaison()
-    {
-        return $this->idMaison;
-    }
+//    /**
+//     * @return \Maison
+//     */
+//    public function getIdMaison()
+//    {
+//        return $this->idMaison;
+//    }
 
     /**
      * @param \Maison $idMaison

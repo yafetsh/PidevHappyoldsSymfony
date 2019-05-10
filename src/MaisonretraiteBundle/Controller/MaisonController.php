@@ -7,6 +7,8 @@ use MaisonretraiteBundle\Entity\Maison;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 
 class MaisonController extends Controller
@@ -144,5 +146,14 @@ class MaisonController extends Controller
         return $this->render('MaisonretraiteBundle:maison:rechercheaction.html.twig', array(
             'maisons' => $users,
         ));
+    }
+    public function allMAction()
+    {
+        $maisons=$this->getDoctrine()->getManager()
+            ->getRepository('MaisonretraiteBundle:Maison')
+            ->findAll();
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formatted=$serializer->normalize($maisons);
+        return new JsonResponse($formatted);
     }
 }

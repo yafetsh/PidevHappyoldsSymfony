@@ -30,6 +30,11 @@ maisonretraite:
     resource: "@MaisonretraiteBundle/Resources/config/routing.yml"
     prefix:   /
 
+maisonretraite_api:
+    resource: "@MaisonretraiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
 event:
     resource: "@EventBundle/Resources/config/routing.yml"
     prefix:   /
