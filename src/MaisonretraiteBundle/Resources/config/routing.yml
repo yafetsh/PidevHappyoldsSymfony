@@ -73,7 +73,7 @@ delete_mobile:
     defaults: { _controller: MaisonretraiteBundle:Resident:deleteMobile }
 
 modif_mobile:
-    path:     /modifMobile/{id}
+    path:     /modifMobile/{id}/{prenom}/{nom}/{age}/{sexe}/{responsable}/{telephone}/
     defaults: { _controller: MaisonretraiteBundle:Resident:modifMobile }
 
 ajouter_Resident_Mobile:

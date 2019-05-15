@@ -260,19 +260,15 @@ $r=new Resident();
         return new JsonResponse($formatted);
     }
 
-    public function modifMobileAction(Request $request,$id){
+    public function modifMobileAction(Request $request,$id,$prenom,$nom,$age,$sexe,$responsable,$telephone){
         $em = $this->getDoctrine()->getManager();
-
         $resident = $em->getRepository("MaisonretraiteBundle:Resident")->find($id);
-        $resident->setPrenomResident($request->get('prenomResident'));
-        $resident->setNomResident($request->get('nomResident'));
-        $resident->setAgeResident($request->get('ageResident'));
-        $resident->setSexeResident($request->get('sexeResident'));
-//        $resident->setDateResident(new \DateTime($request->get('dateResident')));
-        $resident->setAlzheimerResident($request->get('alzheimerResident'));
-        $resident->setMaladieResident($request->get('maladieResident'));
-        $resident->setResponsable($request->get('responsable'));
-        $resident->setTelephoneResponsable($request->get('telephoneResponsable'));
+        $resident->setPrenomResident($prenom);
+        $resident->setNomResident($nom);
+        $resident->setAgeResident($age);
+        $resident->setSexeResident($sexe);
+        $resident->setResponsable($responsable);
+        $resident->setTelephoneResponsable($telephone);
         $em->persist($resident);
         $em->flush();
         $serializer=new Serializer([new ObjectNormalizer()]);
